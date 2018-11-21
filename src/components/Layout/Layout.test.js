@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { default as Layout } from './Layout';
 import logo from '../../logo.svg';
 import { BrowserRouter as Router } from "react-router-dom";
@@ -13,13 +13,13 @@ describe('Layout', () => {
     });
 
     it('contains a nav and aside', ()=>{
-        const wrapper = shallow(<Layout>Inside content</Layout>);
-        expect(wrapper.contains(<nav>Nav</nav>));
-        expect(wrapper.contains(<aside>Aside</aside>));
+        const wrapper = mount(<Router><Layout>Inside content</Layout></Router>);
+        expect(wrapper.exists('nav')).toEqual(true);
+        expect(wrapper.exists('aside')).toEqual(true);
     });
 
     it('contains a header', () => {
-        const wrapper = shallow(<Layout>Extra children content</Layout>);
+        const wrapper = mount(<Router><Layout>Extra children content</Layout></Router>);
         expect(wrapper.find('header').text()).toContain('NinjaWars');
     });
 });
