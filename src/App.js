@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { FBar } from './components';
+import { Fbar } from './components';
 
 class App extends Component {
   render() {
@@ -18,7 +18,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        <FBar />
+        <Fbar />
       </div>
     );
   }
