@@ -2,7 +2,17 @@
   "name": "nw-r",
   "version": "0.1.0",
   "private": true,
+  "peerDependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
   "dependencies": {
+    "@material-ui/core": "^3.5.1",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "react": "^16.6.3",
@@ -16,6 +26,12 @@
     "test": "react-scripts test",
     "deploy": "./scripts/deploy.sh",
     "eject": "react-scripts eject"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"

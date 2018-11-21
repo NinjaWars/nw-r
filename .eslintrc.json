@@ -1,0 +1,72 @@
+{
+    "root": true,
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        }
+    },
+    "env": {
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "react-app",
+        "plugin:jsx-a11y/recommended",
+        "plugin:react/recommended"
+    ],
+    "plugins": ["jsx-a11y", "react"],
+    "rules": {
+        "comma-spacing": ["error"],
+        "curly": ["error"],
+        "eqeqeq": ["error"],
+        "indent": [
+            "warn",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "jsx-no-duplicate-props": false,
+        "keyword-spacing": ["error"],
+        "no-console": ["off"],
+        "no-empty": [
+            "error",
+            {
+                "allowEmptyCatch": true
+            }
+        ],
+        "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+        "no-shadow": ["warn"],
+        "no-trailing-spaces": ["warn"],
+        "no-unused-vars": [
+            "warn",
+            {
+                "args": "none"
+            }
+        ],
+        "no-var": ["error"],
+        "prefer-const": [
+            "error",
+            {
+                "destructuring": "all"
+            }
+        ],
+        "semi": ["error", "always"],
+        "space-before-blocks": ["error"],
+        "space-before-function-paren": ["error", "never"],
+        "space-in-parens": ["error", "never"],
+        "space-infix-ops": ["error"],
+        "react/prop-types": 1,
+        "react/jsx-key": 1,
+        "react/jsx-no-duplicate-props": [
+            1,
+            {
+                "ignoreCase": false
+            }
+        ]
+    }
+}
