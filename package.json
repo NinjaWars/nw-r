@@ -31,11 +31,12 @@
     "start": "PORT=5555 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "unit-test": "env CI=true react-scripts test --env=jsdom",
     "deploy": "./scripts/deploy.sh",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "npx eslint src/**/*.js src/**/*.jsx",
-    "prepush": "set CI=true && yarn test && yarn lint"
+    "prepush": "env CI=true && yarn unit-test && yarn lint"
   },
   "lint-staged": {
     "*.{js,jsx}": [

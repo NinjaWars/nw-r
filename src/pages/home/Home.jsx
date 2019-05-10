@@ -6,29 +6,29 @@ import { Layout } from '../../components'
 
 // eslint-disable-next-line no-unused-vars
 const styles = theme => ({
-  skySpace: {
-    height: '100%',
-    minHeight: '80vh',
-  },
+    skySpace: {
+        height: '100%',
+        minHeight: '80vh',
+    },
 })
 
 /**
  * Homepage displays within layout and whatever else you want
  */
 const Home = (props) => {
-  const { classes } = props
-  return (
-    <Layout>
-      <article className={classes.skySpace}>
-        <Typography variant="h1" color="textSecondary">Homepage Title</Typography>
-        <Typography>Homepage content</Typography>
-      </article>
-    </Layout>
-  )
+    const { classes } = props
+    return (
+      <Layout>
+        <article className={classes.skySpace}>
+          <Typography variant="h1" color="textSecondary">Homepage Title</Typography>
+          <Typography>Homepage content</Typography>
+        </article>
+      </Layout>
+    )
 }
 
 Home.propTypes = {
-  classes: PropTypes.shape({}).isRequired,
+    classes: PropTypes.shape({}).isRequired,
 }
 
 export default withStyles(styles)(Home)

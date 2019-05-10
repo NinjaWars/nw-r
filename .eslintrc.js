@@ -22,6 +22,8 @@ module.exports = {
   ],
   rules: {
     "semi":[2, "never"],
+    "react/jsx-indent": ["warn", 2],
+    "indent" : ["warn", 4, { "ignoredNodes": ["JSXElement *"] }],
     "implicit-arrow-linebreak": 0,
     "eol-last": 0,
     "react/no-array-index-key": 1,
