@@ -39,18 +39,18 @@ const fLinks = [
 const Fbar = (props) => {
     const { classes } = props
     return (
-      <footer className={classes.footer}>
-        <div className={classes.linkList}>
-          {fLinks.map(link => <a href={link.url} key={link.url}>{link.desc}</a>)}
-        </div>
-        <div className={classes.expandible}>
-          <div>
+        <footer className={classes.footer}>
+            <div className={classes.linkList}>
+                {fLinks.map(link => <a href={link.url} key={link.url}>{link.desc}</a>)}
+            </div>
+            <div className={classes.expandible}>
+                <div>
                     Brought to you by
-            {' '}
-            <a href="https://bitlucid.com">BitDog, Ink</a>
-          </div>
-        </div>
-      </footer>
+                    {' '}
+                    <a href="https://bitlucid.com">BitDog, Ink</a>
+                </div>
+            </div>
+        </footer>
     )
 }
 

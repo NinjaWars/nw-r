@@ -11,7 +11,7 @@ const styles = () => ({
 const Contact = () => (
   <>
     <Layout>
-      <Typography variant="h1">Contact Page</Typography>
+        <Typography variant="h1">Contact Page</Typography>
     </Layout>
   </>
 )

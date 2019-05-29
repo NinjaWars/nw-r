@@ -47,31 +47,31 @@ const styles = theme => ({
 const Layout = (props) => {
     const { classes, children } = props
     return (
-      <div className={classes.out}>
-        <header className={classes.header}>
-          <a href="/">
-            <img src={logo} className="App-logo" alt="logo" />
-            {' '}
+        <div className={classes.out}>
+            <header className={classes.header}>
+                <a href="/">
+                    <img src={logo} className="App-logo" alt="logo" />
+                    {' '}
 NinjaWars
-          </a>
-          {' '}
-          <Link to="/contact">Contact</Link>
-          {' '}
-          <Link to="/about">About</Link>
-        </header>
-        <div className={classes.horizon}>
-          <nav className={classes.superNav}>
+                </a>
+                {' '}
+                <Link to="/contact">Contact</Link>
+                {' '}
+                <Link to="/about">About</Link>
+            </header>
+            <div className={classes.horizon}>
+                <nav className={classes.superNav}>
                     Nav
-          </nav>
-          <main className={classes.core}>
-            {children}
-          </main>
-          <aside className={classes.aside}>
+                </nav>
+                <main className={classes.core}>
+                    {children}
+                </main>
+                <aside className={classes.aside}>
                     Aside
-          </aside>
+                </aside>
+            </div>
+            <Fbar />
         </div>
-        <Fbar />
-      </div>
     )
 }
 

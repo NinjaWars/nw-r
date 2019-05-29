@@ -18,12 +18,12 @@ const styles = theme => ({
 const Home = (props) => {
     const { classes } = props
     return (
-      <Layout>
-        <article className={classes.skySpace}>
-          <Typography variant="h1" color="textSecondary">Homepage Title</Typography>
-          <Typography>Homepage content</Typography>
-        </article>
-      </Layout>
+        <Layout>
+            <article className={classes.skySpace}>
+                <Typography variant="h1" color="textSecondary">Homepage Title</Typography>
+                <Typography>Homepage content</Typography>
+            </article>
+        </Layout>
     )
 }
 

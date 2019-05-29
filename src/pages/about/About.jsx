@@ -10,7 +10,7 @@ const styles = () => ({
 const About = () => (
   <>
     <Layout>
-      <Typography variant="h1">About</Typography>
+        <Typography variant="h1">About</Typography>
     </Layout>
   </>
 )
