@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Fbar from '../Fbar/Fbar'
 import logo from '../../logo.svg'
+import Tile from '../Tile/Tile'
+import Hbar from '../Hbar/Hbar'
+/*import styles from './layout.module.css' */
 
 const styles = theme => ({
     out: {
@@ -48,17 +51,16 @@ const Layout = (props) => {
     const { classes, children } = props
     return (
         <div className={classes.out}>
-            <header className={classes.header}>
-                <a href="/">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    {' '}
-NinjaWars
-                </a>
+            <Hbar className={classes.header}>
+                <Link to="/">
+                    <img src={logo} className="App-logo" alt="logo" />{' '}
+                    NinjaWars
+                </Link>
                 {' '}
                 <Link to="/contact">Contact</Link>
                 {' '}
                 <Link to="/about">About</Link>
-            </header>
+            </Hbar>
             <div className={classes.horizon}>
                 <nav className={classes.superNav}>
                     Nav
@@ -70,6 +72,9 @@ NinjaWars
                     Aside
                 </aside>
             </div>
+            <Tile theme='dark'>
+                Bottom Tile
+            </Tile>
             <Fbar />
         </div>
     )

@@ -9,6 +9,9 @@ import styles from './story.module.css'
 import Feedbackify from '../components/Feedbackify/Feedbackify'
 import Fbar from '../components/Fbar/Fbar'
 import Tile from '../components/Tile/Tile'
+import Hbar from '../components/Hbar/Hbar'
+import Layout from '../components/Layout/Layout'
+import { Router } from 'react-router-dom'
 /* import { Shuriken } from 'nw-shuriken' */
 
 storiesOf('Welcome', module).add('to Storybook', () => (
@@ -64,6 +67,18 @@ storiesOf('Tile', module)
     ))
     .add('with light theme', ()=>(
         <Tile theme='light'>Light themed</Tile>
+    ))
+
+storiesOf('Hbar', module)
+    .add('with no content', ()=>(
+        <Hbar>Header Bar</Hbar>
+    ))
+
+storiesOf('Layout', module)
+    .add('with no content', ()=>(
+        <Router>
+            <Layout>Internal content</Layout>
+        </Router>
     ))
 /*
 .storiesOf('Shuriken', module)

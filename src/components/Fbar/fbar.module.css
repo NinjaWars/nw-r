@@ -1,0 +1,17 @@
+.fbar {
+    background-color: black;
+    text-align: center;
+}
+.expandible{
+    padding: 1rem;
+    background-color: teal;
+}
+.linkList{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 1rem;
+}
+.linkList > a {
+    padding-right: 1rem;
+}

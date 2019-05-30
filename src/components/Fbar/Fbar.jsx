@@ -5,7 +5,9 @@ import cx from 'classnames'
 import Home from '@material-ui/icons/Home'
 import Email from '@material-ui/icons/Email'
 import Facebook from '@material-ui/icons/ThumbUpAlt'
+import styles from './fbar.module.css'
 
+/*
 const styles = () => ({
     footer: {},
     expandible: {},
@@ -19,6 +21,7 @@ const styles = () => ({
         },
     },
 })
+*/
 
 // List of links with urls and content
 const fLinks = [
