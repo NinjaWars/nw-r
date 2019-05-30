@@ -1,0 +1,15 @@
+.tile{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2rem 2.7rem;
+}
+
+.light{
+    background-color: rgb(245, 241, 241);
+    color: rgb(33, 37, 41);
+}
+
+.dark{
+    background-color: rgb(33, 37, 41);
+    color: rgba(255, 255, 255, 0.5);
+}
