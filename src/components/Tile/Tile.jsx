@@ -28,6 +28,7 @@ Tile.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
     ]).isRequired,
+    theme: PropTypes.string,
 }
 
 Tile.defaultProps = {
