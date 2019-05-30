@@ -31,7 +31,7 @@
             }
         ],
         "jsx-no-duplicate-props": false,
-        "keyword-spacing": ["error"],
+        "keyword-spacing": ["warn"],
         "no-console": ["off"],
         "no-empty": [
             "error",
@@ -55,9 +55,9 @@
                 "destructuring": "all"
             }
         ],
-        "semi": ["error", "always"],
-        "space-before-blocks": ["error"],
-        "space-before-function-paren": ["error", "never"],
+        "semi": ["warn", "never"],
+        "space-before-blocks": ["warn", "never"],
+        "space-before-function-paren": ["warn", "never"],
         "space-in-parens": ["error", "never"],
         "space-infix-ops": ["error"],
         "react/prop-types": 1,

@@ -1,0 +1,9 @@
+.feedbackify{
+    color: rgb(86, 124, 86)
+}
+.feedbackify .btn{
+    color: rgb(86, 124, 86)
+}
+.feedbackify .btn.active{
+    font-weight: bold;
+}
