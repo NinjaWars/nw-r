@@ -7,3 +7,8 @@
 .feedbackify .btn.active{
     font-weight: bold;
 }
+
+.fbar{
+    color: rgb(158, 12, 12);
+    background-color: rgb(171, 221, 221);
+}

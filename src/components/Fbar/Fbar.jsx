@@ -1,6 +1,10 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
+import Home from '@material-ui/icons/Home'
+import Email from '@material-ui/icons/Email'
+import Facebook from '@material-ui/icons/ThumbUpAlt'
 
 const styles = () => ({
     footer: {},
@@ -19,16 +23,19 @@ const styles = () => ({
 // List of links with urls and content
 const fLinks = [
     {
-        url: 'http://www.ninjawars.net/#contact',
+        url: '/#contact',
         desc: 'Contact Us',
+        icon: <Email />
     },
     {
-        url: 'http://www.ninjawars.net',
+        url: '/',
         desc: 'Home',
+        icon: <Home />
     },
     {
-        url: 'https://facebook/com/ninjawars',
+        url: 'https://facebook.com/ninjawars.net',
         desc: 'Forum',
+        icon: <Facebook />
     },
 ]
 
@@ -37,18 +44,16 @@ const fLinks = [
  * @param {*} props
  */
 const Fbar = (props) => {
-    const { classes } = props
+    const { classes, className, ...rest } = props
     return (
-        <footer className={classes.footer}>
+        <footer className={cx(className, classes.footer)} {...rest}>
             <div className={classes.linkList}>
-                {fLinks.map(link => <a href={link.url} key={link.url}>{link.desc}</a>)}
+                {fLinks.map(link => <a href={link.url} key={link.url}>{link.icon} {link.desc}</a>)}
             </div>
-            <div className={classes.expandible}>
-                <div>
-                    Brought to you by
-                    {' '}
-                    <a href="https://bitlucid.com">BitDog, Ink</a>
-                </div>
+            <div className={classes.expandible} style={{textAlign: 'center'}}>
+                Brought to you by
+                {' '}
+                <a href="https://bitlucid.com">BitDog, Inc</a>
             </div>
         </footer>
     )
@@ -56,6 +61,7 @@ const Fbar = (props) => {
 
 Fbar.propTypes = {
     classes: PropTypes.shape({}),
+    className: PropTypes.string,
 }
 
 Fbar.defaultProps = {

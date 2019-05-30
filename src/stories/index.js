@@ -5,8 +5,11 @@ import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 
 import { Button, Welcome } from '@storybook/react/demo'
-import Feedbackify from '../components/Feedbackify/Feedbackify'
 import styles from './story.module.css'
+import Feedbackify from '../components/Feedbackify/Feedbackify'
+import Fbar from '../components/Fbar/Fbar'
+import Tile from '../components/Tile/Tile'
+/* import { Shuriken } from 'nw-shuriken' */
 
 storiesOf('Welcome', module).add('to Storybook', () => (
     <Welcome showApp={linkTo('Button')} />
@@ -40,3 +43,31 @@ storiesOf('Feedbackify', module)
             downToggle="Down"
         />
     ))
+
+
+storiesOf('Fbar sticky footer', module)
+    .add('with red text', () => (
+        <Fbar className={styles.fbar}/>
+    ))
+
+
+storiesOf('Tile', module)
+    .add('with alternating themes', ()=>(
+        <>
+        <Tile theme='light'>Light themed</Tile>
+        <Tile theme='dark'>Dark themed</Tile>
+        <Tile theme='light'>Light themed</Tile>
+        </>
+    ))
+    .add('with dark theme', ()=>(
+        <Tile theme='dark'>Dark themed</Tile>
+    ))
+    .add('with light theme', ()=>(
+        <Tile theme='light'>Light themed</Tile>
+    ))
+/*
+.storiesOf('Shuriken', module)
+    .add('with no props', () => (
+        <Shuriken />
+    ))
+*/

@@ -9955,7 +9955,7 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nw-shuriken@^0.5.0:
+nw-shuriken@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/nw-shuriken/-/nw-shuriken-0.5.1.tgz#a468b97e80376f488918217bf98be4ed9b731880"
   integrity sha512-FwUuk9oBb6/86D4aNjvB+6HawcAwft4x5R2jp9wCUOU1zVBuwg1nJnO2c4kLNDuHJaxIkMpnERATQZU2P2NAPQ==
