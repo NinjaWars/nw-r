@@ -35,10 +35,14 @@ storiesOf('Button', module)
 
 storiesOf('Feedbackify', module)
     .add('with initial data', () => (
-        <Feedbackify up={7} down={88} onChange={action('feedback changed')}/>
+        <Feedbackify up={7} down={88} onChange={action('feedback changed')} />
     ))
     .add('with an onchange', () => (
-        <Feedbackify up={44444} down={66666} onChange={action('feedback changed')}/>
+        <Feedbackify
+            up={44444}
+            down={66666}
+            onChange={action('feedback changed')}
+        />
     ))
     .add('colored 777s', () => (
         <Feedbackify up={777} down={777} className={styles.feedbackify} />
@@ -53,62 +57,47 @@ storiesOf('Feedbackify', module)
         />
     ))
 
-
-storiesOf('Fbar sticky footer', module)
-    .add('with red text', () => (
-        <Fbar className={styles.fbar}/>
-    ))
-
+storiesOf('Fbar sticky footer', module).add('with red text', () => (
+    <Fbar className={styles.fbar} />
+))
 
 storiesOf('Tile', module)
-    .add('with alternating themes', ()=>(
+    .add('with alternating themes', () => (
         <>
-        <Tile theme='light'>Light themed</Tile>
-        <Tile theme='dark'>Dark themed</Tile>
-        <Tile theme='light'>Light themed</Tile>
+            <Tile theme="light">Light themed</Tile>
+            <Tile theme="dark">Dark themed</Tile>
+            <Tile theme="light">Light themed</Tile>
         </>
     ))
-    .add('with dark theme', ()=>(
-        <Tile theme='dark'>Dark themed</Tile>
-    ))
-    .add('with light theme', ()=>(
-        <Tile theme='light'>Light themed</Tile>
-    ))
+    .add('with dark theme', () => <Tile theme="dark">Dark themed</Tile>)
+    .add('with light theme', () => <Tile theme="light">Light themed</Tile>)
 
 storiesOf('Hbar', module)
-    .add('with no content', ()=>(
-        <Hbar>Header Bar</Hbar>
-    ))
-    .add('with a few links', ()=>(
+    .add('with no content', () => <Hbar>Header Bar</Hbar>)
+    .add('with a few links', () => (
         <Hbar className={styles.header}>
             <Link to="/">
-                <LogoArea title="NinjaWars"/>
-            </Link>
-            {' '}
-            <Link to="/contact">Contact</Link>
-            {' '}
-            <Link to="/about">About</Link>
+                <LogoArea title="NinjaWars" />
+            </Link>{' '}
+            <Link to="/contact">Contact</Link> <Link to="/about">About</Link>
         </Hbar>
     ))
 
-storiesOf('Layout', module)
-    .add('with no content', ()=>(
-        <BrowserRouter>
-            <Layout>
-                <h1>Main Content Area</h1>
-                <h2>With not much in it</h2>
-                <p>{loremIpsum}</p>
+storiesOf('Layout', module).add('with no content', () => (
+    <BrowserRouter>
+        <Layout>
+            <h1>Main Content Area</h1>
+            <h2>With not much in it</h2>
+            <p>{loremIpsum}</p>
+        </Layout>
+    </BrowserRouter>
+))
 
-            </Layout>
-        </BrowserRouter>
-    ))
-
-storiesOf('LogoArea', module)
-    .add('with a dark themed tile background', ()=>(
-        <Tile theme='dark'>
-            <LogoArea title="NinjaWars"/>
-        </Tile>
-    ))
+storiesOf('LogoArea', module).add('with a dark themed tile background', () => (
+    <Tile theme="dark">
+        <LogoArea title="NinjaWars" />
+    </Tile>
+))
 /*
 .storiesOf('Shuriken', module)
     .add('with no props', () => (
