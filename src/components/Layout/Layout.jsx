@@ -3,9 +3,9 @@ import { withStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Fbar from '../Fbar/Fbar'
-import logo from '../../logo.svg'
 import Tile from '../Tile/Tile'
 import Hbar from '../Hbar/Hbar'
+import LogoArea from '../LogoArea'
 /*import styles from './layout.module.css' */
 
 const styles = theme => ({
@@ -53,8 +53,7 @@ const Layout = (props) => {
         <div className={classes.out}>
             <Hbar className={classes.header}>
                 <Link to="/">
-                    <img src={logo} className="App-logo" alt="logo" />{' '}
-                    NinjaWars
+                    <LogoArea title="NinjaWars"/>
                 </Link>
                 {' '}
                 <Link to="/contact">Contact</Link>

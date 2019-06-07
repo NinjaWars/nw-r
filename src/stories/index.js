@@ -10,8 +10,11 @@ import Feedbackify from '../components/Feedbackify/Feedbackify'
 import Fbar from '../components/Fbar/Fbar'
 import Tile from '../components/Tile/Tile'
 import Hbar from '../components/Hbar/Hbar'
+import { BrowserRouter } from 'react-router-dom'
 import Layout from '../components/Layout/Layout'
-import { Router } from 'react-router-dom'
+import LogoArea from '../components/LogoArea'
+import loremIpsum from '../data/lorem-ipsum'
+import { Link } from 'react-router-dom'
 /* import { Shuriken } from 'nw-shuriken' */
 
 storiesOf('Welcome', module).add('to Storybook', () => (
@@ -32,7 +35,10 @@ storiesOf('Button', module)
 
 storiesOf('Feedbackify', module)
     .add('with initial data', () => (
-        <Feedbackify up={7} down={88} />
+        <Feedbackify up={7} down={88} onChange={action('feedback changed')}/>
+    ))
+    .add('with an onchange', () => (
+        <Feedbackify up={44444} down={66666} onChange={action('feedback changed')}/>
     ))
     .add('colored 777s', () => (
         <Feedbackify up={777} down={777} className={styles.feedbackify} />
@@ -73,12 +79,35 @@ storiesOf('Hbar', module)
     .add('with no content', ()=>(
         <Hbar>Header Bar</Hbar>
     ))
+    .add('with a few links', ()=>(
+        <Hbar className={styles.header}>
+            <Link to="/">
+                <LogoArea title="NinjaWars"/>
+            </Link>
+            {' '}
+            <Link to="/contact">Contact</Link>
+            {' '}
+            <Link to="/about">About</Link>
+        </Hbar>
+    ))
 
 storiesOf('Layout', module)
     .add('with no content', ()=>(
-        <Router>
-            <Layout>Internal content</Layout>
-        </Router>
+        <BrowserRouter>
+            <Layout>
+                <h1>Main Content Area</h1>
+                <h2>With not much in it</h2>
+                <p>{loremIpsum}</p>
+
+            </Layout>
+        </BrowserRouter>
+    ))
+
+storiesOf('LogoArea', module)
+    .add('with a dark themed tile background', ()=>(
+        <Tile theme='dark'>
+            <LogoArea title="NinjaWars"/>
+        </Tile>
     ))
 /*
 .storiesOf('Shuriken', module)
