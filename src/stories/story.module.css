@@ -13,7 +13,18 @@
     background-color: rgb(171, 221, 221);
 }
 .header{
-    background-color:black;
+    background-color:rgb(49, 48, 48);
     height: 5%;
     min-height: 2rem;
+}
+.light-logo{
+    color: white;
+}
+a, a:visited, a:active{
+    color:#008080;
+}
+
+.pop{
+    box-shadow: 0.1rem 0.1rem 0.3rem 0.4rem #ccc;
+    background-color: rgb(48, 97, 97);
 }

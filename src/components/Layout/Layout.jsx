@@ -24,6 +24,9 @@ const styles = theme => ({
             width: '1.5rem',
         },
     },
+    logo: {
+        color: '#ffffff',
+    },
     horizon: {
         height: '90%',
         display: 'grid',

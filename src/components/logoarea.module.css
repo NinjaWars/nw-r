@@ -1,16 +1,14 @@
 .logoarea{
-    display: inline-block;
-    background-color: white;
+    display: inline;
 }
 .logo{
     max-width: 3rem;
     max-height: 3rem;
 }
-.logo svg{
+svg.logo{
     fill: currentColor
 }
 .title{
-    color: #fff;
     line-height: 3rem;
     font-size: 2rem;
     vertical-align: top;

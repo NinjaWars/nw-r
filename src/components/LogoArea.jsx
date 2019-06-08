@@ -1,5 +1,4 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import styles from './logoarea.module.css'
@@ -10,23 +9,23 @@ import { ReactComponent as Logo } from '../images/svg/shuriken.svg'
  * @param {*} props
  */
 const LogoArea = (props) => {
-    const { classes, className, title, ...rest } = props
+    const { className, title } = props
     return (
-        <div className={cx(className, classes.logoarea)} {...rest}>
-            <Logo className={classes.logo}/>
-            <span className={classes.title}>{title}</span>
+        <>
+        <div className={cx(className, styles.logoarea)} >
+            <Logo className={styles.logo}/>{' '}
+            <span className={styles.title}>{title}</span>
         </div>
+        </>
     )
 }
 
 LogoArea.propTypes = {
-    classes: PropTypes.shape({}),
     className: PropTypes.string,
     title: PropTypes.string,
 }
 
 LogoArea.defaultProps = {
-    classes: {},
 }
 
-export default withStyles(styles)(LogoArea)
+export default LogoArea

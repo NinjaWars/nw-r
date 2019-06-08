@@ -4,7 +4,10 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 
-import { Button, Welcome } from '@storybook/react/demo'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+import Typography from '@material-ui/core/Typography'
+
 import styles from './story.module.css'
 import Feedbackify from '../components/Feedbackify/Feedbackify'
 import Fbar from '../components/Fbar/Fbar'
@@ -15,15 +18,41 @@ import Layout from '../components/Layout/Layout'
 import LogoArea from '../components/LogoArea'
 import loremIpsum from '../data/lorem-ipsum'
 import { Link } from 'react-router-dom'
+import proptypes from 'prop-types'
 /* import { Shuriken } from 'nw-shuriken' */
 
-storiesOf('Welcome', module).add('to Storybook', () => (
-    <Welcome showApp={linkTo('Button')} />
-))
+const PopIt = ({ children })=>{
+    return (
+        <div className={styles.pop}>
+            {children}
+        </div>
+    )
+
+}
+
+PopIt.propTypes = {
+    children: proptypes.node.isRequired,
+}
+
 
 storiesOf('Button', module)
     .add('with text', () => (
-        <Button onClick={action('clicked')}>Hello Button</Button>
+        <Button onClick={action('hello button clicked')}>Hello Button</Button>
+    ))
+    .add('with login/signup', ()=>(
+        <>
+        <Tile theme='dark'>
+            <Button variant='outlined' onClick={action('login clicked')}>
+                LOGIN
+            </Button>{' '}
+            <Button variant='outlined' onClick={action('login clicked')}>
+                SIGNUP
+            </Button>
+            <a href='#forgot'>
+                Forgot password?
+            </a>
+        </Tile>
+        </>
     ))
     .add('with some emoji', () => (
         <Button onClick={action('clicked')}>
@@ -31,6 +60,38 @@ storiesOf('Button', module)
                 😀 😎 👍 💯
             </span>
         </Button>
+    ))
+
+
+storiesOf('TextField', module).add('with default look and feel', ()=>(
+    <>
+        <div><TextField label='Email or Ninja Name' margin="normal"/>{' '}</div>
+        <div><TextField label='Password' type='password' autoComplete='current-password' margin="normal"/></div>
+    </>
+))
+    .add('with a dark tile theme', ()=>(
+        <Tile theme='dark'>
+            <div><TextField label='Email or Ninja Name' margin="normal"/>{' '}</div>
+            <div><TextField label='Password' type='password' autoComplete='current-password' margin="normal"/></div>
+        </Tile>
+    ))
+
+storiesOf('LogoArea', module).add('with a dark tile background', () => (
+    <Tile theme="dark">
+        <LogoArea className={styles.lightLogo} title="NinjaWars" />
+    </Tile>
+))
+    .add('with a light tile background', () => (
+        <Tile theme="light">
+            <LogoArea title="NinjaWars" />
+        </Tile>
+    ))
+    .add('with a pop for clarity', () => (
+        <Tile theme="light">
+            <PopIt>
+                <LogoArea title="NinjaWars" />
+            </PopIt>
+        </Tile>
     ))
 
 storiesOf('Feedbackify', module)
@@ -57,9 +118,17 @@ storiesOf('Feedbackify', module)
         />
     ))
 
-storiesOf('Fbar sticky footer', module).add('with red text', () => (
-    <Fbar className={styles.fbar} />
+storiesOf('Fbar sticky footer', module).add('with default styles and text', () => (
+    <Fbar />
 ))
+    .add('popped for clarity', () => (
+        <PopIt>
+            <Fbar />
+        </PopIt>
+    ))
+    .add('with red text and a blue background', () => (
+        <Fbar className={styles.fbar} />
+    ))
 
 storiesOf('Tile', module)
     .add('with alternating themes', () => (
@@ -75,29 +144,28 @@ storiesOf('Tile', module)
 storiesOf('Hbar', module)
     .add('with no content', () => <Hbar>Header Bar</Hbar>)
     .add('with a few links', () => (
-        <Hbar className={styles.header}>
-            <Link to="/">
-                <LogoArea title="NinjaWars" />
-            </Link>{' '}
-            <Link to="/contact">Contact</Link> <Link to="/about">About</Link>
-        </Hbar>
+        <BrowserRouter>
+            <Hbar className={styles.header}>
+                <Link to="/">
+                    <LogoArea title="NinjaWars" />
+                </Link>{' '}
+                <Link to="/contact">Contact</Link> <Link to="/about">About</Link>
+            </Hbar>
+        </BrowserRouter>
     ))
 
-storiesOf('Layout', module).add('with no content', () => (
+storiesOf('Layout', module).add('with simple lorem ipsum', () => (
     <BrowserRouter>
         <Layout>
-            <h1>Main Content Area</h1>
-            <h2>With not much in it</h2>
+            <Typography variant='h1' color='primary'>Main Content Area</Typography>
+            <Typography variant='h2' color='secondary'>With not much in it</Typography>
             <p>{loremIpsum}</p>
+            <Button>A button text</Button>
         </Layout>
     </BrowserRouter>
 ))
 
-storiesOf('LogoArea', module).add('with a dark themed tile background', () => (
-    <Tile theme="dark">
-        <LogoArea title="NinjaWars" />
-    </Tile>
-))
+
 /*
 .storiesOf('Shuriken', module)
     .add('with no props', () => (
