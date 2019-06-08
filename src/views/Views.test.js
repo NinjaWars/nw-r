@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { mount } from 'enzyme'
-import Home from './views/home/Home'
-import Contact from './views/contact/Contact'
-import About from './views/about/About'
+import Home from './home/Home'
+import Contact from './contact/Contact'
+import About from './about/About'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 describe('test various pages', () => {
