@@ -10,7 +10,7 @@ import styles from './chatmessage.module.css'
  * @param {*} props
  */
 const ChatMessage = ({ by, datetime, classes, className, children, ...rest }) => {
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',  }
+    const options = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', }
     const dRender = datetime instanceof Date ? datetime.toLocaleDateString('en-US', options) : ''
     const utc = datetime instanceof Date ? datetime.toUTCString() : ''
     return (
