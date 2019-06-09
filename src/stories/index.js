@@ -17,7 +17,8 @@ import Fbar from '../components/Fbar/Fbar'
 import Tile from '../components/Tile/Tile'
 import Hbar, { LeadingArea, CoreArea, FollowingArea } from '../components/Hbar/Hbar'
 import Search from '../components/Search/Search'
-import ChatMessage from '../components/ChatMessage/ChatMessage'
+import ChatMessage from '../components/Chat/ChatMessage'
+import Chat from '../components/Chat/Chat'
 import { BrowserRouter } from 'react-router-dom'
 import Layout from '../components/Layout/Layout'
 import LogoArea from '../components/LogoArea'
@@ -255,6 +256,26 @@ storiesOf('ChatMessage', module).add('with a few chats', ()=> {
                 <ChatMessage key={chat.datetime} by={chat.by} datetime={chat.datetime}>{chat.message}</ChatMessage>
             ))}
         </>
+    )
+})
+
+storiesOf('Chat', module).add('with a collection of chat data', ()=> {
+    const chats = [
+        {by:'James', message: "I am sending my first chat message.", datetime: new Date()},
+        {by:'ninja_12345_xx', message: "That's great, glad to finally hear from you!", datetime: new Date()},
+        {by:'James', message: "Yeah, it is good to be here at last", datetime: new Date()},
+        {by:'ninja_12345_xx', message: "Ok, I'm going to attack you now.", datetime: new Date()},
+        {by:'James', message: "No!", datetime: new Date()},
+        {by:'ninja_12345_xx', message: "Yes, and I am going to send a quite long message here, which you'll have to deal with as well as you are able.    I like to send long messages before attacking.", datetime: new Date()},
+    ]
+    let id = 1
+    const chats2 = chats.map((entry)=>{
+        entry.id = id
+        id++
+        return entry
+    })
+    return (
+        <Chat chats={chats2} />
     )
 })
 

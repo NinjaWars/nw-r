@@ -2,7 +2,7 @@ import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import styles from './chatmessage.module.css'
+import styles from './chat.module.css'
 
 
 /**
