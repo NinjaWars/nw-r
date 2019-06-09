@@ -13,9 +13,8 @@
     background-color: rgb(171, 221, 221);
 }
 .header{
-    background-color:rgb(49, 48, 48);
-    height: 5%;
-    min-height: 2rem;
+    min-height: 1rem;
+    color:rgb(143, 3, 3);
 }
 .light-logo{
     color: white;

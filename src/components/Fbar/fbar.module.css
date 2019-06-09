@@ -1,17 +1,18 @@
 .fbar {
     background-color: black;
     text-align: center;
+    padding: 1rem 0 1rem;
 }
 .expandible{
     padding: 1rem;
-    background-color: teal;
+    background-color: rgb(81, 90, 90);
 }
-.linkList{
+.link-list{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 0 1rem;
 }
-.linkList > a {
+.link-list > a {
+    display:inline-block;
     padding-right: 1rem;
 }

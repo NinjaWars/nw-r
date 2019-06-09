@@ -19,7 +19,7 @@ describe('Layout', () => {
     it('contains a nav and aside', () => {
         const wrapper = mount(
             <Router>
-                <Layout>Inside content</Layout>
+                <Layout open>Inside content</Layout>
             </Router>
         )
         expect(wrapper.exists('nav')).toEqual(true)

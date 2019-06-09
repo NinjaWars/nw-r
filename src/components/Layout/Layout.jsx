@@ -1,10 +1,14 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
+import Drawer from '@material-ui/core/Drawer'
+import Avatar from '@material-ui/core/Avatar'
+import Menu from '@material-ui/icons/Menu'
+
 import Fbar from '../Fbar/Fbar'
 import Tile from '../Tile/Tile'
-import Hbar from '../Hbar/Hbar'
+import Hbar, { LeadingArea, CoreArea, FollowingArea } from '../Hbar/Hbar'
 import LogoArea from '../LogoArea'
 /*import styles from './layout.module.css' */
 
@@ -16,8 +20,6 @@ const styles = theme => ({
         minHeight: '100vh',
     },
     header: {
-        backgroundColor: 'black',
-        height: '5%',
         minHeight: '2rem',
         '& > .App-logo': {
             height: '1.5rem',
@@ -51,28 +53,37 @@ const styles = theme => ({
  * @param {*} props
  */
 const Layout = (props) => {
-    const { classes, children } = props
+    const { navContent, asideContent, open, avatarImage, classes, children } = props
     return (
         <div className={classes.out}>
             <Hbar className={classes.header}>
-                <Link to="/">
-                    <LogoArea title="NinjaWars"/>
-                </Link>
-                {' '}
-                <Link to="/contact">Contact</Link>
-                {' '}
-                <Link to="/about">About</Link>
+                <LeadingArea onClick={()=> console.log('the nav would open here')}>
+                    <Menu />
+                </LeadingArea>
+                <CoreArea>
+                    <Link to="/">
+                        <LogoArea title="NinjaWars" />
+                    </Link>{' '}
+                    <Link to="/contact">Contact</Link> <Link to="/about">About</Link>
+                </CoreArea>
+                <FollowingArea onClick={()=> console.log('The user avatar menu would open here')}>
+                    <Avatar src={avatarImage} alt='R'>R</Avatar>
+                </FollowingArea>
             </Hbar>
             <div className={classes.horizon}>
-                <nav className={classes.superNav}>
-                    Nav
-                </nav>
+                <Drawer anchor="left" open={open}>
+                    <nav className={classes.superNav}>
+                        {navContent}
+                    </nav>
+                </Drawer>
                 <main className={classes.core}>
                     {children}
                 </main>
-                <aside className={classes.aside}>
-                    Aside
-                </aside>
+                <Drawer anchor="right" open={open}>
+                    <aside className={classes.aside}>
+                        {asideContent}
+                    </aside>
+                </Drawer>
             </div>
             <Tile theme='dark'>
                 Bottom Tile
@@ -83,8 +94,26 @@ const Layout = (props) => {
 }
 
 Layout.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]).isRequired,
     classes: PropTypes.shape({}).isRequired,
+    open: PropTypes.bool,
+    avatarImage: PropTypes.string,
+    navContent: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]).isRequired,
+    asideContent: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]).isRequired,
+}
+
+Layout.defaultProps = {
+    navContent: "",
+    asideContent: ""
 }
 
 export default withStyles(styles)(Layout)

@@ -47,13 +47,13 @@ const fLinks = [
  * @param {*} props
  */
 const Fbar = (props) => {
-    const { classes, className, ...rest } = props
+    const { className, ...rest } = props
     return (
-        <footer className={cx(className, classes.footer)} {...rest}>
-            <div className={classes.linkList}>
+        <footer className={cx(className, styles.fbar)} {...rest}>
+            <div className={styles.linkList}>
                 {fLinks.map(link => <a href={link.url} key={link.url}>{link.icon} {link.desc}</a>)}
             </div>
-            <div className={classes.expandible} style={{textAlign: 'center'}}>
+            <div className={styles.expandible} style={{textAlign: 'center'}}>
                 Brought to you by
                 {' '}
                 <a href="https://bitlucid.com">BitDog, Inc</a>
