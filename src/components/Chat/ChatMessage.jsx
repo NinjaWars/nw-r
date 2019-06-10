@@ -2,6 +2,7 @@ import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import TimeAgo from 'react-timeago'
 import styles from './chat.module.css'
 
 
@@ -17,7 +18,7 @@ const ChatMessage = ({ by, datetime, classes, className, children, ...rest }) =>
         <div className={cx(className, styles.chatMessage)} {...rest}>
             <strong>{by}</strong>{' '}
             {children}{' '}
-            <time dateTime={utc} title={dRender} className='chat-message-time timeago'>{dRender}</time>
+            <TimeAgo date={utc} title={dRender} className='chat-message-time timeago'>{dRender}</TimeAgo>
         </div>
     )
 }
