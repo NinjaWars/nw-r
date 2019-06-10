@@ -243,17 +243,18 @@ storiesOf('Typography', module).add('all', ()=>(
 
 storiesOf('ChatMessage', module).add('with a few chats', ()=> {
     const chats = [
-        {by:'James', message: "I am sending my first chat message.", datetime: new Date()},
+        {by:'James', message: "I am sending my first single chat message.", datetime: new Date()},
         {by:'ninja_12345_xx', message: "That's great, glad to finally hear from you!", datetime: new Date()},
         {by:'James', message: "Yeah, it is good to be here at last", datetime: new Date()},
         {by:'ninja_12345_xx', message: "Ok, I'm going to attack you now.", datetime: new Date()},
         {by:'James', message: "No!", datetime: new Date()},
         {by:'ninja_12345_xx', message: "Yes, and I am going to send a quite long message here, which you'll have to deal with as well as you are able.    I like to send long messages before attacking.", datetime: new Date()},
+        {by:'haxorz99', message: "I am spamming this spam link: http://someproductsite.com/#virus", datetime: new Date()},
     ]
     return (
         <>
-            {chats.map((chat)=>(
-                <ChatMessage key={chat.datetime} by={chat.by} datetime={chat.datetime}>{chat.message}</ChatMessage>
+            {chats.map((chat, index)=>(
+                <ChatMessage key={index} by={chat.by} datetime={chat.datetime}>{chat.message}</ChatMessage>
             ))}
         </>
     )
@@ -261,21 +262,37 @@ storiesOf('ChatMessage', module).add('with a few chats', ()=> {
 
 storiesOf('Chat', module).add('with a collection of chat data', ()=> {
     const chats = [
-        {by:'James', message: "I am sending my first chat message.", datetime: new Date()},
+        {by:'James', message: "I am sending my first chat message in the whole CHAT AREA.", datetime: new Date()},
         {by:'ninja_12345_xx', message: "That's great, glad to finally hear from you!", datetime: new Date()},
         {by:'James', message: "Yeah, it is good to be here at last", datetime: new Date()},
         {by:'ninja_12345_xx', message: "Ok, I'm going to attack you now.", datetime: new Date()},
         {by:'James', message: "No!", datetime: new Date()},
         {by:'ninja_12345_xx', message: "Yes, and I am going to send a quite long message here, which you'll have to deal with as well as you are able.    I like to send long messages before attacking.", datetime: new Date()},
+        {by:'haxorz99', message: "I am spamming this spam link: http://someproductsite.com/#virus", datetime: new Date()},
     ]
+    const untrustedChatSender = 9876543 // Requested numeric id of logged in user
     let id = 1
     const chats2 = chats.map((entry)=>{
         entry.id = id
         id++
         return entry
     })
+    // Display the result of the chat request in the actions area
+    const handleChatRequest = (data)=>{
+        action(`a chat send was requested`, data)()
+        action(`Chat data requested was: ${JSON.stringify(data)}`)()
+        return true
+    }
     return (
-        <Chat chats={chats2} />
+        <Chat
+            chats={chats2}
+            handleChatRequest={handleChatRequest}
+            untrustedChatSender={untrustedChatSender}
+            formProps={{
+                action: "#",
+                type: "POST"
+            }}
+        />
     )
 })
 
@@ -286,3 +303,4 @@ storiesOf('Chat', module).add('with a collection of chat data', ()=> {
         <Shuriken />
     ))
 */
+

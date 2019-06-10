@@ -15,7 +15,7 @@ const ChatMessage = ({ by, datetime, classes, className, children, ...rest }) =>
     const dRender = datetime instanceof Date ? datetime.toLocaleDateString('en-US', options) : ''
     const utc = datetime instanceof Date ? datetime.toUTCString() : ''
     return (
-        <div className={cx(className, styles.chatMessage)} {...rest}>
+        <div className={cx(className, styles['chat-message'])} {...rest}>
             <strong>{by}</strong>{' '}
             {children}{' '}
             <TimeAgo date={utc} title={dRender} className='chat-message-time timeago'>{dRender}</TimeAgo>
