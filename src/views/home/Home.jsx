@@ -38,7 +38,8 @@ const Home = (props) => {
         >
             <Tile theme='light'>
                 <article className={classes.skySpace}>
-                    <Typography variant="h1" color="textSecondary">Homepage Title</Typography>
+                    <Typography variant="h1" color="textPrimary" gutterBottom>NinjaWars Heading</Typography>
+                    <Typography variant="h2" color="textSecondary">Live by the Shuriken</Typography>
                     <Typography>Homepage content</Typography>
                 </article>
             </Tile>
@@ -46,18 +47,21 @@ const Home = (props) => {
                 <article>
                     <Typography variant="h3">Intro</Typography>
                     <Typography>Intro content</Typography>
+                    <p>Totally regular paragraph p text</p>
                 </article>
             </Tile>
             <Tile theme='light'>
                 <article>
                     <Typography variant="h3" color="textSecondary">News</Typography>
                     <Typography>News content: {loremIpsum}</Typography>
+                    <p>Totally regular paragraph p text</p>
                 </article>
             </Tile>
             <Tile theme='dark'>
                 <article>
                     <Typography variant="h3">Contact</Typography>
                     <Typography>Contact Maybe</Typography>
+                    <p>Totally regular paragraph p text</p>
                 </article>
             </Tile>
         </Layout>

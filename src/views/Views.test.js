@@ -24,7 +24,9 @@ describe('test various pages', () => {
                 <Home />
             </Router>
         )
-        expect(wrapper.text()).toContain('NinjaWars')
+        expect(wrapper.find('header').text()).toContain('shuriken.svg')
+        expect(wrapper.find('main').text()).toContain('NinjaWars')
+        expect(wrapper.find('main').text()).toContain('Intro')
     })
 
     it('has about titling on the about page', () => {

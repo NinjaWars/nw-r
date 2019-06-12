@@ -6,12 +6,12 @@ const links = [
     {
         icon: <Icon icon={faNewspaper} />,
         url: '/news',
-        text: 'News'
+        text: 'News',
     },
     {
         icon: <Icon icon={faBolt} />,
         url: '/fight',
-        text: 'Fight'
+        text: 'Fight',
     },
 ]
 

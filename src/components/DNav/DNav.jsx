@@ -15,8 +15,10 @@ const DNav = ({className, links}) => {
         <nav className={cx(className, styles.nav)}>
             <LogoArea title='NinjaWars' />
             <Divider />
-            {links.map((link)=>(
-                <div><Link to={link.url}>{link.icon} {link.text}</Link></div>
+            {links.map((link, index)=>(
+                <div key={index}>
+                    <Link to={link.url}>{link.icon} {link.text}</Link>
+                </div>
             ))}
         </nav>
     )
