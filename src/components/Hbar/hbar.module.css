@@ -2,23 +2,25 @@
     background-color: rgba(43, 38, 38, 0.5);
     color: #fff;
     display:grid;
-    grid-template-columns: 10% 70% 10%;
-    grid-gap: 5%;
+    grid-template-columns: 10% 68% 15%;
+    grid-gap: 2.5%;
+}
+.hbar button, .hbar input, .hbar label{
+    color: #fff;
 }
 
 .leader {
-    color: #fff;
-}
-
-.leader svg {
-    fill:currentColor;
 }
 
 .core {
-    color: #fff;
     display: inline-block;
 }
 
+.core a{
+    line-height: 1.3rem;
+    font-size: 1.2rem;
+}
+
 .follower {
-    color: #fff;
+    white-space: nowrap;
 }

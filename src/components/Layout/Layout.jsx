@@ -1,22 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import Drawer from '@material-ui/core/Drawer'
-import Avatar from '@material-ui/core/Avatar'
-import Menu from '@material-ui/icons/Menu'
+import {Drawer, Avatar, Button } from '@material-ui/core'
+import { faBars, faComments, faAt, faInfo } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 import Fbar from '../Fbar/Fbar'
 import Tile from '../Tile/Tile'
 import Hbar, { LeadingArea, CoreArea, FollowingArea } from '../Hbar/Hbar'
+import { SearchCompact } from '../Search/Search'
 import LogoArea from '../LogoArea'
-/*import styles from './layout.module.css' */
+import bgImage from '../../images/bg/rebel.png'
+/* import styles from './layout.module.css' */
 
 const styles = theme => ({
     out: {
         backgroundColor: '#000004',
         color: 'ghostwhite',
-        background: 'url("http://www.ninjawars.net/images/rebel.png") repeat',
+        background: `url("${bgImage}") repeat`,
         minHeight: '100vh',
     },
     header: {
@@ -46,6 +48,9 @@ const styles = theme => ({
     aside: {
         gridColumnEnd: 'span 2',
     },
+    icon: {
+        fontSize: '3rem',
+    }
 })
 
 /**
@@ -53,25 +58,42 @@ const styles = theme => ({
  * @param {*} props
  */
 const Layout = (props) => {
-    const { navContent, asideContent, open, avatarImage, classes, children } = props
+    const { navContent, asideContent, avatarImage, classes, children } = props
+    const [ navOpen, setNavOpen ] = useState(false)
+    const [ profileOpen, setProfileOpen ] = useState(false)
+    const [ asideOpen, setAsideOpen ] = useState(false)
     return (
         <div className={classes.out}>
             <Hbar className={classes.header}>
-                <LeadingArea onClick={()=> console.log('the nav would open here')}>
-                    <Menu />
+                <LeadingArea onClick={(e)=> {
+                    setNavOpen(!navOpen)
+                }}>
+                    <Icon className={classes.icon} icon={faBars} />
                 </LeadingArea>
                 <CoreArea>
                     <Link to="/">
-                        <LogoArea title="NinjaWars" />
+                        <LogoArea shrinkable title="NinjaWars" />
                     </Link>{' '}
-                    <Link to="/contact">Contact</Link> <Link to="/about">About</Link>
+                    <div className={classes.linklist}>
+                        <Link to="/contact"><Icon icon={faAt}/></Link> <Link to="/about"><Icon icon={faInfo}/></Link>
+                        <SearchCompact label='Search'/>
+                    </div>
                 </CoreArea>
-                <FollowingArea onClick={()=> console.log('The user avatar menu would open here')}>
-                    <Avatar src={avatarImage} alt='R'>R</Avatar>
+                <FollowingArea>
+                    <Button onClick={(e)=>{
+                        setProfileOpen(!profileOpen)
+                    }}>
+                        <Avatar src={avatarImage} alt='R'>R</Avatar>
+                    </Button>
+                    <Button onClick={(e)=> {
+                        setAsideOpen(!asideOpen)
+                    }}>
+                        <Icon className={classes.icon} icon={faComments}/>
+                    </Button>
                 </FollowingArea>
             </Hbar>
             <div className={classes.horizon}>
-                <Drawer anchor="left" open={open}>
+                <Drawer anchor="left" open={navOpen}>
                     <nav className={classes.superNav}>
                         {navContent}
                     </nav>
@@ -79,7 +101,7 @@ const Layout = (props) => {
                 <main className={classes.core}>
                     {children}
                 </main>
-                <Drawer anchor="right" open={open}>
+                <Drawer anchor="right" open={asideOpen}>
                     <aside className={classes.aside}>
                         {asideContent}
                     </aside>

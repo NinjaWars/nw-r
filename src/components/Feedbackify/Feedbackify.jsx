@@ -4,8 +4,8 @@ import Button from '@material-ui/core/Button'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import styles from './feedbackify.module.css'
-import ArrowUpward from '@material-ui/icons/ArrowUpward'
-import ArrowDownward from '@material-ui/icons/ArrowDownward'
+import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 /**
  * A sticky footer that can expand upwards
@@ -90,8 +90,8 @@ Feedbackify.propTypes = {
 }
 
 Feedbackify.defaultProps = {
-    upToggle: (<ArrowUpward />),
-    downToggle: (<ArrowDownward />),
+    upToggle: (<Icon icon={faArrowUp}/>),
+    downToggle: (<Icon icon={faArrowDown}/>),
 }
 
 export default withStyles(styles)(Feedbackify)

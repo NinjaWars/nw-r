@@ -12,8 +12,8 @@ import styles from './chat.module.css'
  */
 const ChatMessage = ({ by, datetime, classes, className, children, ...rest }) => {
     const options = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', }
-    const dRender = datetime instanceof Date ? datetime.toLocaleDateString('en-US', options) : ''
-    const utc = datetime instanceof Date ? datetime.toUTCString() : ''
+    const dRender = datetime instanceof Date ? datetime.toLocaleDateString('en-US', options) : datetime
+    const utc = datetime instanceof Date ? datetime.toUTCString() : datetime
     return (
         <div className={cx(className, styles['chat-message'])} {...rest}>
             <strong>{by}</strong>{' '}
@@ -25,7 +25,10 @@ const ChatMessage = ({ by, datetime, classes, className, children, ...rest }) =>
 
 ChatMessage.propTypes = {
     by: PropTypes.string.isRequired,
-    datetime: PropTypes.instanceOf(Date).isRequired,
+    datetime: PropTypes.oneOfType([
+        PropTypes.instanceOf(Date),
+        PropTypes.string,
+    ]).isRequired,
     classes: PropTypes.shape({}),
     className: PropTypes.string,
     children: PropTypes.oneOfType([

@@ -1,20 +1,20 @@
-.tile{
-    box-sizing: border-box;
-    width: 100%;
-    padding: 2rem 2.7rem;
+.search{
+    /* Nothing here yet */
 }
 
-.light{
-    background-color: rgb(245, 241, 241);
-    color: rgb(33, 37, 41);
+.search-compact{
+    transition: transform 500ms ease-in-out;
+    display:inline-block;
+    white-space: nowrap;
 }
 
-.dark{
-    background-color: rgb(33, 37, 41);
-    color: rgba(255, 255, 255, 0.5);
+.button-holder{
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.dark button{
-    color: rgb(243, 237, 237);
-    border: 1px solid rgba(255, 255, 255, 0.23);
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+.icon{
+    font-size: 2rem;
 }

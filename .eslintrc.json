@@ -59,7 +59,7 @@
         "space-before-blocks": ["warn", "never"],
         "space-before-function-paren": ["warn", "never"],
         "space-in-parens": ["error", "never"],
-        "space-infix-ops": ["error"],
+        "space-infix-ops": ["warn"],
         "react/prop-types": 1,
         "react/jsx-key": 1,
         "react/jsx-no-duplicate-props": [

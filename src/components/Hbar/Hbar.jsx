@@ -38,9 +38,11 @@ Hbar.defaultProps = {
  */
 const LeadingArea = ({ onClick, children, className, ...rest }) => {
     return (
-        <Button type='button' className={cx(styles.leader, className)} onClick={onClick} {...rest}>
-            {children}
-        </Button>
+        <div>
+            <Button type='button' className={cx(styles.leader, className)} onClick={onClick} {...rest}>
+                {children}
+            </Button>
+        </div>
     )
 }
 
@@ -51,13 +53,13 @@ LeadingArea.propTypes = {
 }
 
 /**
- * Following area of the header bar, generally for the avatar menu
+ * Following area of the header bar, generally for the avatar menu and aside opener
  */
-const FollowingArea = ({ onClick, children, className, ...rest }) => {
+const FollowingArea = ({ children, className, ...rest }) => {
     return (
-        <Button type='button' className={cx(styles.follower, className)} onClick={onClick} {...rest}>
+        <div className={cx(styles.follower, className)} {...rest}>
             {children}
-        </Button>
+        </div>
     )
 }
 

@@ -22,11 +22,11 @@ class Chat extends Component{
         e.preventDefault()
         const messageField = e.currentTarget.querySelector('input[name=chat-message]')
         const senderField = e.currentTarget.querySelector('input[name=untrusted-chat-sender]')
-        const data = {
+        this.handleChatRequest({
             message: messageField ? messageField.value : null,
             untrustedChatSender: senderField ? senderField.value : null
-        }
-        this.handleChatRequest(data)
+        })
+        e.currentTarget.reset()
         return false
     }
 
