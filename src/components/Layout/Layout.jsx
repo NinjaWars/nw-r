@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 import {Drawer, Avatar, Button } from '@material-ui/core'
 import { faBars, faComments, faAt, faInfo } from '@fortawesome/free-solid-svg-icons'
@@ -56,13 +57,12 @@ const styles = theme => ({
  * A sticky footer that can expand upwards
  * @param {*} props
  */
-const Layout = (props) => {
-    const { navContent, asideContent, avatarImage, classes, children } = props
+const Layout = ({ navContent, asideContent, avatarImage, open, className, classes, children }) => {
     const [ navOpen, setNavOpen ] = useState(false)
     const [ profileOpen, setProfileOpen ] = useState(false)
     const [ asideOpen, setAsideOpen ] = useState(false)
     return (
-        <div className={classes.out}>
+        <div className={cx(className, classes.out)}>
             <Hbar className={classes.header}>
                 <LeadingArea onClick={(e)=> {
                     setNavOpen(!navOpen)
@@ -92,7 +92,7 @@ const Layout = (props) => {
                 </FollowingArea>
             </Hbar>
             <div className={classes.horizon}>
-                <Drawer anchor="left" open={navOpen}>
+                <Drawer anchor="left" open={navOpen || open}>
                     <nav className={classes.superNav}>
                         {navContent}
                     </nav>
@@ -100,7 +100,7 @@ const Layout = (props) => {
                 <main className={classes.core}>
                     {children}
                 </main>
-                <Drawer anchor="right" open={asideOpen}>
+                <Drawer anchor="right" open={asideOpen || open}>
                     <aside className={classes.aside}>
                         {asideContent}
                     </aside>
@@ -116,6 +116,7 @@ Layout.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
     ]).isRequired,
+    className: PropTypes.string,
     classes: PropTypes.shape({}).isRequired,
     open: PropTypes.bool,
     avatarImage: PropTypes.string,

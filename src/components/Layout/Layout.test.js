@@ -22,6 +22,7 @@ describe('Layout', () => {
                 <Layout open>Inside content</Layout>
             </Router>
         )
+        expect(wrapper.exists('header')).toEqual(true)
         expect(wrapper.exists('nav')).toEqual(true)
         expect(wrapper.exists('aside')).toEqual(true)
     })
@@ -32,6 +33,7 @@ describe('Layout', () => {
                 <Layout>Extra children content</Layout>
             </Router>
         )
-        expect(wrapper.find('header').text()).toContain('NinjaWars')
+        expect(wrapper.find('header').text()).toContain('Search')
+        //expect(wrapper.find('header').text()).toContain('NinjaWars') // Hidden by default for mobile
     })
 })
