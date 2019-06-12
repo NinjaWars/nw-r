@@ -41,6 +41,7 @@ const Home = (props) => {
                     <Typography variant="h1" color="textPrimary" gutterBottom>NinjaWars Heading</Typography>
                     <Typography variant="h2" color="textSecondary">Live by the Shuriken</Typography>
                     <Typography>Homepage content</Typography>
+                    <p>Available at the site <a href='https://shell.ninjawars.net'>shell.ninjawars.net</a></p>
                 </article>
             </Tile>
             <Tile theme='dark'>
