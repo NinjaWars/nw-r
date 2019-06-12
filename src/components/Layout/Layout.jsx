@@ -7,7 +7,6 @@ import { faBars, faComments, faAt, faInfo } from '@fortawesome/free-solid-svg-ic
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 import Fbar from '../Fbar/Fbar'
-import Tile from '../Tile/Tile'
 import Hbar, { LeadingArea, CoreArea, FollowingArea } from '../Hbar/Hbar'
 import { SearchCompact } from '../Search/Search'
 import LogoArea from '../LogoArea'
@@ -107,9 +106,6 @@ const Layout = (props) => {
                     </aside>
                 </Drawer>
             </div>
-            <Tile theme='dark'>
-                Bottom Tile
-            </Tile>
             <Fbar />
         </div>
     )

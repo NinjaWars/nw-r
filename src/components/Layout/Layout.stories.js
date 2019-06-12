@@ -10,6 +10,8 @@ import styles from '../../stories/story.module.css'
 import { BrowserRouter } from 'react-router-dom'
 import Layout from '../../components/Layout/Layout'
 import Chat from '../../components/Chat/Chat'
+import DNav from '../../components/DNav/DNav'
+import links from '../../views/fullLinks'
 import loremIpsum from '../../data/loremIpsum'
 import avatarImage from '../../images/avatar/sample_gravatar.png'
 
@@ -37,7 +39,7 @@ storiesOf('Layout', module)
             <Layout
                 avatarImage={avatarImage}
                 asideContent={<Chat chats={[]} />}
-                navContent={'Nav Text'}
+                navContent={<DNav links={links} />}
             >
                 <Typography variant="h1" color="primary">
                     Main Content Area
