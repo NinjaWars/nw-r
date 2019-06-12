@@ -10,7 +10,7 @@ import styles from '../../stories/story.module.css'
 import { BrowserRouter } from 'react-router-dom'
 import Layout from '../../components/Layout/Layout'
 import Chat from '../../components/Chat/Chat'
-import loremIpsum from '../../data/lorem-ipsum'
+import loremIpsum from '../../data/loremIpsum'
 import avatarImage from '../../images/avatar/sample_gravatar.png'
 
 storiesOf('Layout', module)

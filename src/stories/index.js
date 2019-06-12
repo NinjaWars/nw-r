@@ -25,7 +25,7 @@ import Hbar, {
 import Search, { SearchCompact } from '../components/Search/Search'
 import { BrowserRouter } from 'react-router-dom'
 import LogoArea from '../components/LogoArea'
-import loremIpsum from '../data/lorem-ipsum'
+import loremIpsum from '../data/loremIpsum'
 import avatarImage from '../images/avatar/sample_gravatar.png'
 /* import { Shuriken } from 'nw-shuriken' */
 

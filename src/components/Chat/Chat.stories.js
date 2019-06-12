@@ -14,7 +14,7 @@ import mockChats from '../../data/mockChats.json'
 storiesOf('ChatMessage', module).add('with a few chats', () => {
     return (
         <>
-            {mockChats.map((chat, index) => (
+            {[...mockChats].map((chat, index) => (
                 <ChatMessage key={index} by={chat.by} datetime={chat.datetime}>
                     {chat.message}
                 </ChatMessage>
@@ -26,7 +26,7 @@ storiesOf('ChatMessage', module).add('with a few chats', () => {
 // Utility to add lots of chats
 const addLotsOfChats = chatsL => {
     const chatT = chatsL[chatsL.length - 1] // Template
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++){
         const fakeId = chatsL[chatsL.length - 1].id + i
         chatsL.push({
             ...chatT,
@@ -66,7 +66,7 @@ const ChatDataAdder = ({ chats: chatsIn, ...rest }) => {
 
 storiesOf('Chat', module)
     .add('with starting chats', () => {
-        const chats = mockChats
+        const chats = [...mockChats]
         const untrustedChatSender = 9876543 // Requested numeric id of logged in user
         // Display the result of the chat request in the actions area
         const handleChatRequest = data => {
@@ -89,7 +89,7 @@ storiesOf('Chat', module)
         )
     })
     .add('with addable chats', () => {
-        const chats = mockChats
+        const chats = [...mockChats]
         const untrustedChatSender = 9876543 // Requested numeric id of logged in user
         // Display the result of the chat request in the actions area
         const handleChatRequest = data => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
-import { Layout } from '../../components'
+import { Layout } from '../../components/Layout/Layout'
 
 const styles = () => ({
 
