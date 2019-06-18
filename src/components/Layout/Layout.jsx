@@ -12,7 +12,7 @@ import Hbar, { LeadingArea, CoreArea, FollowingArea } from '../Hbar/Hbar'
 import { SearchCompact } from '../Search/Search'
 import LogoArea from '../LogoArea'
 import bgImage from '../../images/bg/rebel.png'
-/* import styles from './layout.module.css' */
+/* import styles2 from './layout.module.css' */
 
 const styles = theme => ({
     out: {
@@ -45,22 +45,63 @@ const styles = theme => ({
         height: '100%',
         minHeight: '80vh',
     },
-    aside: {
+    superAside: {
         gridColumnEnd: 'span 2',
     },
     icon: {
         fontSize: '3rem',
+    },
+    linkList: {
+        display: 'inline'
     }
 })
 
+const PrimaryDrawer = ({ open, toggle, children, className })=>{
+    return (
+        <Drawer anchor="left" >
+            <div className={className}>
+                {children}
+            </div>
+        </Drawer>
+    )
+}
+
+PrimaryDrawer.propTypes = {
+    open: PropTypes.bool.isRequired,
+    toggle: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+}
+
+const SecondaryDrawer = ({ open, toggle, children, className })=>{
+    return (
+        <Drawer anchor="right" open={open}>
+            <aside className={className}>
+                {children}
+            </aside>
+        </Drawer>
+    )
+}
+PrimaryDrawer.propTypes = {
+    open: PropTypes.bool.isRequired,
+    toggle: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+}
+
 /**
- * A sticky footer that can expand upwards
+ * General 1-column layout with side drawers
+ * Header HBar area also includes 3 sections for leading hamburger nav, core links /logo / search, and profile / chat
  * @param {*} props
  */
-const Layout = ({ navContent, asideContent, avatarImage, open, className, classes, children }) => {
+const Layout = ({ navContent, asideContent, profile, open, className, classes, children }) => {
     const [ navOpen, setNavOpen ] = useState(false)
     const [ profileOpen, setProfileOpen ] = useState(false)
     const [ asideOpen, setAsideOpen ] = useState(false)
+    const { avatarUrl, name } = profile
+    const initial = (word)=>{
+        return word.charAt(0).toUpperCase()
+    }
     return (
         <div className={cx(className, classes.out)}>
             <Hbar className={classes.header}>
@@ -73,16 +114,17 @@ const Layout = ({ navContent, asideContent, avatarImage, open, className, classe
                     <Link to="/">
                         <LogoArea shrinkable title="NinjaWars" />
                     </Link>{' '}
-                    <div className={classes.linklist}>
-                        <Link to="/contact"><Icon icon={faAt}/></Link> <Link to="/about"><Icon icon={faInfo}/></Link>
+                    <span className={classes.linklist}>
+                        <Link to="/contact"><Icon icon={faAt}/></Link>{' '}
+                        <Link to="/about"><Icon icon={faInfo}/></Link>
                         <SearchCompact label='Search'/>
-                    </div>
+                    </span>
                 </CoreArea>
                 <FollowingArea>
                     <Button onClick={(e)=>{
                         setProfileOpen(!profileOpen)
                     }}>
-                        <Avatar src={avatarImage} alt='R'>R</Avatar>
+                        <Avatar src={avatarUrl} alt={initial(name)}>{initial(name)}</Avatar>
                     </Button>
                     <Button onClick={(e)=> {
                         setAsideOpen(!asideOpen)
@@ -92,19 +134,15 @@ const Layout = ({ navContent, asideContent, avatarImage, open, className, classe
                 </FollowingArea>
             </Hbar>
             <div className={classes.horizon}>
-                <Drawer anchor="left" open={navOpen || open}>
-                    <nav className={classes.superNav}>
-                        {navContent}
-                    </nav>
-                </Drawer>
+                <PrimaryDrawer open={navOpen || open} className={classes.superNav}>
+                    {navContent}
+                </PrimaryDrawer>
                 <main className={classes.core}>
                     {children}
                 </main>
-                <Drawer anchor="right" open={asideOpen || open}>
-                    <aside className={classes.aside}>
-                        {asideContent}
-                    </aside>
-                </Drawer>
+                <SecondaryDrawer open={asideOpen || open} className={classes.superAside}>
+                    {asideContent}
+                </SecondaryDrawer>
             </div>
             <Fbar />
         </div>

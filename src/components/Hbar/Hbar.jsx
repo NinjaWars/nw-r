@@ -38,8 +38,8 @@ Hbar.defaultProps = {
  */
 const LeadingArea = ({ onClick, children, className, ...rest }) => {
     return (
-        <div>
-            <Button type='button' className={cx(styles.leader, className)} onClick={onClick} {...rest}>
+        <div className={cx(styles.leader, className)}>
+            <Button type='button' onClick={onClick} {...rest}>
                 {children}
             </Button>
         </div>

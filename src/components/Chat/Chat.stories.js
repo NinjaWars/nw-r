@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 
-import { storiesOf } from '@storybook/react'
+import { storiesOf, addDecorator } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
 import Button from '@material-ui/core/Button'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 // eslint-disable-next-line no-unused-vars
 import styles from '../../stories/story.module.css'
 import ChatMessage from './ChatMessage'
 import Chat from './Chat'
 import mockChats from '../../data/mockChats.json'
+
+addDecorator((storyFn) => <CssBaseline>{storyFn()}</CssBaseline>)
 
 storiesOf('ChatMessage', module).add('with a few chats', () => {
     return (

@@ -8,6 +8,10 @@
     white-space: nowrap;
 }
 
+.search-field{
+    display:inline-block;
+}
+
 .button-holder{
     height: 2rem;
     display: flex;

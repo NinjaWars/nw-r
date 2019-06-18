@@ -1,11 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
 
-import { storiesOf } from '@storybook/react'
+import { storiesOf, addDecorator } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 //import { linkTo } from '@storybook/addon-links'
 import { Link } from 'react-router-dom'
 import proptypes from 'prop-types'
+import CssBaseline from '@material-ui/core/CssBaseline'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import Avatar from '@material-ui/core/Avatar'
@@ -36,6 +37,8 @@ const PopIt = ({ children }) => {
 PopIt.propTypes = {
     children: proptypes.node.isRequired,
 }
+
+addDecorator((storyFn) => <CssBaseline>{storyFn()}</CssBaseline>)
 
 storiesOf('Button', module)
     .add('with text', () => (

@@ -10,6 +10,7 @@
 }
 
 .leader {
+    display: inline-block;
 }
 
 .core {
@@ -22,5 +23,6 @@
 }
 
 .follower {
+    display: inline-block;
     white-space: nowrap;
 }
