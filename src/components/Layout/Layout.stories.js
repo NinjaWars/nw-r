@@ -18,8 +18,7 @@ import mockProfile from '../../data/mockProfile'
 import avatarImage from '../../images/avatar/sample_gravatar.png'
 import mockChats from '../../data/mockChats'
 
-mockProfile.avatarUrl = avatarImage
-// override avatar for mockProfile
+mockProfile.avatarUrl = avatarImage // override avatar for mockProfile
 
 addDecorator((storyFn) => <CssBaseline>{storyFn()}</CssBaseline>)
 

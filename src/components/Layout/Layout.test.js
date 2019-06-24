@@ -9,7 +9,7 @@ describe('Layout', () => {
         const div = document.createElement('div')
         ReactDOM.render(
             <Router>
-                <Layout>Interior content</Layout>
+                <Layout open={true}>Interior content</Layout>
             </Router>,
             div
         )
@@ -19,7 +19,7 @@ describe('Layout', () => {
     it('contains a nav and aside', () => {
         const wrapper = mount(
             <Router>
-                <Layout open>Inside content</Layout>
+                <Layout open={true}>Inside content</Layout>
             </Router>
         )
         expect(wrapper.exists('header')).toEqual(true)
@@ -30,7 +30,7 @@ describe('Layout', () => {
     it('contains a header', () => {
         const wrapper = mount(
             <Router>
-                <Layout>Extra children content</Layout>
+                <Layout open={true}>Extra children content</Layout>
             </Router>
         )
         expect(wrapper.find('header').text()).toContain('Search')

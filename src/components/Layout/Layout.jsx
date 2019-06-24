@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
-import {Drawer, Avatar, Button } from '@material-ui/core'
+import { Drawer, Avatar, Button } from '@material-ui/core'
 import { faBars, faComments, faAt, faInfo } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
@@ -52,7 +52,11 @@ const styles = theme => ({
         fontSize: '3rem',
     },
     linkList: {
-        display: 'inline'
+        display: 'inline',
+        '& a': {
+            padding: '0 0.5rem',
+            display: 'inline-block',
+        }
     }
 })
 
@@ -100,7 +104,7 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
     const [ asideOpen, setAsideOpen ] = useState(false)
     const { avatarUrl, name } = profile
     const initial = (word)=>{
-        return word.charAt(0).toUpperCase()
+        return word ? word.charAt(0).toUpperCase() : ''
     }
     return (
         <div className={cx(className, classes.out)}>
@@ -134,7 +138,7 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
                 </FollowingArea>
             </Hbar>
             <div className={classes.horizon}>
-                <PrimaryDrawer open={navOpen || open} className={classes.superNav}>
+                <PrimaryDrawer open={open || navOpen} className={classes.superNav}>
                     {navContent}
                 </PrimaryDrawer>
                 <main className={classes.core}>
@@ -150,6 +154,7 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
 }
 
 Layout.propTypes = {
+    profile: PropTypes.shape({}),
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
@@ -157,7 +162,6 @@ Layout.propTypes = {
     className: PropTypes.string,
     classes: PropTypes.shape({}).isRequired,
     open: PropTypes.bool,
-    avatarImage: PropTypes.string,
     navContent: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
@@ -169,8 +173,9 @@ Layout.propTypes = {
 }
 
 Layout.defaultProps = {
+    profile: {},
     navContent: "",
-    asideContent: ""
+    asideContent: "",
 }
 
 export default withStyles(styles)(Layout)
