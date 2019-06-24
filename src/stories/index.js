@@ -245,6 +245,14 @@ storiesOf('Search', module)
             onChange={action('search changed')}
         />
     ))
+    .add('with pop and compacting for mobile', () => (
+        <PopIt>
+            <SearchCompact
+                label='Search'
+                onChange={action('search changed')}
+            />
+        </PopIt>
+    ))
 
 storiesOf('Typography', module)
     .add('all', () => (

@@ -1,5 +1,4 @@
 .search{
-    /* Nothing here yet */
 }
 
 .search-compact{
@@ -8,15 +7,11 @@
     white-space: nowrap;
 }
 
-.search-field{
-    display:inline-block;
+.search-area{
 }
 
-.button-holder{
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.search-button-area{
+
 }
 
 .icon{
