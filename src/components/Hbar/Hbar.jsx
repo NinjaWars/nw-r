@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
+import Hidden from '@material-ui/core/Hidden'
 
 import styles from './hbar.module.css'
 
@@ -85,6 +87,15 @@ CoreArea.propTypes = {
     className: PropTypes.string,
 }
 
-export { LeadingArea, CoreArea, FollowingArea }
+/**
+ * Wrap links in breakpoints as needed
+ */
+const BreakingLink = ({ link })=>{
+    const Cont = <><Link to={link.url}>{link.icon} {link.text}</Link>{' '}</>
+    const Final = link.hiddenOnly ? <Hidden only={link.hiddenOnly}>{Cont}</Hidden> : Cont
+    return Final
+}
+
+export { LeadingArea, CoreArea, FollowingArea, BreakingLink }
 
 export default withStyles(styles)(Hbar)

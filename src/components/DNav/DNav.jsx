@@ -17,7 +17,7 @@ const DNav = ({className, links}) => {
             <Divider />
             {links.map((link, index)=>(
                 <div key={index} className={styles.row}>
-                    <Link to={link.url}>{link.icon} {link.text}</Link>
+                    <Link to={link.url}><span className={styles.box}>{link.icon}</span> {link.text}</Link>
                 </div>
             ))}
         </nav>

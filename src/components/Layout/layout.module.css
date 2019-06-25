@@ -1,0 +1,17 @@
+.h-icon{
+    font-size: 3rem;
+}
+.search-area{
+    padding-left: 1rem;
+}
+.link-list{
+    display: inline;
+}
+
+.link-list > a {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-weight: bolder;
+    text-decoration: none;
+    display:inline-block;
+    padding-right: 1rem;
+}

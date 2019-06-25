@@ -14,7 +14,9 @@
     padding: 0.7rem 2rem;
 }
 .link-list > a {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-weight: bolder;
+    text-decoration: none;
     display:inline-block;
     padding-right: 2rem;
-    text-decoration: none;
 }

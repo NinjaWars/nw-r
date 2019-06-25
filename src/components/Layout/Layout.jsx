@@ -3,17 +3,18 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
-import { Drawer, Avatar, Button, Hidden } from '@material-ui/core'
-import { faBars, faComments, faAt, faInfo, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { Drawer, Avatar, Button } from '@material-ui/core'
+import { faBars, faComments, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 import Fbar from '../Fbar/Fbar'
-import Hbar, { LeadingArea, CoreArea, FollowingArea } from '../Hbar/Hbar'
+import Hbar, { LeadingArea, CoreArea, FollowingArea, BreakingLink } from '../Hbar/Hbar'
 import { SearchCompact } from '../Search/Search'
 import LogoArea from '../LogoArea'
 import bgImage from '../../images/bg/rebel.png'
 import links from '../../views/headerLinks'
-/* import styles2 from './layout.module.css' */
+/* import lStyles from './layout.module.css' */
+import hStyles from '../Hbar/hbar.module.css'
 
 const styles = theme => ({
     out: {
@@ -28,9 +29,6 @@ const styles = theme => ({
             height: '1.5rem',
             width: '1.5rem',
         },
-    },
-    logo: {
-        color: '#ffffff',
     },
     horizon: {
         height: '90%',
@@ -49,18 +47,6 @@ const styles = theme => ({
     superAside: {
         gridColumnEnd: 'span 2',
     },
-    icon: {
-        fontSize: '3rem',
-    },
-    linkList: {
-        display: 'inline',
-        '& a': {
-            padding: '0 0.5rem',
-        }
-    },
-    searchArea: {
-        paddingLeft: '1rem'
-    }
 })
 
 const PrimaryDrawer = ({ open, toggle, children, className, ...rest })=>{
@@ -101,12 +87,6 @@ SecondaryDrawer.propTypes = {
     className: PropTypes.string,
 }
 
-const BreakingLink = ({ link })=>{
-    const Cont = <><Link key={link.url} to={link.url}>{link.icon} {link.text}</Link>{' '}</>
-    const Final = link.break ? <Hidden only={link.break}>{Cont}</Hidden> : Cont
-    return Final
-}
-
 /**
  * General 1-column layout with side drawers
  * Header HBar area also includes 3 sections for leading hamburger nav, core links /logo / search, and profile / chat
@@ -120,13 +100,15 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
     const initial = (word)=>{
         return word ? word.charAt(0).toUpperCase() : ''
     }
+    // Close this nav on any non-navigational keypress or click
     const toggleNav = (openN) => event => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')){
             return;
         }
         setNavOpen(!openN)
     }
-    const closeAside = () => event => {
+    // Close the chat only when X clicked
+    const closeAside = () => {
         setAsideOpen(false)
     }
     return (
@@ -135,18 +117,18 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
                 <LeadingArea onClick={(e)=> {
                     setNavOpen(!navOpen)
                 }}>
-                    <Icon className={classes.icon} icon={faBars} />
+                    <Icon className={hStyles['h-icon']} icon={faBars} />
                 </LeadingArea>
                 <CoreArea>
                     <Link to="/">
                         <LogoArea shrinkable title="NinjaWars" />
                     </Link>{' '}
-                    <span className={classes.linkList}>
+                    <span className={hStyles['link-list']}>
                         {links.map((link)=>(
-                            <BreakingLink link={link} />
+                            <BreakingLink key={link.url} link={link} />
                         ))}
                     </span>
-                    <span className={classes.searchArea}>
+                    <span className={hStyles['search-area']}>
                         <SearchCompact label='Search'/>
                     </span>
                 </CoreArea>
@@ -159,7 +141,7 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
                     <Button onClick={(e)=> {
                         setAsideOpen(!asideOpen)
                     }}>
-                        <Icon className={classes.icon} icon={faComments}/>
+                        <Icon className={hStyles['h-icon']} icon={faComments}/>
                     </Button>
                 </FollowingArea>
             </Hbar>

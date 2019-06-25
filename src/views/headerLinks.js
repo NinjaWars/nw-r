@@ -8,6 +8,7 @@ const links = [
         icon: <Icon icon={faStar} />,
         url: '/ninjas',
         text: 'Ninjas',
+        hiddenOnly: ['xs', 'sm'],
     },
     {
         icon: <Icon icon={faBolt} />,
@@ -23,44 +24,48 @@ const links = [
         icon: null,
         url: '/inventory',
         text: 'Items',
+        hiddenOnly: ['xs', 'sm'],
     },
     {
         icon: null,
         url: '/skill',
         text: 'Skills',
+        hiddenOnly: ['xs', 'sm'],
     },
     {
         icon: <Icon icon={faUsers} />,
         url: '/clan',
         text: 'Clans',
+        hiddenOnly: ['xs', 'sm'],
     },
     {
         icon: '⛩',
         url: '/shrine',
         text: 'Shrine',
-        break: ['lg', 'xl'],
+        hiddenOnly: ['xs', 'sm', 'md'],
     },
     {
         icon: '石',
         url: '/shop',
         text: 'Shop',
-        break: ['lg', 'xl'],
+        hiddenOnly: ['xs', 'sm', 'md'],
     },
     {
         icon: <Icon icon={faPagelines} />,
         url: '/work',
         text: 'Fields',
-        break: ['lg', 'xl'],
+        hiddenOnly: ['xs', 'sm', 'md'],
     },
     {
         icon: <Icon icon={faClock} />,
         url: '/events',
         text: 'Events',
+        hiddenOnly: ['xs', 'sm', 'md'],
     },
     {
         icon: <Icon icon={faEnvelope} />,
         url: '/messages',
-        text: 'Messages',
+        text: '',
     },
 ]
 

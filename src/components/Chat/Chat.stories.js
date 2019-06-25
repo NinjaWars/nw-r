@@ -10,6 +10,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import styles from '../../stories/story.module.css'
 import ChatMessage from './ChatMessage'
 import Chat from './Chat'
+import Tile from '../Tile/Tile'
 import mockChats from '../../data/mockChats.json'
 import mockProfile from '../../data/mockProfile.json'
 
@@ -93,7 +94,6 @@ storiesOf('Chat', module)
     })
     .add('with null data', () => {
         const chats = null
-        const untrustedChatSender = 9876543 // Requested numeric id of logged in user
         // Display the result of the chat request in the actions area
         const handleChatRequest = data => {
             action(`a chat send was requested`, data)()
@@ -105,7 +105,7 @@ storiesOf('Chat', module)
                 <Chat
                     chats={chats}
                     handleChatRequest={handleChatRequest}
-                    untrustedChatSender={untrustedChatSender}
+                    untrustedChatSender={mockProfile.userId}
                     formProps={{
                         action: '#',
                         type: 'POST',
@@ -114,9 +114,29 @@ storiesOf('Chat', module)
             </>
         )
     })
+    .add('with a dark tile bg', () => {
+        // Display the result of the chat request in the actions area
+        const handleChatRequest = data => {
+            action(`a chat send was requested`, data)()
+            action(`Chat data requested was: ${JSON.stringify(data)}`)()
+            return true
+        }
+        return (
+            <Tile theme="dark">
+                <Chat
+                    chats={mockChats}
+                    handleChatRequest={handleChatRequest}
+                    untrustedChatSender={mockProfile.userId}
+                    formProps={{
+                        action: '#',
+                        type: 'POST',
+                    }}
+                />
+            </Tile>
+        )
+    })
     .add('with addable chats', () => {
         const chats = [...mockChats]
-        const untrustedChatSender = 9876543 // Requested numeric id of logged in user
         // Display the result of the chat request in the actions area
         const handleChatRequest = data => {
             action(
@@ -131,7 +151,7 @@ storiesOf('Chat', module)
                 <ChatDataAdder
                     chats={chats}
                     handleChatRequest={handleChatRequest}
-                    untrustedChatSender={untrustedChatSender}
+                    untrustedChatSender={mockProfile.userId}
                     formProps={{
                         action: '#',
                         type: 'POST',
@@ -164,12 +184,11 @@ storiesOf('Chat', module)
             )
         }
         const chats = mockChats
-        const untrustedChatSender = 9876543 // Requested numeric id of logged in user
         return (
             <>
                 <ChatsSendable
                     chats={chats}
-                    untrustedChatSender={untrustedChatSender}
+                    untrustedChatSender={mockProfile.userId}
                     formProps={{
                         action: '#',
                         type: 'POST',

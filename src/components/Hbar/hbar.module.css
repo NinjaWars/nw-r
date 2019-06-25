@@ -1,12 +1,20 @@
 .hbar {
-    background-color: rgba(43, 38, 38, 0.5);
-    color: #fff;
+    background-color: rgb(34, 34, 34);
+    color: rgb(157, 157, 157);
     display:grid;
-    grid-template-columns: 10% 68% 15%;
-    grid-gap: 2.5%;
+    grid-template-columns: 17% 40% 40%;
+    grid-gap: 1.5%;
 }
+
+@media (min-width: 960px) {
+    .hbar{
+        grid-template-columns: 10% 67% 18%;
+        grid-gap: 2.5%;
+    }
+}
+
 .hbar button, .hbar input, .hbar label{
-    color: #fff;
+    color: rgb(211, 211, 211);
 }
 
 .leader {
@@ -26,4 +34,27 @@
 .follower {
     display: inline-block;
     white-space: nowrap;
+    text-align: right;
+}
+
+.h-icon{
+    font-size: 2.5rem;
+}
+.search-area{
+    padding-left: 1rem;
+}
+.link-list{
+    display: inline;
+}
+
+.link-list > a {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-weight: bolder;
+    text-decoration: none;
+    display:inline-block;
+    white-space: nowrap;
+}
+
+.link-list > a + a {
+    padding-left: 1rem;
 }

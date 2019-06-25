@@ -1,9 +1,18 @@
 .nav{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem 0.5rem;
 }
 
 .row{
     margin-top: 1rem;
-    padding-left: 1rem;
+    padding-left: 0.4rem;
+}
+.row a{
+    text-decoration: none;
+    font-size: 1.7rem;
+}
+.box{
+    display: inline-block;
+    min-width: 2rem;
+    white-space: nowrap;
+    font-size: smaller;
 }

@@ -12,13 +12,6 @@
     color: rgb(158, 12, 12);
     background-color: rgb(171, 221, 221);
 }
-.header{
-    min-height: 1rem;
-    color:rgb(143, 3, 3);
-}
-.light-logo{
-    color: white;
-}
 a, a:visited, a:active{
     color:#008080;
 }
@@ -26,4 +19,25 @@ a, a:visited, a:active{
 .pop{
     box-shadow: 0.1rem 0.1rem 0.3rem 0.4rem #ccc;
     background-color: rgb(207, 143, 255);
+}
+
+/* HBar */
+.header{
+    min-height: 2rem;
+}
+.light-logo{
+    color: white;
+}
+.header .App-logo{
+    height: 1.5rem;
+    width: 1.5rem;
+}
+.colorful1{
+    background-color: rgb(56, 159, 207);
+}
+.colorful2{
+    background-color: rgb(238, 157, 238);
+}
+.colorful3{
+    background-color: rgb(231, 128, 31);
 }

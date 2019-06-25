@@ -10,9 +10,10 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import Avatar from '@material-ui/core/Avatar'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faComments } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import Button from '@material-ui/core/Button'
+import { BrowserRouter } from 'react-router-dom'
 
 import styles from './story.module.css'
 import Feedbackify from '../components/Feedbackify/Feedbackify'
@@ -22,12 +23,19 @@ import Hbar, {
     LeadingArea,
     CoreArea,
     FollowingArea,
+    BreakingLink
 } from '../components/Hbar/Hbar'
 import Search, { SearchCompact } from '../components/Search/Search'
-import { BrowserRouter } from 'react-router-dom'
 import LogoArea from '../components/LogoArea'
 import loremIpsum from '../data/loremIpsum'
+import mockProfile from '../data/mockProfile'
 import avatarImage from '../images/avatar/sample_gravatar.png'
+//import mockChats from '../../data/mockChats'
+import hLinks from '../views/headerLinks'
+import lStyles from '../components/Layout/layout.module.css'
+
+mockProfile.avatarUrl = avatarImage // override avatar for mockProfile
+
 /* import { Shuriken } from 'nw-shuriken' */
 
 const PopIt = ({ children }) => {
@@ -162,22 +170,26 @@ storiesOf('Feedbackify', module)
     ))
 
 storiesOf('Fbar footer bar', module)
-    .add('with defaults', () => <Fbar />)
+    .add('with defaults', () => <BrowserRouter><Fbar /></BrowserRouter>)
     .add('popped for clarity', () => (
-        <PopIt>
-            <Fbar />
-        </PopIt>
+        <BrowserRouter>
+            <PopIt>
+                <Fbar />
+            </PopIt>
+        </BrowserRouter>
     ))
     .add('with red text and a blue background', () => (
-        <Fbar className={styles.fbar} />
+        <BrowserRouter>
+            <Fbar className={styles.fbar} />
+        </BrowserRouter>
     ))
     .add('with lorem ipsum content above', () => (
-        <>
+        <BrowserRouter>
             <div>
                 <p>{loremIpsum}</p>
             </div>
             <Fbar />
-        </>
+        </BrowserRouter>
     ))
 
 storiesOf('Tile', module)
@@ -193,39 +205,73 @@ storiesOf('Tile', module)
 
 storiesOf('Hbar', module)
     .add('with no content', () => (
-        <Hbar className={styles.header}>Header Bar</Hbar>
+        <Hbar className={lStyles.header}>Header Bar</Hbar>
     ))
     .add('with three areas', () => (
-        <Hbar className={styles.header}>
-            <LeadingArea>Le</LeadingArea>
+        <Hbar className={lStyles.header}>
+            <LeadingArea>Left</LeadingArea>
             <CoreArea>Core</CoreArea>
-            <FollowingArea>Fo</FollowingArea>
+            <FollowingArea>Follow</FollowingArea>
         </Hbar>
     ))
     .add('with some pop', () => (
-        <PopIt>
-            <Hbar>Header Bar</Hbar>
-        </PopIt>
+        <BrowserRouter>
+            <PopIt>
+                <Hbar className={lStyles.header}>
+                    <LeadingArea className={styles.colorful1} onClick={action('the nav would open here')}>
+                        <Icon className={lStyles['h-icon']} icon={faBars} />
+                    </LeadingArea>
+                    <CoreArea className={styles.colorful2}>
+                        <Link to="/">
+                            <LogoArea shrinkable title="NinjaWars" />
+                        </Link>{' '}
+                        <span className={lStyles['link-list']}>
+                            {hLinks.map((link)=>(
+                                <BreakingLink key={link.url} link={link} />
+                            ))}
+                        </span>
+                        <span className={lStyles['search-area']}>
+                            <SearchCompact label='Search'/>
+                        </span>
+                    </CoreArea>
+                    <FollowingArea className={styles.colorful3} onClick={action('The user avatar menu would open here')}>
+                        <Button>
+                            <Avatar src={mockProfile.avatarUrl} alt='JD'>JD</Avatar>
+                        </Button>
+                        <Button>
+                            <Icon className={lStyles['h-icon']} icon={faComments}/>
+                        </Button>
+                    </FollowingArea>
+                </Hbar>
+            </PopIt>
+        </BrowserRouter>
     ))
     .add('with fullish content', () => (
         <BrowserRouter>
-            <Hbar className={styles.header}>
+            <Hbar className={lStyles.header}>
                 <LeadingArea onClick={action('the nav would open here')}>
-                    <Icon icon={faBars} />
+                    <Icon className={lStyles['h-icon']} icon={faBars} />
                 </LeadingArea>
                 <CoreArea>
                     <Link to="/">
-                        <LogoArea title="NinjaWars" />
+                        <LogoArea shrinkable title="NinjaWars" />
                     </Link>{' '}
-                    <Link to="/contact">Contact</Link>{' '}
-                    <Link to="/about">About</Link>
+                    <span className={lStyles['link-list']}>
+                        {hLinks.map((link)=>(
+                            <BreakingLink key={link.url} link={link} />
+                        ))}
+                    </span>
+                    <span className={lStyles['search-area']}>
+                        <SearchCompact label='Search'/>
+                    </span>
                 </CoreArea>
-                <FollowingArea
-                    onClick={action('The user avatar menu would open here')}
-                >
-                    <Avatar src={avatarImage} alt="R">
-                        R
-                    </Avatar>
+                <FollowingArea onClick={action('The user avatar menu would open here')}>
+                    <Button>
+                        <Avatar src={mockProfile.avatarUrl} alt='JD'>JD</Avatar>
+                    </Button>
+                    <Button>
+                        <Icon className={lStyles['h-icon']} icon={faComments}/>
+                    </Button>
                 </FollowingArea>
             </Hbar>
         </BrowserRouter>
@@ -238,6 +284,14 @@ storiesOf('Search', module)
             label="Search Ninja"
             onChange={action('search changed')}
         />
+    ))
+    .add('with dark tile', () => (
+        <Tile theme="dark">
+            <Search
+                label="Search Site"
+                onChange={action('search changed')}
+            />
+        </Tile>
     ))
     .add('with slideout', () => (
         <SearchCompact
@@ -277,6 +331,26 @@ storiesOf('Typography', module)
     ))
     .add('all with dark tile', () => (
         <Tile theme="dark">
+            <Typography variant="h1">H1 Heading</Typography>
+            <Typography variant="h2">H2 Heading</Typography>
+            <Typography variant="h3">H3 Heading</Typography>
+            <Typography variant="h4">H4 Heading</Typography>
+            <Typography variant="h5">H5 Heading</Typography>
+            <Typography variant="h6">H6 Heading</Typography>
+            <Typography variant="subtitle1">subtitle1</Typography>
+            <Typography variant="subtitle2">subtitle2</Typography>
+            <Typography variant="body1">body1</Typography>
+            <Typography variant="body2">body2</Typography>
+            <Typography variant="button">button text</Typography>
+            <Typography variant="caption">caption text</Typography>
+            <span>
+                <Typography variant="overline">overline text</Typography>Next to
+                non-component text
+            </span>
+        </Tile>
+    ))
+    .add('all with light tile', () => (
+        <Tile theme="light">
             <Typography variant="h1">H1 Heading</Typography>
             <Typography variant="h2">H2 Heading</Typography>
             <Typography variant="h3">H3 Heading</Typography>

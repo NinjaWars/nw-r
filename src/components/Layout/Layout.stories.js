@@ -42,6 +42,35 @@ storiesOf('Layout', module)
             </Layout>
         </BrowserRouter>
     ))
+    .add('with all typography in', () => (
+        <BrowserRouter>
+            <Layout
+                profile={mockProfile}
+                asideContent={'Aside text'}
+                navContent={'Nav Text'}
+            >
+                <Typography variant="h1">H1 Heading</Typography>
+                <Typography variant="h2">H2 Heading</Typography>
+                <Typography variant="h3">H3 Heading</Typography>
+                <Typography variant="h4">H4 Heading</Typography>
+                <Typography variant="h5">H5 Heading</Typography>
+                <Typography variant="h6">H6 Heading</Typography>
+                <Typography variant="subtitle1">subtitle1</Typography>
+                <Typography variant="subtitle2">subtitle2</Typography>
+                <Typography variant="body1">body1</Typography>
+                <Typography variant="body2">body2</Typography>
+                <Typography variant="button">button text</Typography>
+                <Typography variant="caption">caption text</Typography>
+                <span>
+                    <Typography variant="overline">overline text</Typography>Next to
+                    non-component text
+                </span>
+                <p>{loremIpsum}</p>
+                <Button>A primary button</Button>
+                <Button color='secondary'>A secondary colored button</Button>
+            </Layout>
+        </BrowserRouter>
+    ))
     .add('with near-full content', () => (
         <BrowserRouter>
             <Layout
@@ -62,8 +91,9 @@ storiesOf('Layout', module)
                 <Typography variant="h2" color="secondary">
                     With Left Nav and Right Chat
                 </Typography>
+                <Button color='secondary'>sec. colored button</Button>
                 <Typography color="secondary">Put intro element here</Typography>
-                <p>{loremIpsum}</p>
+                <Typography>{loremIpsum}</Typography>
                 <Button>A primary button</Button>
                 <Button color='secondary'>A secondary colored button</Button>
             </Layout>
