@@ -1,5 +1,11 @@
 import React from 'react'
-import { faHome, faAt, faInfo, faThumbsUp, faNewspaper } from '@fortawesome/free-solid-svg-icons'
+import {
+    faHome,
+    faAt,
+    faInfo,
+    faThumbsUp,
+    faNewspaper,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 const links = [

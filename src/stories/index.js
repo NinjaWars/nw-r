@@ -23,7 +23,7 @@ import Hbar, {
     LeadingArea,
     CoreArea,
     FollowingArea,
-    BreakingLink
+    BreakingLink,
 } from '../components/Hbar/Hbar'
 import Search, { SearchCompact } from '../components/Search/Search'
 import LogoArea from '../components/LogoArea'
@@ -46,7 +46,7 @@ PopIt.propTypes = {
     children: proptypes.node.isRequired,
 }
 
-addDecorator((storyFn) => <CssBaseline>{storyFn()}</CssBaseline>)
+addDecorator(storyFn => <CssBaseline>{storyFn()}</CssBaseline>)
 
 storiesOf('Button', module)
     .add('with text', () => (
@@ -170,7 +170,11 @@ storiesOf('Feedbackify', module)
     ))
 
 storiesOf('Fbar footer bar', module)
-    .add('with defaults', () => <BrowserRouter><Fbar /></BrowserRouter>)
+    .add('with defaults', () => (
+        <BrowserRouter>
+            <Fbar />
+        </BrowserRouter>
+    ))
     .add('popped for clarity', () => (
         <BrowserRouter>
             <PopIt>
@@ -218,7 +222,10 @@ storiesOf('Hbar', module)
         <BrowserRouter>
             <PopIt>
                 <Hbar className={lStyles.header}>
-                    <LeadingArea className={styles.colorful1} onClick={action('the nav would open here')}>
+                    <LeadingArea
+                        className={styles.colorful1}
+                        onClick={action('the nav would open here')}
+                    >
                         <Icon className={lStyles['h-icon']} icon={faBars} />
                     </LeadingArea>
                     <CoreArea className={styles.colorful2}>
@@ -226,20 +233,28 @@ storiesOf('Hbar', module)
                             <LogoArea shrinkable title="NinjaWars" />
                         </Link>{' '}
                         <span className={lStyles['link-list']}>
-                            {hLinks.map((link)=>(
+                            {hLinks.map(link => (
                                 <BreakingLink key={link.url} link={link} />
                             ))}
                         </span>
                         <span className={lStyles['search-area']}>
-                            <SearchCompact label='Search'/>
+                            <SearchCompact label="Search" />
                         </span>
                     </CoreArea>
-                    <FollowingArea className={styles.colorful3} onClick={action('The user avatar menu would open here')}>
+                    <FollowingArea
+                        className={styles.colorful3}
+                        onClick={action('The user avatar menu would open here')}
+                    >
                         <Button>
-                            <Avatar src={mockProfile.avatarUrl} alt='JD'>JD</Avatar>
+                            <Avatar src={mockProfile.avatarUrl} alt="JD">
+                                JD
+                            </Avatar>
                         </Button>
                         <Button>
-                            <Icon className={lStyles['h-icon']} icon={faComments}/>
+                            <Icon
+                                className={lStyles['h-icon']}
+                                icon={faComments}
+                            />
                         </Button>
                     </FollowingArea>
                 </Hbar>
@@ -257,20 +272,24 @@ storiesOf('Hbar', module)
                         <LogoArea shrinkable title="NinjaWars" />
                     </Link>{' '}
                     <span className={lStyles['link-list']}>
-                        {hLinks.map((link)=>(
+                        {hLinks.map(link => (
                             <BreakingLink key={link.url} link={link} />
                         ))}
                     </span>
                     <span className={lStyles['search-area']}>
-                        <SearchCompact label='Search'/>
+                        <SearchCompact label="Search" />
                     </span>
                 </CoreArea>
-                <FollowingArea onClick={action('The user avatar menu would open here')}>
+                <FollowingArea
+                    onClick={action('The user avatar menu would open here')}
+                >
                     <Button>
-                        <Avatar src={mockProfile.avatarUrl} alt='JD'>JD</Avatar>
+                        <Avatar src={mockProfile.avatarUrl} alt="JD">
+                            JD
+                        </Avatar>
                     </Button>
                     <Button>
-                        <Icon className={lStyles['h-icon']} icon={faComments}/>
+                        <Icon className={lStyles['h-icon']} icon={faComments} />
                     </Button>
                 </FollowingArea>
             </Hbar>
@@ -287,10 +306,7 @@ storiesOf('Search', module)
     ))
     .add('with dark tile', () => (
         <Tile theme="dark">
-            <Search
-                label="Search Site"
-                onChange={action('search changed')}
-            />
+            <Search label="Search Site" onChange={action('search changed')} />
         </Tile>
     ))
     .add('with slideout', () => (
@@ -301,10 +317,7 @@ storiesOf('Search', module)
     ))
     .add('with pop and compacting for mobile', () => (
         <PopIt>
-            <SearchCompact
-                label='Search'
-                onChange={action('search changed')}
-            />
+            <SearchCompact label="Search" onChange={action('search changed')} />
         </PopIt>
     ))
 

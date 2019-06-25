@@ -19,7 +19,7 @@ storiesOf('DNav', module)
     ))
     .add('with dark theme', () => (
         <BrowserRouter>
-            <Tile theme='dark'>
+            <Tile theme="dark">
                 <DNav links={links} />
             </Tile>
         </BrowserRouter>

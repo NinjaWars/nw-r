@@ -14,7 +14,7 @@ import Tile from '../Tile/Tile'
 import mockChats from '../../data/mockChats.json'
 import mockProfile from '../../data/mockProfile.json'
 
-addDecorator((storyFn) => <CssBaseline>{storyFn()}</CssBaseline>)
+addDecorator(storyFn => <CssBaseline>{storyFn()}</CssBaseline>)
 
 storiesOf('ChatMessage', module).add('with a few chats', () => {
     return (
@@ -31,7 +31,7 @@ storiesOf('ChatMessage', module).add('with a few chats', () => {
 // Utility to add lots of chats
 const addLotsOfChats = chatsL => {
     const chatT = chatsL[chatsL.length - 1] // Template
-    for (let i = 0; i < 5; i++){
+    for (let i = 0; i < 5; i++) {
         const fakeId = chatsL[chatsL.length - 1].id + i
         chatsL.push({
             ...chatT,

@@ -20,7 +20,7 @@ import mockChats from '../../data/mockChats'
 
 mockProfile.avatarUrl = avatarImage // override avatar for mockProfile
 
-addDecorator((storyFn) => <CssBaseline>{storyFn()}</CssBaseline>)
+addDecorator(storyFn => <CssBaseline>{storyFn()}</CssBaseline>)
 
 storiesOf('Layout', module)
     .add('with simple lorem ipsum', () => (
@@ -38,7 +38,7 @@ storiesOf('Layout', module)
                 </Typography>
                 <p>{loremIpsum}</p>
                 <Button>A primary button</Button>
-                <Button color='secondary'>A secondary colored button</Button>
+                <Button color="secondary">A secondary colored button</Button>
             </Layout>
         </BrowserRouter>
     ))
@@ -62,12 +62,12 @@ storiesOf('Layout', module)
                 <Typography variant="button">button text</Typography>
                 <Typography variant="caption">caption text</Typography>
                 <span>
-                    <Typography variant="overline">overline text</Typography>Next to
-                    non-component text
+                    <Typography variant="overline">overline text</Typography>
+                    Next to non-component text
                 </span>
                 <p>{loremIpsum}</p>
                 <Button>A primary button</Button>
-                <Button color='secondary'>A secondary colored button</Button>
+                <Button color="secondary">A secondary colored button</Button>
             </Layout>
         </BrowserRouter>
     ))
@@ -75,14 +75,17 @@ storiesOf('Layout', module)
         <BrowserRouter>
             <Layout
                 profile={mockProfile}
-                asideContent={(
+                asideContent={
                     <>
-                        <Typography variant='h3' color='secondary'>
+                        <Typography variant="h3" color="secondary">
                             Chat
                         </Typography>
-                        <Chat chats={mockChats} untrustedChatSender={mockProfile.userId}/>
+                        <Chat
+                            chats={mockChats}
+                            untrustedChatSender={mockProfile.userId}
+                        />
                     </>
-                )}
+                }
                 navContent={<DNav links={links} />}
             >
                 <Typography variant="h1" color="primary">
@@ -91,11 +94,13 @@ storiesOf('Layout', module)
                 <Typography variant="h2" color="secondary">
                     With Left Nav and Right Chat
                 </Typography>
-                <Button color='secondary'>sec. colored button</Button>
-                <Typography color="secondary">Put intro element here</Typography>
+                <Button color="secondary">sec. colored button</Button>
+                <Typography color="secondary">
+                    Put intro element here
+                </Typography>
                 <Typography>{loremIpsum}</Typography>
                 <Button>A primary button</Button>
-                <Button color='secondary'>A secondary colored button</Button>
+                <Button color="secondary">A secondary colored button</Button>
             </Layout>
         </BrowserRouter>
     ))

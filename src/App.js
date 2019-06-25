@@ -7,8 +7,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import CssBaseline from '@material-ui/core/CssBaseline'
 // Router reference here: https://reacttraining.com/react-router/web/guides/quick-start
 
-class App extends Component{
-    render(){
+class App extends Component {
+    render() {
         return (
             <>
                 <CssBaseline />

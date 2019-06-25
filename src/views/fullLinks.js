@@ -1,5 +1,14 @@
 import React from 'react'
-import { faNewspaper, faBolt, faInfo, faAt, faMap, faUsers, faClock, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import {
+    faNewspaper,
+    faBolt,
+    faInfo,
+    faAt,
+    faMap,
+    faUsers,
+    faClock,
+    faEnvelope,
+} from '@fortawesome/free-solid-svg-icons'
 import { faPagelines } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
@@ -9,7 +18,7 @@ const links = [
         url: '/fight',
         text: 'Fight',
     },
-{
+    {
         icon: <Icon icon={faMap} />,
         url: '/map',
         text: 'Map',

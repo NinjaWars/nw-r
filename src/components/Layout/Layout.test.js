@@ -28,10 +28,15 @@ describe('Layout', () => {
     it('contains a nav and aside', () => {
         const wrapper = mount(
             <Router>
-                <Layout open={true} 
-                    navContent={(
-                        <nav>Some nav links because nav is not provided by default, though aside is</nav>
-                    )}>
+                <Layout
+                    open={true}
+                    navContent={
+                        <nav>
+                            Some nav links because nav is not provided by
+                            default, though aside is
+                        </nav>
+                    }
+                >
                     Inside content
                 </Layout>
             </Router>
