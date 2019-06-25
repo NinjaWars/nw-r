@@ -37,7 +37,8 @@ storiesOf('Layout', module)
                     With not much in it
                 </Typography>
                 <p>{loremIpsum}</p>
-                <Button>A button text</Button>
+                <Button>A primary button</Button>
+                <Button color='secondary'>A secondary colored button</Button>
             </Layout>
         </BrowserRouter>
     ))
@@ -56,13 +57,15 @@ storiesOf('Layout', module)
                 navContent={<DNav links={links} />}
             >
                 <Typography variant="h1" color="primary">
-                    Main Content Area
+                    Ninjawars Game
                 </Typography>
                 <Typography variant="h2" color="secondary">
-                    With not much in it
+                    With Left Nav and Right Chat
                 </Typography>
+                <Typography color="secondary">Put intro element here</Typography>
                 <p>{loremIpsum}</p>
-                <Button>A button text</Button>
+                <Button>A primary button</Button>
+                <Button color='secondary'>A secondary colored button</Button>
             </Layout>
         </BrowserRouter>
     ))

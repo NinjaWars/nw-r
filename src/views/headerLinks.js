@@ -1,5 +1,6 @@
 import React from 'react'
-import { faStar, faBolt, faMap, faUsers, faPagelines, faAt, faClock, faInfo, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faBolt, faMap, faUsers, faClock, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faPagelines } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 const links = [
@@ -37,16 +38,19 @@ const links = [
         icon: '⛩',
         url: '/shrine',
         text: 'Shrine',
+        break: ['lg', 'xl'],
     },
     {
         icon: '石',
         url: '/shop',
         text: 'Shop',
+        break: ['lg', 'xl'],
     },
     {
         icon: <Icon icon={faPagelines} />,
         url: '/work',
         text: 'Fields',
+        break: ['lg', 'xl'],
     },
     {
         icon: <Icon icon={faClock} />,
@@ -57,16 +61,6 @@ const links = [
         icon: <Icon icon={faEnvelope} />,
         url: '/messages',
         text: 'Messages',
-    },
-    {
-        icon: <Icon icon={faInfo} />,
-        url: '/about',
-        text: 'About',
-    },
-    {
-        icon: <Icon icon={faAt} />,
-        url: '/contact',
-        text: 'Contact',
     },
 ]
 

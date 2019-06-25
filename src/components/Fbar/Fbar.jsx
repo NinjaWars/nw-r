@@ -7,32 +7,16 @@ import { Link } from 'react-router-dom'
 import fLinks from '../../views/footerLinks'
 import styles from './fbar.module.css'
 
-/*
-const styles = () => ({
-    footer: {},
-    expandible: {},
-    linkList: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        padding: '0 1rem',
-        '& > a': {
-            paddingRight: '1rem',
-        },
-    },
-})
-*/
-
 /**
- * A sticky footer that can expand upwards
+ * A sticky footer that can expand downwards
  * @param {*} props
  */
 const Fbar = (props) => {
     const { className, ...rest } = props
     return (
         <footer className={cx(className, styles.fbar)} {...rest}>
-            <div className={styles.linkList}>
-                {fLinks.map(link => <a href={link.url} key={link.url}>{link.icon} {link.text}</a>)}
+            <div className={styles['link-list']}>
+                {fLinks.map(link => <Link to={link.url} key={link.url}>{link.icon} {link.text}</Link>)}
             </div>
             <div className={styles.expandible} style={{textAlign: 'center'}}>
                 Brought to you by

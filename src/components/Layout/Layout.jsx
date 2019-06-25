@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
-import { Drawer, Avatar, Button } from '@material-ui/core'
+import { Drawer, Avatar, Button, Hidden } from '@material-ui/core'
 import { faBars, faComments, faAt, faInfo, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
@@ -12,7 +12,7 @@ import Hbar, { LeadingArea, CoreArea, FollowingArea } from '../Hbar/Hbar'
 import { SearchCompact } from '../Search/Search'
 import LogoArea from '../LogoArea'
 import bgImage from '../../images/bg/rebel.png'
-import hLinks from '../../views/headerLinks'
+import links from '../../views/headerLinks'
 /* import styles2 from './layout.module.css' */
 
 const styles = theme => ({
@@ -56,7 +56,6 @@ const styles = theme => ({
         display: 'inline',
         '& a': {
             padding: '0 0.5rem',
-            display: 'inline-block',
         }
     },
     searchArea: {
@@ -102,6 +101,12 @@ SecondaryDrawer.propTypes = {
     className: PropTypes.string,
 }
 
+const BreakingLink = ({ link })=>{
+    const Cont = <><Link key={link.url} to={link.url}>{link.icon} {link.text}</Link>{' '}</>
+    const Final = link.break ? <Hidden only={link.break}>{Cont}</Hidden> : Cont
+    return Final
+}
+
 /**
  * General 1-column layout with side drawers
  * Header HBar area also includes 3 sections for leading hamburger nav, core links /logo / search, and profile / chat
@@ -136,9 +141,9 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
                     <Link to="/">
                         <LogoArea shrinkable title="NinjaWars" />
                     </Link>{' '}
-                    <span className={classes.linklist}>
-                        {hLinks.map((hLink)=>(
-                            <><Link key={hLink.url} to={hLink.url}>{hLink.icon} {hLink.text}</Link>{' '}</>
+                    <span className={classes.linkList}>
+                        {links.map((link)=>(
+                            <BreakingLink link={link} />
                         ))}
                     </span>
                     <span className={classes.searchArea}>
