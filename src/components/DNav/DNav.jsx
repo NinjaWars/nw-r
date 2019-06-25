@@ -16,7 +16,7 @@ const DNav = ({className, links}) => {
             <LogoArea title='NinjaWars' />
             <Divider />
             {links.map((link, index)=>(
-                <div key={index}>
+                <div key={index} className={styles.row}>
                     <Link to={link.url}>{link.icon} {link.text}</Link>
                 </div>
             ))}

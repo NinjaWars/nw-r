@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 import { Drawer, Avatar, Button } from '@material-ui/core'
-import { faBars, faComments, faAt, faInfo } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faComments, faAt, faInfo, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 import Fbar from '../Fbar/Fbar'
@@ -12,6 +12,7 @@ import Hbar, { LeadingArea, CoreArea, FollowingArea } from '../Hbar/Hbar'
 import { SearchCompact } from '../Search/Search'
 import LogoArea from '../LogoArea'
 import bgImage from '../../images/bg/rebel.png'
+import hLinks from '../../views/headerLinks'
 /* import styles2 from './layout.module.css' */
 
 const styles = theme => ({
@@ -63,9 +64,9 @@ const styles = theme => ({
     }
 })
 
-const PrimaryDrawer = ({ open, toggle, children, className })=>{
+const PrimaryDrawer = ({ open, toggle, children, className, ...rest })=>{
     return (
-        <Drawer anchor="left" open={open}>
+        <Drawer anchor="left" open={open} {...rest}>
             <div className={className}>
                 {children}
             </div>
@@ -80,9 +81,13 @@ PrimaryDrawer.propTypes = {
     className: PropTypes.string,
 }
 
-const SecondaryDrawer = ({ open, toggle, children, className })=>{
+/**
+ * The Secondary drawer is open until force closed by Xing out
+ */
+const SecondaryDrawer = ({ open, toggle, children, className, onClose, ...rest })=>{
     return (
-        <Drawer anchor="right" open={open}>
+        <Drawer anchor="right" className='secondary-drawer' open={open} {...rest}>
+            <Button onClick={onClose}><Icon icon={faTimes}/></Button>
             <aside className={className}>
                 {children}
             </aside>
@@ -91,6 +96,7 @@ const SecondaryDrawer = ({ open, toggle, children, className })=>{
 }
 SecondaryDrawer.propTypes = {
     open: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
     toggle: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
@@ -109,6 +115,15 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
     const initial = (word)=>{
         return word ? word.charAt(0).toUpperCase() : ''
     }
+    const toggleNav = (openN) => event => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')){
+            return;
+        }
+        setNavOpen(!openN)
+    }
+    const closeAside = () => event => {
+        setAsideOpen(false)
+    }
     return (
         <div className={cx(className, classes.out)}>
             <Hbar className={classes.header}>
@@ -122,8 +137,9 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
                         <LogoArea shrinkable title="NinjaWars" />
                     </Link>{' '}
                     <span className={classes.linklist}>
-                        <Link to="/contact"><Icon icon={faAt}/></Link>{' '}
-                        <Link to="/about"><Icon icon={faInfo}/></Link>
+                        {hLinks.map((hLink)=>(
+                            <><Link key={hLink.url} to={hLink.url}>{hLink.icon} {hLink.text}</Link>{' '}</>
+                        ))}
                     </span>
                     <span className={classes.searchArea}>
                         <SearchCompact label='Search'/>
@@ -143,13 +159,13 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
                 </FollowingArea>
             </Hbar>
             <div className={classes.horizon}>
-                <PrimaryDrawer open={open || navOpen} className={classes.superNav}>
+                <PrimaryDrawer open={open || navOpen} onClick={toggleNav(navOpen)} onKeyDown={toggleNav(navOpen)} className={classes.superNav}>
                     {navContent}
                 </PrimaryDrawer>
                 <main className={classes.core}>
                     {children}
                 </main>
-                <SecondaryDrawer open={open || asideOpen} className={classes.superAside}>
+                <SecondaryDrawer open={open || asideOpen} onClose={(e)=>{ closeAside() }} className={classes.superAside}>
                     {asideContent}
                 </SecondaryDrawer>
             </div>

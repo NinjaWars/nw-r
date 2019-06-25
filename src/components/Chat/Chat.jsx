@@ -43,7 +43,7 @@ class Chat extends Component{
         const sendArea = untrustedChatSender ? (
             <div className={styles['send-area']}>
                 <form onSubmit={this.handleSubmission} {...restFormProps}>
-                    <TextField required ref={this.messageRef} name="chat-message" className={styles['message-field']} label='Message' />
+                    <TextField required ref={this.messageRef} name="chat-message" className={styles['message-field']} label='Chat Message' />
                     <input type='hidden' name="untrusted-chat-sender" value={untrustedChatSender}/>
                     <Button type='submit' className={styles.send}>Send</Button>
                 </form>

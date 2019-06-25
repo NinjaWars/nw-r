@@ -50,7 +50,7 @@ storiesOf('Layout', module)
                         <Typography variant='h3' color='secondary'>
                             Chat
                         </Typography>
-                        <Chat chats={mockChats} />
+                        <Chat chats={mockChats} untrustedChatSender={mockProfile.userId}/>
                     </>
                 )}
                 navContent={<DNav links={links} />}

@@ -1,7 +1,9 @@
-.counter{
-    white-space: nowrap;
+.nav{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
-.counter button{
-    margin-left: 1rem;
+.row{
+    margin-top: 1rem;
+    padding-left: 1rem;
 }

@@ -2,9 +2,9 @@ import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import Home from '@material-ui/icons/Home'
-import Email from '@material-ui/icons/Email'
-import Facebook from '@material-ui/icons/ThumbUpAlt'
+import { Link } from 'react-router-dom'
+
+import fLinks from '../../views/footerLinks'
 import styles from './fbar.module.css'
 
 /*
@@ -23,25 +23,6 @@ const styles = () => ({
 })
 */
 
-// List of links with urls and content
-const fLinks = [
-    {
-        url: '/#contact',
-        desc: 'Contact Us',
-        icon: <Email />
-    },
-    {
-        url: '/',
-        desc: 'Home',
-        icon: <Home />
-    },
-    {
-        url: 'https://facebook.com/ninjawars.net',
-        desc: 'Forum',
-        icon: <Facebook />
-    },
-]
-
 /**
  * A sticky footer that can expand upwards
  * @param {*} props
@@ -51,7 +32,7 @@ const Fbar = (props) => {
     return (
         <footer className={cx(className, styles.fbar)} {...rest}>
             <div className={styles.linkList}>
-                {fLinks.map(link => <a href={link.url} key={link.url}>{link.icon} {link.desc}</a>)}
+                {fLinks.map(link => <a href={link.url} key={link.url}>{link.icon} {link.text}</a>)}
             </div>
             <div className={styles.expandible} style={{textAlign: 'center'}}>
                 Brought to you by

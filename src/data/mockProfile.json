@@ -2,6 +2,6 @@
 	"avatarUrl": "./images/avatar/sample_gravatar.png",
 	"username": "test_user",
 	"name": "John Doe",
-	"userId": "888888",
+	"userId": 888888,
 	"token": "23m342m34m234m234m23m23m23m23m23m23m23m.2m23m23m2m3m23m23m23m23m23m.2m23m23m23m23m"
 }

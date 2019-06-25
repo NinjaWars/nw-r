@@ -11,6 +11,7 @@ import styles from '../../stories/story.module.css'
 import ChatMessage from './ChatMessage'
 import Chat from './Chat'
 import mockChats from '../../data/mockChats.json'
+import mockProfile from '../../data/mockProfile.json'
 
 addDecorator((storyFn) => <CssBaseline>{storyFn()}</CssBaseline>)
 
@@ -70,7 +71,6 @@ const ChatDataAdder = ({ chats: chatsIn, ...rest }) => {
 storiesOf('Chat', module)
     .add('with starting chats', () => {
         const chats = [...mockChats]
-        const untrustedChatSender = 9876543 // Requested numeric id of logged in user
         // Display the result of the chat request in the actions area
         const handleChatRequest = data => {
             action(`a chat send was requested`, data)()
@@ -82,7 +82,7 @@ storiesOf('Chat', module)
                 <Chat
                     chats={chats}
                     handleChatRequest={handleChatRequest}
-                    untrustedChatSender={untrustedChatSender}
+                    untrustedChatSender={mockProfile.userId}
                     formProps={{
                         action: '#',
                         type: 'POST',
