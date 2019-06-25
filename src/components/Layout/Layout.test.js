@@ -51,7 +51,7 @@ describe('Layout', () => {
                 <Layout open={true}>Extra children content</Layout>
             </Router>
         )
-        expect(wrapper.find('header').text()).toContain('Search')
+        expect(wrapper.find('header').text()).toContain('shuriken')
         //expect(wrapper.find('header').text()).toContain('NinjaWars') // Hidden by default for mobile
     })
 })
