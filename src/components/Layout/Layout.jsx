@@ -57,12 +57,15 @@ const styles = theme => ({
             padding: '0 0.5rem',
             display: 'inline-block',
         }
+    },
+    searchArea: {
+        paddingLeft: '1rem'
     }
 })
 
 const PrimaryDrawer = ({ open, toggle, children, className })=>{
     return (
-        <Drawer anchor="left" >
+        <Drawer anchor="left" open={open}>
             <div className={className}>
                 {children}
             </div>
@@ -86,7 +89,7 @@ const SecondaryDrawer = ({ open, toggle, children, className })=>{
         </Drawer>
     )
 }
-PrimaryDrawer.propTypes = {
+SecondaryDrawer.propTypes = {
     open: PropTypes.bool.isRequired,
     toggle: PropTypes.bool,
     children: PropTypes.node,
@@ -121,6 +124,8 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
                     <span className={classes.linklist}>
                         <Link to="/contact"><Icon icon={faAt}/></Link>{' '}
                         <Link to="/about"><Icon icon={faInfo}/></Link>
+                    </span>
+                    <span className={classes.searchArea}>
                         <SearchCompact label='Search'/>
                     </span>
                 </CoreArea>
@@ -144,7 +149,7 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
                 <main className={classes.core}>
                     {children}
                 </main>
-                <SecondaryDrawer open={asideOpen || open} className={classes.superAside}>
+                <SecondaryDrawer open={open || asideOpen} className={classes.superAside}>
                     {asideContent}
                 </SecondaryDrawer>
             </div>

@@ -16,15 +16,28 @@ describe('Layout', () => {
         ReactDOM.unmountComponentAtNode(div)
     })
 
-    it('contains a nav and aside', () => {
+    it('contains a header', () => {
         const wrapper = mount(
             <Router>
                 <Layout open={true}>Inside content</Layout>
             </Router>
         )
         expect(wrapper.exists('header')).toEqual(true)
-        expect(wrapper.exists('nav')).toEqual(true)
+    })
+
+    it('contains a nav and aside', () => {
+        const wrapper = mount(
+            <Router>
+                <Layout open={true} 
+                    navContent={(
+                        <nav>Some nav links because nav is not provided by default, though aside is</nav>
+                    )}>
+                    Inside content
+                </Layout>
+            </Router>
+        )
         expect(wrapper.exists('aside')).toEqual(true)
+        expect(wrapper.exists('nav')).toEqual(true)
     })
 
     it('contains a header', () => {

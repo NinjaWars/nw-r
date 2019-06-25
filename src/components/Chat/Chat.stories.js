@@ -29,7 +29,7 @@ storiesOf('ChatMessage', module).add('with a few chats', () => {
 // Utility to add lots of chats
 const addLotsOfChats = chatsL => {
     const chatT = chatsL[chatsL.length - 1] // Template
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++){
         const fakeId = chatsL[chatsL.length - 1].id + i
         chatsL.push({
             ...chatT,
@@ -70,6 +70,29 @@ const ChatDataAdder = ({ chats: chatsIn, ...rest }) => {
 storiesOf('Chat', module)
     .add('with starting chats', () => {
         const chats = [...mockChats]
+        const untrustedChatSender = 9876543 // Requested numeric id of logged in user
+        // Display the result of the chat request in the actions area
+        const handleChatRequest = data => {
+            action(`a chat send was requested`, data)()
+            action(`Chat data requested was: ${JSON.stringify(data)}`)()
+            return true
+        }
+        return (
+            <>
+                <Chat
+                    chats={chats}
+                    handleChatRequest={handleChatRequest}
+                    untrustedChatSender={untrustedChatSender}
+                    formProps={{
+                        action: '#',
+                        type: 'POST',
+                    }}
+                />
+            </>
+        )
+    })
+    .add('with null data', () => {
+        const chats = null
         const untrustedChatSender = 9876543 // Requested numeric id of logged in user
         // Display the result of the chat request in the actions area
         const handleChatRequest = data => {

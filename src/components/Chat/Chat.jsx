@@ -38,6 +38,7 @@ class Chat extends Component{
         // eslint-disable-next-line no-unused-vars
         const { className, chats, formProps, untrustedChatSender, handleChatRequest, ...rest } = this.props
         // eslint-disable-next-line no-unused-vars
+        // TODO: Skeleton this with react skeleton solution once build is valid
         const { onSubmit, ...restFormProps } = formProps || {}
         const sendArea = untrustedChatSender ? (
             <div className={styles['send-area']}>
@@ -51,7 +52,7 @@ class Chat extends Component{
         return (
             <div className={cx(className, styles.chat)} {...rest}>
                 {sendArea}
-                {chats.map((chat)=>(
+                {chats && chats.map((chat)=>(
                     <ChatMessage className={styles['chat-message']} key={chat.id} by={chat.by} datetime={chat.datetime}>{chat.message}</ChatMessage>
                 ))}
             </div>
@@ -63,7 +64,7 @@ Chat.propTypes = {
     classes: PropTypes.shape({}),
     className: PropTypes.string,
     untrustedChatSender: PropTypes.number,
-    chats: PropTypes.array.isRequired,
+    chats: PropTypes.array,
     formProps: PropTypes.object,
     handleChatRequest: PropTypes.func, // Callback to handle a chat send request
 }

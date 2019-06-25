@@ -41,7 +41,7 @@ const SearchCompact = ({ className, ...rest }) => {
     return (
         <span className={cx(styles['search-compact'], className)}>
             <span className={styles['search-field-area']}>
-                <Search className={cx({visible: expanded})} {...rest} />
+                <Search className={cx({visible: expanded, invisible: !expanded})} {...rest} />
             </span>
             <span className={styles['search-button-area']}>
                 <Button onClick={onClick} type='button'>

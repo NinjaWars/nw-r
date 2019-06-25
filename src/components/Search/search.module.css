@@ -1,5 +1,11 @@
 .search{
 }
+.search.visible{
+    visibility:visible;
+}
+.search.invisible{
+    visibility: hidden;
+}
 
 .search-compact{
     transition: transform 500ms ease-in-out;
