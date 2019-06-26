@@ -40,28 +40,28 @@ const links = [
         hiddenOnly: ['xs', 'sm'],
     },
     {
-        icon: <Icon icon={faUsers} />,
-        url: '/clan',
-        text: 'Clans',
-        hiddenOnly: ['xs', 'sm'],
-    },
-    {
         icon: '⛩',
         url: '/shrine',
         text: 'Shrine',
         hiddenOnly: ['xs', 'sm', 'md'],
     },
     {
+        icon: <Icon icon={faUsers} />,
+        url: '/clan',
+        text: 'Clans',
+        hiddenOnly: ['xs', 'sm', 'md', 'lg'],
+    },
+    {
         icon: '石',
         url: '/shop',
         text: 'Shop',
-        hiddenOnly: ['xs', 'sm', 'md'],
+        hiddenOnly: ['xs', 'sm', 'md', 'lg'],
     },
     {
         icon: <Icon icon={faPagelines} />,
         url: '/work',
         text: 'Fields',
-        hiddenOnly: ['xs', 'sm', 'md'],
+        hiddenOnly: ['xs', 'sm', 'md', 'lg'],
     },
     {
         icon: <Icon icon={faClock} />,

@@ -2,7 +2,7 @@
     background-color: rgb(34, 34, 34);
     color: rgb(157, 157, 157);
     display:grid;
-    grid-template-columns: 17% 40% 40%;
+    grid-template-columns: 17% 60% 20%;
     grid-gap: 1.5%;
 }
 

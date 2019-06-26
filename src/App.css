@@ -1,17 +1,8 @@
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 1rem;
+a, a:visited, a:active{
+  color:#008080;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pop{
+  box-shadow: 0.1rem 0.1rem 0.3rem 0.4rem #ccc;
+  background-color: rgb(207, 143, 255);
 }

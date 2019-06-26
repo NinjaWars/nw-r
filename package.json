@@ -13,10 +13,14 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@material-ui/core": "^3.5.1",
     "core-js": "3",
+    "lodash": "^4.17.11",
     "nw-shuriken": "^0.5.1",
     "prop-types": "^15.7.2",
+    "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.0",
-    "react-timeago": "^4.4.0"
+    "react-timeago": "^4.4.0",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

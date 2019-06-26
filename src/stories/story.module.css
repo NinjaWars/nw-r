@@ -23,15 +23,8 @@ a, a:visited, a:active{
 
 /* HBar */
 .header{
-    min-height: 2rem;
 }
-.light-logo{
-    color: white;
-}
-.header .App-logo{
-    height: 1.5rem;
-    width: 1.5rem;
-}
+
 .colorful1{
     background-color: rgb(56, 159, 207);
 }
