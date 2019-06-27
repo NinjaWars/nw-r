@@ -29,7 +29,6 @@ const Home = (props) => {
         profile: mockProfile,
         chats: mockChats,
     }
-    console.log(store)
     const { profile, chats } = store
     profile.avatarUrl = avatarUrl
     return (
