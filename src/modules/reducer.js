@@ -8,8 +8,8 @@ const defaultState = {
 }
 
 const itemReducer = (state = defaultState, action) => {
-    switch (action.type){
-        case ACTIONS.Types.CREATE_ITEM:{
+    switch (action.type) {
+        case ACTIONS.Types.CREATE_ITEM: {
             console.log(action)
             const item = action.payload
             const newItem = { id: state.items.length + 1, description: item }
@@ -18,7 +18,7 @@ const itemReducer = (state = defaultState, action) => {
             return newState
         }
 
-        case ACTIONS.Types.DELETE_ITEM:{
+        case ACTIONS.Types.DELETE_ITEM: {
             const newState = cloneDeep(state)
             const index = findIndex(newState.items, { id: action.payload })
             newState.items.splice(index, 1)

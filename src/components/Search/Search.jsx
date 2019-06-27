@@ -16,7 +16,7 @@ import styles from './search.module.css'
  */
 const Search = ({ classes, className, ...rest }) => {
     return (
-        <TextField className={cx(className, styles.search)} {...rest} />
+        <TextField margin="dense" className={cx(className, styles.search)} {...rest} />
     )
 }
 
