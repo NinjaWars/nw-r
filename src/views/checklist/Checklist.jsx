@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
 import {
     List,
     ListItem,
@@ -17,6 +18,7 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { connect } from 'react-redux'
 
 import { default as Layout } from '../../components/Layout/Layout'
+import { default as Tile } from '../../components/Tile/Tile'
 import ACTIONS from '../../modules/action'
 
 
@@ -41,7 +43,7 @@ class Checklist extends Component{
         items: []
     }
     generate = () => {
-        return this.state.items.map(item => (
+        return this.props.items.map(item => (
             <ListItem key={item.id}>
                 <ListItemText primary={item.description} />
                 <ListItemSecondaryAction>
@@ -98,7 +100,7 @@ class Checklist extends Component{
                             />
                         </FormControl>
                         <FormControl>
-                            <Button type='button'>Add</Button>
+                            <Button type='submit'>Add</Button>
                         </FormControl>
                     </form>
                 </div>
@@ -112,17 +114,12 @@ class Checklist extends Component{
             </div>
         )
     }
-
 }
 
-const ChecklistView = ({ classes }) => (
-  <>
-    <Layout>
-        <Typography variant="h1" color="primary">Checklist</Typography>
-        <Checklist classes={classes}/>
-    </Layout>
-  </>
-)
+Checklist.propTypes = {
+    createItem: PropTypes.func,
+    deleteItem: PropTypes.func,
+}
 
 const mapStateToProps = state => ({
     items: state.items
@@ -133,7 +130,20 @@ const mapDispatchToProps = dispatch => ({
     deleteItem: id => dispatch(ACTIONS.deleteItem(id))
 })
 
-export default connect(
+const DChecklist = connect(
     mapStateToProps,
     mapDispatchToProps
-)(withStyles(styles)(ChecklistView))
+)(Checklist)
+
+const ChecklistView = ({ classes }) => (
+  <>
+    <Layout>
+        <Typography variant="h1" color="primary">Checklist</Typography>
+        <Tile theme='light'>
+            <DChecklist classes={classes}/>
+        </Tile>
+    </Layout>
+  </>
+)
+
+export default withStyles(styles)(ChecklistView)
