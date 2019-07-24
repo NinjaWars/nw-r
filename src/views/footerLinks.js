@@ -2,9 +2,11 @@ import React from 'react'
 import {
     faHome,
     faAt,
+    faTasks,
     faInfo,
     faThumbsUp,
     faNewspaper,
+    faEdit,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
@@ -25,14 +27,24 @@ const links = [
         text: 'Contact',
     },
     {
-        icon: <Icon icon={faThumbsUp} />,
-        url: 'https://facebook.com/ninjawars.net',
-        text: 'Forum',
+        icon: <Icon icon={faTasks} />,
+        url: '/rules',
+        text: 'Rules',
     },
     {
         icon: <Icon icon={faNewspaper} />,
         url: '/news',
         text: 'News',
+    },
+    {
+        icon: <Icon icon={faEdit} />,
+        url: 'https://http://ninjawars.pbworks.com',
+        text: 'Wiki',
+    },
+    {
+        icon: <Icon icon={faThumbsUp} />,
+        url: 'https://facebook.com/ninjawars.net',
+        text: 'Forum',
     },
 ]
 

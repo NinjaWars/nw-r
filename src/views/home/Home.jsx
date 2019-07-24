@@ -11,6 +11,7 @@ import mockChats from '../../data/mockChats.json'
 import mockProfile from '../../data/mockProfile.json'
 import loremIpsum from '../../data/loremIpsum'
 import links from '../../views/fullLinks'
+import avatarUrl from '../../images/avatar/sample_gravatar.png'
 
 // eslint-disable-next-line no-unused-vars
 const styles = theme => ({
@@ -26,15 +27,25 @@ const Home = (props) => {
     const { classes } = props
     const store = {
         profile: mockProfile,
-        avatarImage: './images/avatar/example_avatar.png',
         chats: mockChats,
     }
     const { profile, chats } = store
+    profile.avatarUrl = avatarUrl
     return (
         <Layout
-            avatarImage={profile.avatarImage}
+            profile={profile}
             navContent={(<DNav links={links}/>)}
-            asideContent={<Chat chats={chats}/>}
+            asideContent={
+                <>
+                    <Typography variant="h3" color="secondary">
+                        Chat
+                    </Typography>
+                    <Chat
+                        chats={chats}
+                        untrustedChatSender={profile.userId}
+                    />
+                </>
+            }
         >
             <Tile theme='light'>
                 <article className={classes.skySpace}>
