@@ -33,7 +33,7 @@ const styles = theme => ({
     horizon: {
         height: '90%',
         display: 'grid',
-        gridGap: `${theme.spacing.unit * 3}px`,
+        gridGap: `${theme.spacing(3)}px`,
         gridTemplateColumns: 'repeact(12, 1fr)',
     },
     superNav: {
