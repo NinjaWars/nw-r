@@ -27,6 +27,9 @@ import Hbar, {
 } from '../components/Hbar/Hbar'
 import Search, { SearchCompact } from '../components/Search/Search'
 import LogoArea from '../components/LogoArea'
+import VidOver from '../components/VidOver/VidOver'
+import testVideo from '../assets/videos/movie.mp4'
+import image from '../images/avatar/sample_gravatar.png'
 import loremIpsum from '../data/loremIpsum'
 import mockProfile from '../data/mockProfile'
 import avatarImage from '../images/avatar/sample_gravatar.png'
@@ -381,6 +384,16 @@ storiesOf('Typography', module)
                 non-component text
             </span>
         </Tile>
+    ))
+
+const sourcePairs = [{'source':testVideo, 'type':'video/mp4'}]
+storiesOf('VidOver', module)
+    .add('with poster', () => (
+        <div>
+            <VidOver style={{height: '20rem', width: '100vw'}} poster={image} sourcePairs={sourcePairs}>
+                top context placeholder text
+            </VidOver>
+        </div>
     ))
 
 /*

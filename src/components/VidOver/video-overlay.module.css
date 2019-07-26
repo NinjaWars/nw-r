@@ -1,0 +1,16 @@
+.banner {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .banner-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    min-width: 100%;
+    height: auto;
+    min-height: 100%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+  }
