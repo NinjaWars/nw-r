@@ -12,18 +12,25 @@ addDecorator(storyFn => <CssBaseline>{storyFn()}</CssBaseline>)
 storiesOf('Reframe', module)
     .add('with remote intro page', () => (
         <>
-            <Reframe src='http://www.ninjawars.net/intro' title='The Intro page area' />
+            <Reframe
+                src="http://www.ninjawars.net/intro"
+                title="The Intro page area"
+            />
         </>
     ))
     .add('with remote fight page', () => (
         <>
-            <Reframe src='http://www.ninjawars.net/enemies' title='The enemies page' />
+            <Reframe
+                src="http://www.ninjawars.net/enemies"
+                title="The enemies page"
+            />
         </>
     ))
     .add('with remote ninja list page', () => (
         <>
-            <Reframe src='http://www.ninjawars.net/list' title='The ninjas list' />
+            <Reframe
+                src="http://www.ninjawars.net/list"
+                title="The ninjas list"
+            />
         </>
     ))
-
-
