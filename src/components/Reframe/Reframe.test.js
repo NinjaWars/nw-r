@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { default as Tile } from './Tile'
+import { default as Reframe } from './Reframe'
+import config from '../../config.js'
 
-describe('<Tile />', () => {
-    it('renders a site tile area', () => {
+describe('<Reframe />', () => {
+    it('renders an iframe of a url', () => {
         const div = document.createElement('div')
-        ReactDOM.render(<Tile>No content</Tile>, div)
+        ReactDOM.render(<Reframe title='Fight' src={config.remote + 'fight'} />, div)
         ReactDOM.unmountComponentAtNode(div)
     })
 })
