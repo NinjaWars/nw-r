@@ -21,7 +21,7 @@ const itemReducer = (state = defaultState, action) => {
         case ACTIONS.Types.DELETE_ITEM: {
             const newState = cloneDeep(state)
             const index = findIndex(newState.items, { id: action.payload })
-            if (index !== -1){
+            if (index !== -1) {
                 newState.items.splice(index, 1)
             }
             return newState

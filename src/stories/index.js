@@ -386,15 +386,18 @@ storiesOf('Typography', module)
         </Tile>
     ))
 
-const sourcePairs = [{'source':testVideo, 'type':'video/mp4'}]
-storiesOf('VidOver', module)
-    .add('with poster', () => (
-        <div>
-            <VidOver style={{height: '20rem', width: '100vw'}} poster={image} sourcePairs={sourcePairs}>
-                top context placeholder text
-            </VidOver>
-        </div>
-    ))
+const sourcePairs = [{ source: testVideo, type: 'video/mp4' }]
+storiesOf('VidOver', module).add('with poster', () => (
+    <div>
+        <VidOver
+            style={{ height: '20rem', width: '100vw' }}
+            poster={image}
+            sourcePairs={sourcePairs}
+        >
+            top context placeholder text
+        </VidOver>
+    </div>
+))
 
 /*
 .storiesOf('Shuriken', module)
