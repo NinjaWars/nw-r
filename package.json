@@ -48,6 +48,7 @@
     "test": "react-scripts test",
     "unit-test": "CI=true react-scripts test --env=jsdom",
     "deploy": "./scripts/deploy.sh",
+    "invalidate": "aws cloudfront create-invalidation --distribution-id EFDQV1KCK7HPL --paths \"/*\"",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "npx eslint src/**/*.js src/**/*.jsx",
