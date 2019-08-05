@@ -30,13 +30,13 @@ const links = [
     },
     {
         icon: null,
-        url: '/skill',
+        url: '/skills',
         text: 'Skills',
     },
     {
         icon: <Icon icon={faUsers} />,
         url: '/clan',
-        text: 'Clans',
+        text: 'Clan',
     },
     {
         icon: '⛩',
@@ -50,7 +50,7 @@ const links = [
     },
     {
         icon: <Icon icon={faPagelines} />,
-        url: '/work',
+        url: '/field',
         text: 'Fields',
     },
     {

@@ -38,12 +38,12 @@ const links = [
     },
     {
         icon: <Icon icon={faEdit} />,
-        url: 'https://http://ninjawars.pbworks.com',
+        url: 'http://ninjawars.pbworks.com',
         text: 'Wiki',
     },
     {
         icon: <Icon icon={faThumbsUp} />,
-        url: 'https://facebook.com/ninjawars.net',
+        url: 'https://www.facebook.com/ninjawars.net',
         text: 'Forum',
     },
 ]

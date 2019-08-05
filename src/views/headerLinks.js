@@ -35,7 +35,7 @@ const links = [
     },
     {
         icon: null,
-        url: '/skill',
+        url: '/skills',
         text: 'Skills',
         hiddenOnly: ['xs', 'sm'],
     },

@@ -20,5 +20,3 @@ storiesOf('Tile', module)
     ))
     .add('with dark theme', () => <Tile theme="dark">Dark themed</Tile>)
     .add('with light theme', () => <Tile theme="light">Light themed</Tile>)
-
-
