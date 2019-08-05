@@ -40,7 +40,7 @@ const Skills = () => {
                     />
                 </>
         }>
-        <Reframe title='Skills' src={url} /> 
+        <Reframe title='Skills' src={url} />
     </Layout>
   </>
     )}

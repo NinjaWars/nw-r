@@ -36,7 +36,8 @@ const Intro = () => {
                     />
                 </>
         }>
-        <Typography variant="h1">The Ninja Game at Ninjawars.net<Typography variant='subtitle'>Live by the Shuriken!</Typography></Typography>
+        <Typography variant="h1">The Ninja Game at Ninjawars.net</Typography>
+        <Typography variant='subtitle1' color='secondary'>Live by the Shuriken!</Typography>
         <p>
             The game is mainly one of fighting against other ninja.  Once you are a ninja, you can start by:
             <ul>
@@ -58,7 +59,6 @@ const Intro = () => {
             You can buy items to help your attack at the shop, but you'll need to work in the fields to get gold to afford anything.
             Once you get enough kills, you can level up at the dojo.
         </p>
-        <Typography variant="h2">Topics</Typography>
         
     </Layout>
   </>
