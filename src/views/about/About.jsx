@@ -39,21 +39,21 @@ const About = () => {
         <Typography variant="h1">About NinjaWars</Typography>
         <p>
             The game is mainly one of fighting against other ninja.  Once you are a ninja, you can start by:
-            <ul>
-                <li>
-                    Attacking townsfolk like the thief, villager, or merchant.
-                </li>
-                <li>
-                    Kill other ninja!  Fight &gt;&gt; Pick ninja nearby, or click the ninjas page.
-                </li>
-                <li>
-                    Use your skills or items to make more effective attacks.
-                </li>
-                <li>
-                    If you die, just drag your ghost to the shrine and the monks will bring you back (click the resurrect link)
-                </li>
-            </ul>
         </p>
+        <ul>
+            <li>
+                Attacking townsfolk like the thief, villager, or merchant.
+            </li>
+            <li>
+                Kill other ninja!  Fight &gt;&gt; Pick ninja nearby, or click the ninjas page.
+            </li>
+            <li>
+                Use your skills or items to make more effective attacks.
+            </li>
+            <li>
+                If you die, just drag your ghost to the shrine and the monks will bring you back (click the resurrect link)
+            </li>
+        </ul>
         <p>
             You can buy items to help your attack at the shop, but you'll need to work in the fields to get gold to afford anything.
             Once you get enough kills, you can level up at the dojo.
