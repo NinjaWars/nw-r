@@ -52,7 +52,7 @@
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "npx eslint src/**/*.js src/**/*.jsx",
-    "prepush": "CI=true && yarn unit-test && yarn lint",
+    "prepushcheck": "CI=true && yarn unit-test && yarn lint",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "browse": "xdg-open http://localhost:5555",
@@ -70,7 +70,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "yarn lint",
-      "pre-push": "yarn prepush"
+      "pre-push": "yarn prepushcheck"
     }
   },
   "browserslist": [
