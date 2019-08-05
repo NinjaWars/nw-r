@@ -5,9 +5,12 @@ import {
     faInfo,
     faAt,
     faMap,
+    faBox,
     faUsers,
     faClock,
     faEnvelope,
+    faArrowRight,
+    faFistRaised,
 } from '@fortawesome/free-solid-svg-icons'
 import { faPagelines } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
@@ -24,12 +27,12 @@ const links = [
         text: 'Map',
     },
     {
-        icon: null,
+        icon: <Icon icon={faBox} />,
         url: '/inventory',
         text: 'Items',
     },
     {
-        icon: null,
+        icon: <Icon icon={faFistRaised} />,
         url: '/skills',
         text: 'Skills',
     },
@@ -72,6 +75,11 @@ const links = [
         icon: <Icon icon={faInfo} />,
         url: '/about',
         text: 'About',
+    },
+    {
+        icon: <Icon icon={faArrowRight} />,
+        url: '/intro',
+        text: 'Intro',
     },
     {
         icon: <Icon icon={faAt} />,

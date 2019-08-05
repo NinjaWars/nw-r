@@ -9,6 +9,7 @@ import { default as Contact } from './views/contact/Contact'
 import { default as About } from './views/about/About'
 import { default as Checklist } from './views/checklist/Checklist'
 import { default as Intro } from './views/intro/Intro'
+import { default as Rules } from './views/rules/Rules'
 import { default as Fight } from './views/fight/Fight'
 import { default as List } from './views/list/List'
 import { default as MapView } from './views/map/Map'
@@ -39,6 +40,7 @@ class App extends Component {
                             <Route path="/about/" component={About} />
                             <Route path="/checklist/" component={Checklist} />
                             <Route path="/intro/" component={Intro} />
+                            <Route path="/rules/" component={Rules} />
                             <Route path="/fight/" component={Fight} />
                             <Route path="/ninjas/" component={List} />
                             <Route path="/map/" component={MapView} />
