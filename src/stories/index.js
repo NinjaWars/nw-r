@@ -199,17 +199,6 @@ storiesOf('Fbar footer bar', module)
         </BrowserRouter>
     ))
 
-storiesOf('Tile', module)
-    .add('with alternating themes', () => (
-        <>
-            <Tile theme="light">Light themed</Tile>
-            <Tile theme="dark">Dark themed</Tile>
-            <Tile theme="light">Light themed</Tile>
-        </>
-    ))
-    .add('with dark theme', () => <Tile theme="dark">Dark themed</Tile>)
-    .add('with light theme', () => <Tile theme="light">Light themed</Tile>)
-
 storiesOf('Hbar', module)
     .add('with no content', () => (
         <Hbar className={lStyles.header}>Header Bar</Hbar>

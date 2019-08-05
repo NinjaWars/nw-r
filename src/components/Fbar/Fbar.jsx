@@ -16,7 +16,17 @@ const Fbar = (props) => {
     return (
         <footer className={cx(className, styles.fbar)} {...rest}>
             <div className={styles['link-list']}>
-                {fLinks.map(link => <Link to={link.url} key={link.url}>{link.icon} {link.text}</Link>)}
+                {fLinks.map(link => {
+                    if (link.url && link.url.startsWith('http')){
+                        return (
+                            <a href={link.url} key={link.url}>{link.icon} {link.text}</a>
+                        )
+                    } else {
+                        return (
+                            <Link to={link.url} key={link.url}>{link.icon} {link.text}</Link>
+                        )
+                    }
+                })}
             </div>
             <div className={styles.expandible} style={{textAlign: 'center'}}>
                 Brought to you by
