@@ -162,7 +162,10 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
 }
 
 Layout.propTypes = {
-    profile: PropTypes.shape({}),
+    profile: PropTypes.shape({
+        avatarUrl: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+    }),
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
