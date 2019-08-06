@@ -4,12 +4,19 @@ import { mount } from 'enzyme'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Layout from './Layout'
 
+const profile = {
+    avatarUrl: '',
+    name: 'Jim Z.',
+}
+
 describe('Layout', () => {
     it('renders a three column layout', () => {
         const div = document.createElement('div')
         ReactDOM.render(
             <Router>
-                <Layout open={true}>Interior content</Layout>
+                <Layout profile={profile} open={true}>
+                    Interior content
+                </Layout>
             </Router>,
             div
         )
@@ -19,7 +26,9 @@ describe('Layout', () => {
     it('contains a header', () => {
         const wrapper = mount(
             <Router>
-                <Layout open={true}>Inside content</Layout>
+                <Layout profile={profile} open={true}>
+                    Inside content
+                </Layout>
             </Router>
         )
         expect(wrapper.exists('header')).toEqual(true)
@@ -29,6 +38,7 @@ describe('Layout', () => {
         const wrapper = mount(
             <Router>
                 <Layout
+                    profile={profile}
                     open={true}
                     navContent={
                         <nav>
@@ -48,7 +58,9 @@ describe('Layout', () => {
     it('contains a header', () => {
         const wrapper = mount(
             <Router>
-                <Layout open={true}>Extra children content</Layout>
+                <Layout profile={profile} open={true}>
+                    Extra children content
+                </Layout>
             </Router>
         )
         expect(wrapper.find('header').text()).toContain('shuriken')
