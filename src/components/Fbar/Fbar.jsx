@@ -5,7 +5,9 @@ import cx from 'classnames'
 import { Link } from 'react-router-dom'
 
 import fLinks from '../../views/footerLinks'
+import Tile from '../../components/Tile/Tile'
 import styles from './fbar.module.css'
+import { version } from '../../../package.json'
 
 /**
  * A sticky footer that can expand downwards
@@ -28,11 +30,14 @@ const Fbar = (props) => {
                     }
                 })}
             </div>
-            <div className={styles.expandible} style={{textAlign: 'center'}}>
+            <Tile theme='dark' className={styles.expandable}>
                 Brought to you by
                 {' '}
-                <a href="https://bitlucid.com">BitDog, Inc</a>
-            </div>
+                <a href="https://bitlucid.com">BitDog Agency</a> &amp; <a href='https://royronalds.com'>Roy Ronalds</a>
+            </Tile>
+            <Tile theme='light' className={styles.expandable}>
+                NW Version {version}
+            </Tile>
         </footer>
     )
 }

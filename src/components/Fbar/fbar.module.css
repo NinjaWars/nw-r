@@ -3,9 +3,10 @@
     text-align: center;
     padding: 1rem 0 1rem;
 }
-.expandible{
+.expandable{
     padding: 1rem;
     background-color: rgba(43, 38, 38, 0.5);
+    text-align: center;
 }
 .link-list{
     display: flex;
