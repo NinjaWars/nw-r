@@ -4,7 +4,7 @@
   "private": true,
   "peerDependencies": {
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.9.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
@@ -37,7 +37,7 @@
     "husky": "^3.0.2",
     "prettier": "^1.18.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.9.0",
     "react-scripts": "^3.0.1",
     "react-test-renderer": "^16.8.6",
     "storybook": "^1.0.0"
