@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "private": true,
   "peerDependencies": {
-    "react": "^16.8.6",
+    "react": "^16.9.0",
     "react-dom": "^16.8.6"
   },
   "dependencies": {
@@ -36,7 +36,7 @@
     "eslint-plugin-react": "^7.14.3",
     "husky": "^3.0.2",
     "prettier": "^1.18.2",
-    "react": "^16.8.6",
+    "react": "^16.9.0",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
     "react-test-renderer": "^16.8.6",
