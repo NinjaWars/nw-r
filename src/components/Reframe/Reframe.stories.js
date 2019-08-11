@@ -13,7 +13,7 @@ storiesOf('Reframe', module)
     .add('with remote intro page', () => (
         <>
             <Reframe
-                src="http://www.ninjawars.net/intro"
+                src="https://www.ninjawars.net/intro"
                 title="The Intro page area"
             />
         </>
@@ -21,7 +21,7 @@ storiesOf('Reframe', module)
     .add('with remote fight page', () => (
         <>
             <Reframe
-                src="http://www.ninjawars.net/enemies"
+                src="https://www.ninjawars.net/enemies"
                 title="The enemies page"
             />
         </>
@@ -29,7 +29,7 @@ storiesOf('Reframe', module)
     .add('with remote ninja list page', () => (
         <>
             <Reframe
-                src="http://www.ninjawars.net/list"
+                src="https://www.ninjawars.net/list"
                 title="The ninjas list"
             />
         </>
