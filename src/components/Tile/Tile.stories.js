@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react'
+import React from 'react'
 
 import { storiesOf, addDecorator } from '@storybook/react'
 import CssBaseline from '@material-ui/core/CssBaseline'
