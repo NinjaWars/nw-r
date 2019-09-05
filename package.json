@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "private": true,
   "engines" : { 
-    "node" : ">=12.10.0 <13.0.0",
+    "node" : ">=11.4.0 <13.0.0",
     "npm" : "~6.10.3"
   },
   "peerDependencies": {
