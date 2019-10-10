@@ -28,6 +28,7 @@ import Hbar, {
 import Search, { SearchCompact } from '../components/Search/Search'
 import LogoArea from '../components/LogoArea'
 import VidOver from '../components/VidOver/VidOver'
+import CBot from '../components/CBot/CBot'
 import testVideo from '../assets/videos/movie.mp4'
 import image from '../images/avatar/sample_gravatar.png'
 import loremIpsum from '../data/loremIpsum'
@@ -230,7 +231,7 @@ storiesOf('Hbar', module)
                             ))}
                         </span>
                         <span className={lStyles['search-area']}>
-                            <SearchCompact label="Search" />
+                            <CBot label="Command" placeholder='enter command...' />
                         </span>
                     </CoreArea>
                     <FollowingArea

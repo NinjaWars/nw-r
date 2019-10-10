@@ -9,7 +9,7 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 import Fbar from '../Fbar/Fbar'
 import Hbar, { LeadingArea, CoreArea, FollowingArea, BreakingLink } from '../Hbar/Hbar'
-import { SearchCompact } from '../Search/Search'
+import CBot from '../CBot/CBot'
 import LogoArea from '../LogoArea'
 import bgImage from '../../images/bg/rebel.png'
 import links from '../../views/headerLinks'
@@ -128,8 +128,8 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
                             <BreakingLink key={link.url} link={link} />
                         ))}
                     </span>
-                    <span className={hStyles['search-area']}>
-                        <SearchCompact label='Search'/>
+                    <span className={hStyles['spaced-area']}>
+                        <CBot label="Command" placeholder='enter command...' />
                     </span>
                 </CoreArea>
                 <FollowingArea>
