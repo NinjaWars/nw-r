@@ -62,6 +62,11 @@ const links = [
         text: 'Events',
     },
     {
+        icon: <Icon icon={faStar} />,
+        url: '/list',
+        text: 'Ninjas',
+    },
+    {
         icon: <Icon icon={faEnvelope} />,
         url: '/messages',
         text: 'Messages',
