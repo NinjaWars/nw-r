@@ -86,6 +86,12 @@ const links = [
         url: '/contact',
         text: 'Contact',
     },
+     {
+        icon: <Icon icon={faStar} />,
+        url: '/ninjas',
+        text: 'Ninjas',
+    },
+
 ]
 
 export default links
