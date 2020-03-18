@@ -11,6 +11,7 @@ import {
     faEnvelope,
     faArrowRight,
     faFistRaised,
+    faStar,
 } from '@fortawesome/free-solid-svg-icons'
 import { faPagelines } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
