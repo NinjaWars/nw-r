@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 .env
 nw-react.code-workspace
+
+# stryker temp files
+.stryker-tmp
