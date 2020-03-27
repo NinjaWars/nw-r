@@ -11,8 +11,8 @@ import styles from './video-overlay.module.css'
 const VidOver = ({ sourcePairs, poster, classes, className, children, ...rest }) => {
     return (
         <div className={cx(className, styles.banner)} {...rest}>
-            <video autoPlay loop muted poster={poster} className={styles['banner-video']}>
-                {sourcePairs && sourcePairs.map((vid)=>(
+            <video autoPlay={rest.autoPlay ? rest.autoPlay : false} loop muted={rest.muted ? rest.muted : true} poster={poster} className={styles['banner-video']}>
+                {sourcePairs && sourcePairs.map((vid) => (
                     <source key={vid.source} src={vid.source} type={vid.type} />
                 ))}
                 Cannot play video.
