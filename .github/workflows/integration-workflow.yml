@@ -13,5 +13,7 @@ jobs:
           node-version: 12
       - run: yarn install
       - run: yarn unit-test
+        env:
+          CI: true
       - run: yarn lint
       - run: yarn storybook build --smoke-test
