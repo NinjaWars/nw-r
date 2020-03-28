@@ -8,6 +8,7 @@ import {
     faUsers,
     faClock,
     faEnvelope,
+    faToriiGate,
 } from '@fortawesome/free-solid-svg-icons'
 import { faPagelines } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
@@ -42,7 +43,7 @@ const links = [
         hiddenOnly: ['xs', 'sm'],
     },
     {
-        icon: '⛩',
+        icon: <Icon icon={faToriiGate} />,
         url: '/shrine',
         text: 'Shrine',
         hiddenOnly: ['xs', 'sm', 'md'],
