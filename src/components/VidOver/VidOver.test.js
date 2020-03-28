@@ -15,14 +15,22 @@ describe('<VidOver />', () => {
         const error = jest.fn()
         console.error = error
         const result = ReactDOM.render(
-            <VidOver poster={image} sourcePairs={sourcePairs} autoPlay={false} muted={false}>
+            <VidOver
+                poster={image}
+                sourcePairs={sourcePairs}
+                autoPlay={false}
+                muted={false}
+            >
                 top context placeholder text
             </VidOver>,
             div
         )
         ReactDOM.unmountComponentAtNode(div)
         expect(error).toHaveBeenCalledTimes(1)
-        expect(error).toHaveBeenCalledWith('Warning: unstable_flushDiscreteUpdates: Cannot flush updates when React is already rendering.%s', expect.any(String))
+        expect(error).toHaveBeenCalledWith(
+            'Warning: unstable_flushDiscreteUpdates: Cannot flush updates when React is already rendering.%s',
+            expect.any(String)
+        )
         console.error = originalError
         /* eslint-enable no-console */
     })
