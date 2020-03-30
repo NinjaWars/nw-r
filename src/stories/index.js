@@ -33,7 +33,7 @@ mockProfile.avatarUrl = avatarImage // override avatar for mockProfile
 
 
 export default {
-    title: 'Components/General',
+    title: 'General',
     decorators: [(storyFn) => <CssBaseline>{storyFn()}</CssBaseline>],
 }
 

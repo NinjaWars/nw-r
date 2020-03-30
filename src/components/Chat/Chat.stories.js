@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-import { storiesOf, addDecorator } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
 import Button from '@material-ui/core/Button'
@@ -18,7 +17,7 @@ export default {
     decorators: [
         (storyFn) => <CssBaseline>{storyFn()}</CssBaseline>
     ],
-    title: 'Components|Chat',
+    title: 'Components/Chat',
 };
 
 export const ChatMessageWithAFewChats = () => (

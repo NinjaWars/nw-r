@@ -33,7 +33,7 @@ export default {
   decorators: [
     (storyFn) => <CssBaseline>{storyFn()}</CssBaseline>
   ],
-  title: 'Components|HBar',
+  title: 'Components/HBar',
 };
 
 export const hBarArea = () => {

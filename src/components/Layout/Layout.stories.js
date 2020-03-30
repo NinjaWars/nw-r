@@ -23,7 +23,7 @@ export default {
     decorators: [
         (storyFn) => <CssBaseline>{storyFn()}</CssBaseline>
     ],
-    title: 'Components|Layout',
+    title: 'Components/Layout',
 };
 
 export const SimpleLayoutArea = () => (
