@@ -33,7 +33,7 @@ mockProfile.avatarUrl = avatarImage // override avatar for mockProfile
 
 
 export default {
-    title: 'Components|General',
+    title: 'Components/General',
     decorators: [(storyFn) => <CssBaseline>{storyFn()}</CssBaseline>],
 }
 
@@ -323,7 +323,7 @@ export const WithSlideout = () => (
 )
 
 WithSlideout.story = {
-    name: 'SearchCompact|with slideout',
+    name: 'SearchCompact/with slideout',
 }
 
 export const WithPopAndCompactingForMobile = () => (
@@ -360,7 +360,7 @@ export const AllTypography = () => (
 )
 
 AllTypography.story = {
-    name: 'Typography| All'
+    name: 'Typography/ All'
 }
 
 export const AllTypographyOnDarkTile = () => (
@@ -385,7 +385,7 @@ export const AllTypographyOnDarkTile = () => (
 )
 
 AllTypographyOnDarkTile.story = {
-    name: 'Typography|on dark tile'
+    name: 'Typography/on dark tile'
 }
 
 export const AllTypographyOnLightTile = () => (
@@ -410,7 +410,7 @@ export const AllTypographyOnLightTile = () => (
 )
 
 AllTypographyOnLightTile.story = {
-    name: 'Typography|on light tile'
+    name: 'Typography/on light tile'
 }
 
 /*
