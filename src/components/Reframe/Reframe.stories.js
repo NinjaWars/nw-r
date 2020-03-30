@@ -7,7 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import styles from '../../stories/story.module.css'
 import Reframe from '../../components/Reframe/Reframe'
 
-addDecorator(storyFn => <CssBaseline>{storyFn()}</CssBaseline>)
+addDecorator((storyFn) => <CssBaseline>{storyFn()}</CssBaseline>)
 
 storiesOf('Reframe', module)
     .add('with remote intro page', () => (

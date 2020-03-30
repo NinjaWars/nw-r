@@ -14,7 +14,7 @@ import Tile from '../Tile/Tile'
 import mockChats from '../../data/mockChats.json'
 import mockProfile from '../../data/mockProfile.json'
 
-addDecorator(storyFn => <CssBaseline>{storyFn()}</CssBaseline>)
+addDecorator((storyFn) => <CssBaseline>{storyFn()}</CssBaseline>)
 
 storiesOf('ChatMessage', module).add('with a few chats', () => {
     return (
@@ -29,7 +29,7 @@ storiesOf('ChatMessage', module).add('with a few chats', () => {
 })
 
 // Utility to add lots of chats
-const addLotsOfChats = chatsL => {
+const addLotsOfChats = (chatsL) => {
     const chatT = chatsL[chatsL.length - 1] // Template
     for (let i = 0; i < 5; i++) {
         const fakeId = chatsL[chatsL.length - 1].id + i
@@ -73,7 +73,7 @@ storiesOf('Chat', module)
     .add('with starting chats', () => {
         const chats = [...mockChats]
         // Display the result of the chat request in the actions area
-        const handleChatRequest = data => {
+        const handleChatRequest = (data) => {
             action(`a chat send was requested`, data)()
             action(`Chat data requested was: ${JSON.stringify(data)}`)()
             return true
@@ -95,7 +95,7 @@ storiesOf('Chat', module)
     .add('with null data', () => {
         const chats = null
         // Display the result of the chat request in the actions area
-        const handleChatRequest = data => {
+        const handleChatRequest = (data) => {
             action(`a chat send was requested`, data)()
             action(`Chat data requested was: ${JSON.stringify(data)}`)()
             return true
@@ -116,7 +116,7 @@ storiesOf('Chat', module)
     })
     .add('with a dark tile bg', () => {
         // Display the result of the chat request in the actions area
-        const handleChatRequest = data => {
+        const handleChatRequest = (data) => {
             action(`a chat send was requested`, data)()
             action(`Chat data requested was: ${JSON.stringify(data)}`)()
             return true
@@ -138,7 +138,7 @@ storiesOf('Chat', module)
     .add('with addable chats', () => {
         const chats = [...mockChats]
         // Display the result of the chat request in the actions area
-        const handleChatRequest = data => {
+        const handleChatRequest = (data) => {
             action(
                 `Chat data from long chat requested was: ${JSON.stringify(
                     data
@@ -167,7 +167,7 @@ storiesOf('Chat', module)
         const ChatsSendable = ({ chats: initialChats, ...rest }) => {
             const [chats, setChats] = useState(initialChats)
             const latestId = chats[chats.length - 1].id
-            const handleChatRequest = newChat => {
+            const handleChatRequest = (newChat) => {
                 newChat.by = 'Current_Addition'
                 newChat.datetime = new Date().toUTCString()
                 newChat.id = latestId + 1

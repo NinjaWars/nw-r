@@ -20,7 +20,7 @@ import mockChats from '../../data/mockChats'
 
 mockProfile.avatarUrl = avatarImage // override avatar for mockProfile
 
-addDecorator(storyFn => <CssBaseline>{storyFn()}</CssBaseline>)
+addDecorator((storyFn) => <CssBaseline>{storyFn()}</CssBaseline>)
 
 storiesOf('Layout', module)
     .add('with simple lorem ipsum', () => (

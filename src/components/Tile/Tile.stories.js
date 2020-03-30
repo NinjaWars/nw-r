@@ -7,7 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import styles from '../../stories/story.module.css'
 import Tile from '../../components/Tile/Tile'
 
-addDecorator(storyFn => <CssBaseline>{storyFn()}</CssBaseline>)
+addDecorator((storyFn) => <CssBaseline>{storyFn()}</CssBaseline>)
 
 storiesOf('Tile', module)
     .add('with alternating themes', () => (
