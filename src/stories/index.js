@@ -3,14 +3,13 @@ import React, { useState } from 'react'
 
 import { action } from '@storybook/addon-actions'
 //import { linkTo } from '@storybook/addon-links'
-import { Link } from 'react-router-dom'
-import proptypes from 'prop-types'
+//import { Link } from 'react-router-dom'
+//import proptypes from 'prop-types'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
-import Avatar from '@material-ui/core/Avatar'
-import { faBars, faComments } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
+//import { faBars, faComments } from '@fortawesome/free-solid-svg-icons'
+//import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import Button from '@material-ui/core/Button'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -18,39 +17,23 @@ import styles from './story.module.css'
 import Feedbackify from '../components/Feedbackify/Feedbackify'
 import Fbar from '../components/Fbar/Fbar'
 import Tile from '../components/Tile/Tile'
-import Hbar, {
-    LeadingArea,
-    CoreArea,
-    FollowingArea,
-    BreakingLink,
-} from '../components/Hbar/Hbar'
 import Search, { SearchCompact } from '../components/Search/Search'
 import LogoArea from '../components/LogoArea'
 import VidOver from '../components/VidOver/VidOver'
-import CBot from '../components/CBot/CBot'
 import testVideo from '../assets/videos/movie.mp4'
 import image from '../images/avatar/sample_gravatar.png'
 import loremIpsum from '../data/loremIpsum'
 import mockProfile from '../data/mockProfile'
 import avatarImage from '../images/avatar/sample_gravatar.png'
 //import mockChats from '../../data/mockChats'
-import hLinks from '../views/headerLinks'
-import lStyles from '../components/Layout/layout.module.css'
+import PopIt from './components/PopIt'
+// import { Shuriken } from 'nw-shuriken'
 
 mockProfile.avatarUrl = avatarImage // override avatar for mockProfile
 
-/* import { Shuriken } from 'nw-shuriken' */
-
-const PopIt = ({ children }) => {
-    return <div className={styles.pop}>{children}</div>
-}
-
-PopIt.propTypes = {
-    children: proptypes.node.isRequired,
-}
 
 export default {
-    title: 'Components',
+    title: 'Components|General',
     decorators: [(storyFn) => <CssBaseline>{storyFn()}</CssBaseline>],
 }
 
@@ -309,114 +292,6 @@ WithLoremIpsumContentAbove.story = {
 
 /*
 export default {
-    title: 'Hbar',
-};
-*/
-
-export const WithNoContent = () => (
-    <Hbar className={lStyles.header}>Header Bar</Hbar>
-)
-
-WithNoContent.story = {
-    name: 'with no content',
-}
-
-export const WithThreeAreas = () => (
-    <Hbar className={lStyles.header}>
-        <LeadingArea>Left</LeadingArea>
-        <CoreArea>Core</CoreArea>
-        <FollowingArea>Follow</FollowingArea>
-    </Hbar>
-)
-
-WithThreeAreas.story = {
-    name: 'with three areas',
-}
-
-export const WithSomePop = () => (
-    <BrowserRouter>
-        <PopIt>
-            <Hbar className={lStyles.header}>
-                <LeadingArea
-                    className={styles.colorful1}
-                    onClick={action('the nav would open here')}
-                >
-                    <Icon className={lStyles['h-icon']} icon={faBars} />
-                </LeadingArea>
-                <CoreArea className={styles.colorful2}>
-                    <Link to="/">
-                        <LogoArea shrinkable title="NinjaWars" />
-                    </Link>{' '}
-                    <span className={lStyles['link-list']}>
-                        {hLinks.map((link) => (
-                            <BreakingLink key={link.url} link={link} />
-                        ))}
-                    </span>
-                    <span className={lStyles['search-area']}>
-                        <CBot label="Command" placeholder="enter command..." />
-                    </span>
-                </CoreArea>
-                <FollowingArea
-                    className={styles.colorful3}
-                    onClick={action('The user avatar menu would open here')}
-                >
-                    <Avatar src={mockProfile.avatarUrl} alt="JD">
-                        JD
-                    </Avatar>
-                    <Button>
-                        <Icon className={lStyles['h-icon']} icon={faComments} />
-                    </Button>
-                </FollowingArea>
-            </Hbar>
-        </PopIt>
-    </BrowserRouter>
-)
-
-WithSomePop.story = {
-    name: 'with some pop',
-}
-
-export const WithFullishContent = () => (
-    <BrowserRouter>
-        <Hbar className={lStyles.header}>
-            <LeadingArea onClick={action('the nav would open here')}>
-                <Icon className={lStyles['h-icon']} icon={faBars} />
-            </LeadingArea>
-            <CoreArea>
-                <Link to="/">
-                    <LogoArea shrinkable title="NinjaWars" />
-                </Link>{' '}
-                <span className={lStyles['link-list']}>
-                    {hLinks.map((link) => (
-                        <BreakingLink key={link.url} link={link} />
-                    ))}
-                </span>
-                <span className={lStyles['search-area']}>
-                    <SearchCompact label="Search" />
-                </span>
-            </CoreArea>
-            <FollowingArea
-                onClick={action('The user avatar menu would open here')}
-            >
-                <Button>
-                    <Avatar src={mockProfile.avatarUrl} alt="JD">
-                        JD
-                    </Avatar>
-                </Button>
-                <Button>
-                    <Icon className={lStyles['h-icon']} icon={faComments} />
-                </Button>
-            </FollowingArea>
-        </Hbar>
-    </BrowserRouter>
-)
-
-WithFullishContent.story = {
-    name: 'with fullish content',
-}
-
-/*
-export default {
     title: 'Search',
 };
 */
@@ -448,7 +323,7 @@ export const WithSlideout = () => (
 )
 
 WithSlideout.story = {
-    name: 'with slideout',
+    name: 'SearchCompact|with slideout',
 }
 
 export const WithPopAndCompactingForMobile = () => (
@@ -461,13 +336,9 @@ WithPopAndCompactingForMobile.story = {
     name: 'with pop and compacting for mobile',
 }
 
-/*
-export default {
-    title: 'Typography',
-};
-*/
+/* ============= Show Typography for the Site ================= */
 
-export const All = () => (
+export const AllTypography = () => (
     <>
         <Typography variant="h1">H1 Heading</Typography>
         <Typography variant="h2">H2 Heading</Typography>
@@ -488,11 +359,11 @@ export const All = () => (
     </>
 )
 
-All.story = {
-    name: 'all',
+AllTypography.story = {
+    name: 'Typography| All'
 }
 
-export const AllWithDarkTile = () => (
+export const AllTypographyOnDarkTile = () => (
     <Tile theme="dark">
         <Typography variant="h1">H1 Heading</Typography>
         <Typography variant="h2">H2 Heading</Typography>
@@ -513,11 +384,11 @@ export const AllWithDarkTile = () => (
     </Tile>
 )
 
-AllWithDarkTile.story = {
-    name: 'all with dark tile',
+AllTypographyOnDarkTile.story = {
+    name: 'Typography|on dark tile'
 }
 
-export const AllWithLightTile = () => (
+export const AllTypographyOnLightTile = () => (
     <Tile theme="light">
         <Typography variant="h1">H1 Heading</Typography>
         <Typography variant="h2">H2 Heading</Typography>
@@ -538,17 +409,17 @@ export const AllWithLightTile = () => (
     </Tile>
 )
 
-AllWithLightTile.story = {
-    name: 'all with light tile',
+AllTypographyOnLightTile.story = {
+    name: 'Typography|on light tile'
 }
-
-const sourcePairs = [{ source: testVideo, type: 'video/mp4' }]
 
 /*
 export default {
     title: 'VidOver',
 };
 */
+
+const sourcePairs = [{ source: testVideo, type: 'video/mp4' }]
 
 export const WithPoster = () => (
     <div>

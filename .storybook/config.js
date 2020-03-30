@@ -1,7 +1,4 @@
-import { addDecorator, configure } from '@storybook/react';
-import { withKnobs } from "@storybook/addon-knobs";
-
-addDecorator(withKnobs)
+import { configure } from '@storybook/react';
 
 const loaderFn = () => {
     const allExports = [require('../src/stories/index.js')];
