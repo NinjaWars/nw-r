@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
 
-import { storiesOf, addDecorator } from '@storybook/react'
+import { addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions'
 //import { linkTo } from '@storybook/addon-links'
 import { Link } from 'react-router-dom'
@@ -42,6 +42,7 @@ mockProfile.avatarUrl = avatarImage // override avatar for mockProfile
 
 /* import { Shuriken } from 'nw-shuriken' */
 
+
 const PopIt = ({ children }) => {
     return <div className={styles.pop}>{children}</div>
 }
@@ -50,220 +51,303 @@ PopIt.propTypes = {
     children: proptypes.node.isRequired,
 }
 
-addDecorator(storyFn => <CssBaseline>{storyFn()}</CssBaseline>)
+export default {
+    title: 'Components',
+    decorators: [
+        storyFn => <CssBaseline>{storyFn()}</CssBaseline>
+    ]
+}
 
-storiesOf('Button', module)
-    .add('with text', () => (
-        <Button onClick={action('hello button clicked')}>Hello Button</Button>
-    ))
-    .add('with login/signup', () => (
-        <>
-            <Tile theme="dark">
-                <Button variant="outlined" onClick={action('login clicked')}>
-                    LOGIN
+/*
+export default {
+    title: 'Button',
+};
+*/
+
+export const WithText = () => (
+    <Button onClick={action('hello button clicked')}>Hello Button</Button>
+);
+
+WithText.story = {
+    name: 'with text',
+};
+
+export const WithLoginSignup = () => (
+    <>
+        <Tile theme="dark">
+            <Button variant="outlined" onClick={action('login clicked')}>
+                LOGIN
                 </Button>{' '}
-                <Button variant="outlined" onClick={action('login clicked')}>
-                    SIGNUP
+            <Button variant="outlined" onClick={action('login clicked')}>
+                SIGNUP
                 </Button>{' '}
-                <a href="#forgot">Forgot password?</a>
-            </Tile>
-        </>
-    ))
-    .add('with some emoji', () => (
-        <Button onClick={action('clicked')}>
-            <span role="img" aria-label="so cool">
-                😀 😎 👍 💯
+            <a href="#forgot">Forgot password?</a>
+        </Tile>
+    </>
+);
+
+WithLoginSignup.story = {
+    name: 'with login/signup',
+};
+
+export const WithSomeEmoji = () => (
+    <Button onClick={action('clicked')}>
+        <span role="img" aria-label="so cool">
+            😀 😎 👍 💯
             </span>
-        </Button>
-    ))
+    </Button>
+);
 
-storiesOf('TextField', module)
-    .add('with default style', () => (
-        <>
-            <div>
-                <TextField label="Email or Ninja Name" margin="normal" />{' '}
-            </div>
-            <div>
-                <TextField
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                    margin="normal"
-                />
-            </div>
-        </>
-    ))
-    .add('with a dark tile theme', () => (
-        <Tile theme="dark">
-            <div>
-                <TextField label="Email or Ninja Name" margin="normal" />{' '}
-            </div>
-            <div>
-                <TextField
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                    margin="normal"
-                />
-            </div>
-        </Tile>
-    ))
-    .add('with full signup form', () => (
-        <Tile theme="dark">
-            <div>
-                <TextField label="Email or Ninja Name" margin="normal" />{' '}
-            </div>
-            <div>
-                <TextField
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                    margin="normal"
-                />
-            </div>
-            <div>
-                <Button type="submit">LOGIN</Button>
-            </div>
-            <div>
-                <a href="#assistance">Forgot password?</a>
-            </div>
-        </Tile>
-    ))
+WithSomeEmoji.story = {
+    name: 'with some emoji',
+};
 
-storiesOf('LogoArea', module)
-    .add('with a dark tile background', () => (
-        <Tile theme="dark">
-            <LogoArea className={styles.lightLogo} title="NinjaWars" />
-        </Tile>
-    ))
-    .add('with a light tile background', () => (
-        <Tile theme="light">
+/*
+export default {
+    title: 'TextField',
+};
+*/
+
+export const WithDefaultStyle = () => (
+    <>
+        <div>
+            <TextField label="Email or Ninja Name" margin="normal" />{' '}
+        </div>
+        <div>
+            <TextField
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+                margin="normal"
+            />
+        </div>
+    </>
+);
+
+WithDefaultStyle.story = {
+    name: 'with default style',
+};
+
+export const WithADarkTileTheme = () => (
+    <Tile theme="dark">
+        <div>
+            <TextField label="Email or Ninja Name" margin="normal" />{' '}
+        </div>
+        <div>
+            <TextField
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+                margin="normal"
+            />
+        </div>
+    </Tile>
+);
+
+WithADarkTileTheme.story = {
+    name: 'with a dark tile theme',
+};
+
+export const WithFullSignupForm = () => (
+    <Tile theme="dark">
+        <div>
+            <TextField label="Email or Ninja Name" margin="normal" />{' '}
+        </div>
+        <div>
+            <TextField
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+                margin="normal"
+            />
+        </div>
+        <div>
+            <Button type="submit">LOGIN</Button>
+        </div>
+        <div>
+            <a href="#assistance">Forgot password?</a>
+        </div>
+    </Tile>
+);
+
+WithFullSignupForm.story = {
+    name: 'with full signup form',
+};
+
+/*
+export default {
+    title: 'LogoArea',
+};
+*/
+
+export const WithADarkTileBackground = () => (
+    <Tile theme="dark">
+        <LogoArea className={styles.lightLogo} title="NinjaWars" />
+    </Tile>
+);
+
+WithADarkTileBackground.story = {
+    name: 'with a dark tile background',
+};
+
+export const WithALightTileBackground = () => (
+    <Tile theme="light">
+        <LogoArea title="NinjaWars" />
+    </Tile>
+);
+
+WithALightTileBackground.story = {
+    name: 'with a light tile background',
+};
+
+export const WithAPopForClarity = () => (
+    <Tile theme="light">
+        <PopIt>
             <LogoArea title="NinjaWars" />
-        </Tile>
-    ))
-    .add('with a pop for clarity', () => (
-        <Tile theme="light">
-            <PopIt>
-                <LogoArea title="NinjaWars" />
-            </PopIt>
-        </Tile>
-    ))
+        </PopIt>
+    </Tile>
+);
 
-storiesOf('Feedbackify', module)
-    .add('with initial data', () => (
-        <Feedbackify up={7} down={88} onChange={action('feedback changed')} />
-    ))
-    .add('with an onchange', () => (
-        <Feedbackify
-            up={44444}
-            down={66666}
-            onChange={action('feedback changed')}
-        />
-    ))
-    .add('colored 777s', () => (
-        <Feedbackify up={777} down={777} className={styles.feedbackify} />
-    ))
-    .add('with custom toggles', () => (
-        <Feedbackify
-            className={styles.feedbackify}
-            up={0}
-            down={0}
-            upToggle="Up"
-            downToggle="Down"
-        />
-    ))
+WithAPopForClarity.story = {
+    name: 'with a pop for clarity',
+};
 
-storiesOf('Fbar footer bar', module)
-    .add('with defaults', () => (
-        <BrowserRouter>
+/*
+export default {
+    title: 'Feedbackify',
+};
+*/
+
+export const WithInitialData = () => (
+    <Feedbackify up={7} down={88} onChange={action('feedback changed')} />
+);
+
+WithInitialData.story = {
+    name: 'with initial data',
+};
+
+export const WithAnOnchange = () => (
+    <Feedbackify
+        up={44444}
+        down={66666}
+        onChange={action('feedback changed')}
+    />
+);
+
+WithAnOnchange.story = {
+    name: 'with an onchange',
+};
+
+export const Colored777S = () => (
+    <Feedbackify up={777} down={777} className={styles.feedbackify} />
+);
+
+Colored777S.story = {
+    name: 'colored 777s',
+};
+
+export const WithCustomToggles = () => (
+    <Feedbackify
+        className={styles.feedbackify}
+        up={0}
+        down={0}
+        upToggle="Up"
+        downToggle="Down"
+    />
+);
+
+WithCustomToggles.story = {
+    name: 'with custom toggles',
+};
+
+/*
+export default {
+    title: 'Fbar footer bar',
+};
+*/
+
+export const WithDefaults = () => (
+    <BrowserRouter>
+        <Fbar />
+    </BrowserRouter>
+);
+
+WithDefaults.story = {
+    name: 'with defaults',
+};
+
+export const PoppedForClarity = () => (
+    <BrowserRouter>
+        <PopIt>
             <Fbar />
-        </BrowserRouter>
-    ))
-    .add('popped for clarity', () => (
-        <BrowserRouter>
-            <PopIt>
-                <Fbar />
-            </PopIt>
-        </BrowserRouter>
-    ))
-    .add('with red text and a blue background', () => (
-        <BrowserRouter>
-            <Fbar className={styles.fbar} />
-        </BrowserRouter>
-    ))
-    .add('with lorem ipsum content above', () => (
-        <BrowserRouter>
-            <div>
-                <p>{loremIpsum}</p>
-            </div>
-            <Fbar />
-        </BrowserRouter>
-    ))
+        </PopIt>
+    </BrowserRouter>
+);
 
-storiesOf('Hbar', module)
-    .add('with no content', () => (
-        <Hbar className={lStyles.header}>Header Bar</Hbar>
-    ))
-    .add('with three areas', () => (
-        <Hbar className={lStyles.header}>
-            <LeadingArea>Left</LeadingArea>
-            <CoreArea>Core</CoreArea>
-            <FollowingArea>Follow</FollowingArea>
-        </Hbar>
-    ))
-    .add('with some pop', () => (
-        <BrowserRouter>
-            <PopIt>
-                <Hbar className={lStyles.header}>
-                    <LeadingArea
-                        className={styles.colorful1}
-                        onClick={action('the nav would open here')}
-                    >
-                        <Icon className={lStyles['h-icon']} icon={faBars} />
-                    </LeadingArea>
-                    <CoreArea className={styles.colorful2}>
-                        <Link to="/">
-                            <LogoArea shrinkable title="NinjaWars" />
-                        </Link>{' '}
-                        <span className={lStyles['link-list']}>
-                            {hLinks.map(link => (
-                                <BreakingLink key={link.url} link={link} />
-                            ))}
-                        </span>
-                        <span className={lStyles['search-area']}>
-                            <CBot
-                                label="Command"
-                                placeholder="enter command..."
-                            />
-                        </span>
-                    </CoreArea>
-                    <FollowingArea
-                        className={styles.colorful3}
-                        onClick={action('The user avatar menu would open here')}
-                    >
-                        <Button>
-                            <Avatar src={mockProfile.avatarUrl} alt="JD">
-                                JD
-                            </Avatar>
-                        </Button>
-                        <Button>
-                            <Icon
-                                className={lStyles['h-icon']}
-                                icon={faComments}
-                            />
-                        </Button>
-                    </FollowingArea>
-                </Hbar>
-            </PopIt>
-        </BrowserRouter>
-    ))
-    .add('with fullish content', () => (
-        <BrowserRouter>
+PoppedForClarity.story = {
+    name: 'popped for clarity',
+};
+
+export const WithRedTextAndABlueBackground = () => (
+    <BrowserRouter>
+        <Fbar className={styles.fbar} />
+    </BrowserRouter>
+);
+
+WithRedTextAndABlueBackground.story = {
+    name: 'with red text and a blue background',
+};
+
+export const WithLoremIpsumContentAbove = () => (
+    <BrowserRouter>
+        <div>
+            <p>{loremIpsum}</p>
+        </div>
+        <Fbar />
+    </BrowserRouter>
+);
+
+WithLoremIpsumContentAbove.story = {
+    name: 'with lorem ipsum content above',
+};
+
+/*
+export default {
+    title: 'Hbar',
+};
+*/
+
+export const WithNoContent = () => (
+    <Hbar className={lStyles.header}>Header Bar</Hbar>
+);
+
+WithNoContent.story = {
+    name: 'with no content',
+};
+
+export const WithThreeAreas = () => (
+    <Hbar className={lStyles.header}>
+        <LeadingArea>Left</LeadingArea>
+        <CoreArea>Core</CoreArea>
+        <FollowingArea>Follow</FollowingArea>
+    </Hbar>
+);
+
+WithThreeAreas.story = {
+    name: 'with three areas',
+};
+
+export const WithSomePop = () => (
+    <BrowserRouter>
+        <PopIt>
             <Hbar className={lStyles.header}>
-                <LeadingArea onClick={action('the nav would open here')}>
+                <LeadingArea
+                    className={styles.colorful1}
+                    onClick={action('the nav would open here')}
+                >
                     <Icon className={lStyles['h-icon']} icon={faBars} />
                 </LeadingArea>
-                <CoreArea>
+                <CoreArea className={styles.colorful2}>
                     <Link to="/">
                         <LogoArea shrinkable title="NinjaWars" />
                     </Link>{' '}
@@ -273,114 +357,216 @@ storiesOf('Hbar', module)
                         ))}
                     </span>
                     <span className={lStyles['search-area']}>
-                        <SearchCompact label="Search" />
+                        <CBot
+                            label="Command"
+                            placeholder="enter command..."
+                        />
                     </span>
                 </CoreArea>
                 <FollowingArea
+                    className={styles.colorful3}
                     onClick={action('The user avatar menu would open here')}
                 >
+                    <Avatar
+                        src={mockProfile.avatarUrl} alt="JD"
+                    >
+                        JD
+                    </Avatar>
                     <Button>
-                        <Avatar src={mockProfile.avatarUrl} alt="JD">
-                            JD
-                        </Avatar>
-                    </Button>
-                    <Button>
-                        <Icon className={lStyles['h-icon']} icon={faComments} />
+                        <Icon
+                            className={lStyles['h-icon']}
+                            icon={faComments}
+                        />
                     </Button>
                 </FollowingArea>
             </Hbar>
-        </BrowserRouter>
-    ))
+        </PopIt >
+    </BrowserRouter >
+);
 
-storiesOf('Search', module)
-    .add('with defaults', () => (
-        <Search
-            className="some-search-class"
-            label="Search Ninja"
-            onChange={action('search changed')}
-        />
-    ))
-    .add('with dark tile', () => (
-        <Tile theme="dark">
-            <Search label="Search Site" onChange={action('search changed')} />
-        </Tile>
-    ))
-    .add('with slideout', () => (
-        <SearchCompact
-            label="Search Site"
-            onChange={action('search changed')}
-        />
-    ))
-    .add('with pop and compacting for mobile', () => (
-        <PopIt>
-            <SearchCompact label="Search" onChange={action('search changed')} />
-        </PopIt>
-    ))
+WithSomePop.story = {
+    name: 'with some pop',
+};
 
-storiesOf('Typography', module)
-    .add('all', () => (
-        <>
-            <Typography variant="h1">H1 Heading</Typography>
-            <Typography variant="h2">H2 Heading</Typography>
-            <Typography variant="h3">H3 Heading</Typography>
-            <Typography variant="h4">H4 Heading</Typography>
-            <Typography variant="h5">H5 Heading</Typography>
-            <Typography variant="h6">H6 Heading</Typography>
-            <Typography variant="subtitle1">subtitle1</Typography>
-            <Typography variant="subtitle2">subtitle2</Typography>
-            <Typography variant="body1">body1</Typography>
-            <Typography variant="body2">body2</Typography>
-            <Typography variant="button">button text</Typography>
-            <Typography variant="caption">caption text</Typography>
-            <span>
-                <Typography variant="overline">overline text</Typography>Next to
+export const WithFullishContent = () => (
+    <BrowserRouter>
+        <Hbar className={lStyles.header}>
+            <LeadingArea onClick={action('the nav would open here')}>
+                <Icon className={lStyles['h-icon']} icon={faBars} />
+            </LeadingArea>
+            <CoreArea>
+                <Link to="/">
+                    <LogoArea shrinkable title="NinjaWars" />
+                </Link>{' '}
+                <span className={lStyles['link-list']}>
+                    {hLinks.map(link => (
+                        <BreakingLink key={link.url} link={link} />
+                    ))}
+                </span>
+                <span className={lStyles['search-area']}>
+                    <SearchCompact label="Search" />
+                </span>
+            </CoreArea>
+            <FollowingArea
+                onClick={action('The user avatar menu would open here')}
+            >
+                <Button>
+                    <Avatar src={mockProfile.avatarUrl} alt="JD">
+                        JD
+                        </Avatar>
+                </Button>
+                <Button>
+                    <Icon className={lStyles['h-icon']} icon={faComments} />
+                </Button>
+            </FollowingArea>
+        </Hbar>
+    </BrowserRouter>
+);
+
+WithFullishContent.story = {
+    name: 'with fullish content',
+};
+
+/*
+export default {
+    title: 'Search',
+};
+*/
+
+export const _WithDefaults = () => (
+    <Search
+        className="some-search-class"
+        label="Search Ninja"
+        onChange={action('search changed')}
+    />
+);
+
+_WithDefaults.story = {
+    name: 'with defaults',
+};
+
+export const WithDarkTile = () => (
+    <Tile theme="dark">
+        <Search label="Search Site" onChange={action('search changed')} />
+    </Tile>
+);
+
+WithDarkTile.story = {
+    name: 'with dark tile',
+};
+
+export const WithSlideout = () => (
+    <SearchCompact
+        label="Search Site"
+        onChange={action('search changed')}
+    />
+);
+
+WithSlideout.story = {
+    name: 'with slideout',
+};
+
+export const WithPopAndCompactingForMobile = () => (
+    <PopIt>
+        <SearchCompact label="Search" onChange={action('search changed')} />
+    </PopIt>
+)
+
+
+WithPopAndCompactingForMobile.story = {
+    name: 'with pop and compacting for mobile',
+};
+
+/*
+export default {
+    title: 'Typography',
+};
+*/
+
+export const All = () => (
+    <>
+        <Typography variant="h1">H1 Heading</Typography>
+        <Typography variant="h2">H2 Heading</Typography>
+        <Typography variant="h3">H3 Heading</Typography>
+        <Typography variant="h4">H4 Heading</Typography>
+        <Typography variant="h5">H5 Heading</Typography>
+        <Typography variant="h6">H6 Heading</Typography>
+        <Typography variant="subtitle1">subtitle1</Typography>
+        <Typography variant="subtitle2">subtitle2</Typography>
+        <Typography variant="body1">body1</Typography>
+        <Typography variant="body2">body2</Typography>
+        <Typography variant="button">button text</Typography>
+        <Typography variant="caption">caption text</Typography>
+        <span>
+            <Typography variant="overline">overline text</Typography>Next to
                 non-component text
             </span>
-        </>
-    ))
-    .add('all with dark tile', () => (
-        <Tile theme="dark">
-            <Typography variant="h1">H1 Heading</Typography>
-            <Typography variant="h2">H2 Heading</Typography>
-            <Typography variant="h3">H3 Heading</Typography>
-            <Typography variant="h4">H4 Heading</Typography>
-            <Typography variant="h5">H5 Heading</Typography>
-            <Typography variant="h6">H6 Heading</Typography>
-            <Typography variant="subtitle1">subtitle1</Typography>
-            <Typography variant="subtitle2">subtitle2</Typography>
-            <Typography variant="body1">body1</Typography>
-            <Typography variant="body2">body2</Typography>
-            <Typography variant="button">button text</Typography>
-            <Typography variant="caption">caption text</Typography>
-            <span>
-                <Typography variant="overline">overline text</Typography>Next to
+    </>
+);
+
+All.story = {
+    name: 'all',
+};
+
+export const AllWithDarkTile = () => (
+    <Tile theme="dark">
+        <Typography variant="h1">H1 Heading</Typography>
+        <Typography variant="h2">H2 Heading</Typography>
+        <Typography variant="h3">H3 Heading</Typography>
+        <Typography variant="h4">H4 Heading</Typography>
+        <Typography variant="h5">H5 Heading</Typography>
+        <Typography variant="h6">H6 Heading</Typography>
+        <Typography variant="subtitle1">subtitle1</Typography>
+        <Typography variant="subtitle2">subtitle2</Typography>
+        <Typography variant="body1">body1</Typography>
+        <Typography variant="body2">body2</Typography>
+        <Typography variant="button">button text</Typography>
+        <Typography variant="caption">caption text</Typography>
+        <span>
+            <Typography variant="overline">overline text</Typography>Next to
                 non-component text
             </span>
-        </Tile>
-    ))
-    .add('all with light tile', () => (
-        <Tile theme="light">
-            <Typography variant="h1">H1 Heading</Typography>
-            <Typography variant="h2">H2 Heading</Typography>
-            <Typography variant="h3">H3 Heading</Typography>
-            <Typography variant="h4">H4 Heading</Typography>
-            <Typography variant="h5">H5 Heading</Typography>
-            <Typography variant="h6">H6 Heading</Typography>
-            <Typography variant="subtitle1">subtitle1</Typography>
-            <Typography variant="subtitle2">subtitle2</Typography>
-            <Typography variant="body1">body1</Typography>
-            <Typography variant="body2">body2</Typography>
-            <Typography variant="button">button text</Typography>
-            <Typography variant="caption">caption text</Typography>
-            <span>
-                <Typography variant="overline">overline text</Typography>Next to
+    </Tile>
+);
+
+AllWithDarkTile.story = {
+    name: 'all with dark tile',
+};
+
+export const AllWithLightTile = () => (
+    <Tile theme="light">
+        <Typography variant="h1">H1 Heading</Typography>
+        <Typography variant="h2">H2 Heading</Typography>
+        <Typography variant="h3">H3 Heading</Typography>
+        <Typography variant="h4">H4 Heading</Typography>
+        <Typography variant="h5">H5 Heading</Typography>
+        <Typography variant="h6">H6 Heading</Typography>
+        <Typography variant="subtitle1">subtitle1</Typography>
+        <Typography variant="subtitle2">subtitle2</Typography>
+        <Typography variant="body1">body1</Typography>
+        <Typography variant="body2">body2</Typography>
+        <Typography variant="button">button text</Typography>
+        <Typography variant="caption">caption text</Typography>
+        <span>
+            <Typography variant="overline">overline text</Typography>Next to
                 non-component text
             </span>
-        </Tile>
-    ))
+    </Tile>
+);
+
+AllWithLightTile.story = {
+    name: 'all with light tile',
+};
 
 const sourcePairs = [{ source: testVideo, type: 'video/mp4' }]
-storiesOf('VidOver', module).add('with poster', () => (
+
+/*
+export default {
+    title: 'VidOver',
+};
+*/
+
+export const WithPoster = () => (
     <div>
         <VidOver
             style={{ height: '20rem', width: '100vw' }}
@@ -390,13 +576,14 @@ storiesOf('VidOver', module).add('with poster', () => (
             top context placeholder text
         </VidOver>
     </div>
-))
+);
+
+WithPoster.story = {
+    name: 'with poster',
+};
 
 /*
-.storiesOf('Shuriken', module)
-    .add('with no props', () => (
-        <Shuriken />
-    ))
+export const ShurikenArea = () => (
+    <Shuriken />
+)
 */
-
-// TODO: Add a news blurb component

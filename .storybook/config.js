@@ -1,9 +1,10 @@
-import { configure } from '@storybook/react'
+import { configure } from '@storybook/react';
 
-function loadStories() {
-    require('../src/stories')
-    const req = require.context('../src/components', true, /\.stories\.js?x$/)
-    req.keys().forEach(filename => req(filename))
-}
+const loaderFn = () => {
+    const allExports = [require('../src/stories/index.js')];
+    const req = require.context('../src/components', true, /\.stories\.js?x$/);
+    req.keys().forEach(fname => allExports.push(req(fname)));
+    return allExports;
+};
 
-configure(loadStories, module)
+configure(loaderFn, module);
