@@ -11,7 +11,7 @@ export default {
   title: 'Components|HBar',
 };
 
-export const splitAmountArea = () => {
+export const headerBarDisplayArea = () => {
   let displayTimes = number('Display this many times', 3);
   let display = []
   while (displayTimes) {

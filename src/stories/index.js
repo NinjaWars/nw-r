@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
 
-import { addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions'
 //import { linkTo } from '@storybook/addon-links'
 import { Link } from 'react-router-dom'
@@ -42,7 +41,6 @@ mockProfile.avatarUrl = avatarImage // override avatar for mockProfile
 
 /* import { Shuriken } from 'nw-shuriken' */
 
-
 const PopIt = ({ children }) => {
     return <div className={styles.pop}>{children}</div>
 }
@@ -53,9 +51,7 @@ PopIt.propTypes = {
 
 export default {
     title: 'Components',
-    decorators: [
-        storyFn => <CssBaseline>{storyFn()}</CssBaseline>
-    ]
+    decorators: [(storyFn) => <CssBaseline>{storyFn()}</CssBaseline>],
 }
 
 /*
@@ -66,41 +62,41 @@ export default {
 
 export const WithText = () => (
     <Button onClick={action('hello button clicked')}>Hello Button</Button>
-);
+)
 
 WithText.story = {
     name: 'with text',
-};
+}
 
 export const WithLoginSignup = () => (
     <>
         <Tile theme="dark">
             <Button variant="outlined" onClick={action('login clicked')}>
                 LOGIN
-                </Button>{' '}
+            </Button>{' '}
             <Button variant="outlined" onClick={action('login clicked')}>
                 SIGNUP
-                </Button>{' '}
+            </Button>{' '}
             <a href="#forgot">Forgot password?</a>
         </Tile>
     </>
-);
+)
 
 WithLoginSignup.story = {
     name: 'with login/signup',
-};
+}
 
 export const WithSomeEmoji = () => (
     <Button onClick={action('clicked')}>
         <span role="img" aria-label="so cool">
             😀 😎 👍 💯
-            </span>
+        </span>
     </Button>
-);
+)
 
 WithSomeEmoji.story = {
     name: 'with some emoji',
-};
+}
 
 /*
 export default {
@@ -122,11 +118,11 @@ export const WithDefaultStyle = () => (
             />
         </div>
     </>
-);
+)
 
 WithDefaultStyle.story = {
     name: 'with default style',
-};
+}
 
 export const WithADarkTileTheme = () => (
     <Tile theme="dark">
@@ -142,11 +138,11 @@ export const WithADarkTileTheme = () => (
             />
         </div>
     </Tile>
-);
+)
 
 WithADarkTileTheme.story = {
     name: 'with a dark tile theme',
-};
+}
 
 export const WithFullSignupForm = () => (
     <Tile theme="dark">
@@ -168,11 +164,11 @@ export const WithFullSignupForm = () => (
             <a href="#assistance">Forgot password?</a>
         </div>
     </Tile>
-);
+)
 
 WithFullSignupForm.story = {
     name: 'with full signup form',
-};
+}
 
 /*
 export default {
@@ -184,21 +180,21 @@ export const WithADarkTileBackground = () => (
     <Tile theme="dark">
         <LogoArea className={styles.lightLogo} title="NinjaWars" />
     </Tile>
-);
+)
 
 WithADarkTileBackground.story = {
     name: 'with a dark tile background',
-};
+}
 
 export const WithALightTileBackground = () => (
     <Tile theme="light">
         <LogoArea title="NinjaWars" />
     </Tile>
-);
+)
 
 WithALightTileBackground.story = {
     name: 'with a light tile background',
-};
+}
 
 export const WithAPopForClarity = () => (
     <Tile theme="light">
@@ -206,11 +202,11 @@ export const WithAPopForClarity = () => (
             <LogoArea title="NinjaWars" />
         </PopIt>
     </Tile>
-);
+)
 
 WithAPopForClarity.story = {
     name: 'with a pop for clarity',
-};
+}
 
 /*
 export default {
@@ -220,11 +216,11 @@ export default {
 
 export const WithInitialData = () => (
     <Feedbackify up={7} down={88} onChange={action('feedback changed')} />
-);
+)
 
 WithInitialData.story = {
     name: 'with initial data',
-};
+}
 
 export const WithAnOnchange = () => (
     <Feedbackify
@@ -232,19 +228,19 @@ export const WithAnOnchange = () => (
         down={66666}
         onChange={action('feedback changed')}
     />
-);
+)
 
 WithAnOnchange.story = {
     name: 'with an onchange',
-};
+}
 
 export const Colored777S = () => (
     <Feedbackify up={777} down={777} className={styles.feedbackify} />
-);
+)
 
 Colored777S.story = {
     name: 'colored 777s',
-};
+}
 
 export const WithCustomToggles = () => (
     <Feedbackify
@@ -254,11 +250,11 @@ export const WithCustomToggles = () => (
         upToggle="Up"
         downToggle="Down"
     />
-);
+)
 
 WithCustomToggles.story = {
     name: 'with custom toggles',
-};
+}
 
 /*
 export default {
@@ -270,11 +266,11 @@ export const WithDefaults = () => (
     <BrowserRouter>
         <Fbar />
     </BrowserRouter>
-);
+)
 
 WithDefaults.story = {
     name: 'with defaults',
-};
+}
 
 export const PoppedForClarity = () => (
     <BrowserRouter>
@@ -282,21 +278,21 @@ export const PoppedForClarity = () => (
             <Fbar />
         </PopIt>
     </BrowserRouter>
-);
+)
 
 PoppedForClarity.story = {
     name: 'popped for clarity',
-};
+}
 
 export const WithRedTextAndABlueBackground = () => (
     <BrowserRouter>
         <Fbar className={styles.fbar} />
     </BrowserRouter>
-);
+)
 
 WithRedTextAndABlueBackground.story = {
     name: 'with red text and a blue background',
-};
+}
 
 export const WithLoremIpsumContentAbove = () => (
     <BrowserRouter>
@@ -305,11 +301,11 @@ export const WithLoremIpsumContentAbove = () => (
         </div>
         <Fbar />
     </BrowserRouter>
-);
+)
 
 WithLoremIpsumContentAbove.story = {
     name: 'with lorem ipsum content above',
-};
+}
 
 /*
 export default {
@@ -319,11 +315,11 @@ export default {
 
 export const WithNoContent = () => (
     <Hbar className={lStyles.header}>Header Bar</Hbar>
-);
+)
 
 WithNoContent.story = {
     name: 'with no content',
-};
+}
 
 export const WithThreeAreas = () => (
     <Hbar className={lStyles.header}>
@@ -331,11 +327,11 @@ export const WithThreeAreas = () => (
         <CoreArea>Core</CoreArea>
         <FollowingArea>Follow</FollowingArea>
     </Hbar>
-);
+)
 
 WithThreeAreas.story = {
     name: 'with three areas',
-};
+}
 
 export const WithSomePop = () => (
     <BrowserRouter>
@@ -352,41 +348,33 @@ export const WithSomePop = () => (
                         <LogoArea shrinkable title="NinjaWars" />
                     </Link>{' '}
                     <span className={lStyles['link-list']}>
-                        {hLinks.map(link => (
+                        {hLinks.map((link) => (
                             <BreakingLink key={link.url} link={link} />
                         ))}
                     </span>
                     <span className={lStyles['search-area']}>
-                        <CBot
-                            label="Command"
-                            placeholder="enter command..."
-                        />
+                        <CBot label="Command" placeholder="enter command..." />
                     </span>
                 </CoreArea>
                 <FollowingArea
                     className={styles.colorful3}
                     onClick={action('The user avatar menu would open here')}
                 >
-                    <Avatar
-                        src={mockProfile.avatarUrl} alt="JD"
-                    >
+                    <Avatar src={mockProfile.avatarUrl} alt="JD">
                         JD
                     </Avatar>
                     <Button>
-                        <Icon
-                            className={lStyles['h-icon']}
-                            icon={faComments}
-                        />
+                        <Icon className={lStyles['h-icon']} icon={faComments} />
                     </Button>
                 </FollowingArea>
             </Hbar>
-        </PopIt >
-    </BrowserRouter >
-);
+        </PopIt>
+    </BrowserRouter>
+)
 
 WithSomePop.story = {
     name: 'with some pop',
-};
+}
 
 export const WithFullishContent = () => (
     <BrowserRouter>
@@ -399,7 +387,7 @@ export const WithFullishContent = () => (
                     <LogoArea shrinkable title="NinjaWars" />
                 </Link>{' '}
                 <span className={lStyles['link-list']}>
-                    {hLinks.map(link => (
+                    {hLinks.map((link) => (
                         <BreakingLink key={link.url} link={link} />
                     ))}
                 </span>
@@ -413,7 +401,7 @@ export const WithFullishContent = () => (
                 <Button>
                     <Avatar src={mockProfile.avatarUrl} alt="JD">
                         JD
-                        </Avatar>
+                    </Avatar>
                 </Button>
                 <Button>
                     <Icon className={lStyles['h-icon']} icon={faComments} />
@@ -421,11 +409,11 @@ export const WithFullishContent = () => (
             </FollowingArea>
         </Hbar>
     </BrowserRouter>
-);
+)
 
 WithFullishContent.story = {
     name: 'with fullish content',
-};
+}
 
 /*
 export default {
@@ -439,32 +427,29 @@ export const _WithDefaults = () => (
         label="Search Ninja"
         onChange={action('search changed')}
     />
-);
+)
 
 _WithDefaults.story = {
     name: 'with defaults',
-};
+}
 
 export const WithDarkTile = () => (
     <Tile theme="dark">
         <Search label="Search Site" onChange={action('search changed')} />
     </Tile>
-);
+)
 
 WithDarkTile.story = {
     name: 'with dark tile',
-};
+}
 
 export const WithSlideout = () => (
-    <SearchCompact
-        label="Search Site"
-        onChange={action('search changed')}
-    />
-);
+    <SearchCompact label="Search Site" onChange={action('search changed')} />
+)
 
 WithSlideout.story = {
     name: 'with slideout',
-};
+}
 
 export const WithPopAndCompactingForMobile = () => (
     <PopIt>
@@ -472,10 +457,9 @@ export const WithPopAndCompactingForMobile = () => (
     </PopIt>
 )
 
-
 WithPopAndCompactingForMobile.story = {
     name: 'with pop and compacting for mobile',
-};
+}
 
 /*
 export default {
@@ -499,14 +483,14 @@ export const All = () => (
         <Typography variant="caption">caption text</Typography>
         <span>
             <Typography variant="overline">overline text</Typography>Next to
-                non-component text
-            </span>
+            non-component text
+        </span>
     </>
-);
+)
 
 All.story = {
     name: 'all',
-};
+}
 
 export const AllWithDarkTile = () => (
     <Tile theme="dark">
@@ -524,14 +508,14 @@ export const AllWithDarkTile = () => (
         <Typography variant="caption">caption text</Typography>
         <span>
             <Typography variant="overline">overline text</Typography>Next to
-                non-component text
-            </span>
+            non-component text
+        </span>
     </Tile>
-);
+)
 
 AllWithDarkTile.story = {
     name: 'all with dark tile',
-};
+}
 
 export const AllWithLightTile = () => (
     <Tile theme="light">
@@ -549,14 +533,14 @@ export const AllWithLightTile = () => (
         <Typography variant="caption">caption text</Typography>
         <span>
             <Typography variant="overline">overline text</Typography>Next to
-                non-component text
-            </span>
+            non-component text
+        </span>
     </Tile>
-);
+)
 
 AllWithLightTile.story = {
     name: 'all with light tile',
-};
+}
 
 const sourcePairs = [{ source: testVideo, type: 'video/mp4' }]
 
@@ -576,11 +560,11 @@ export const WithPoster = () => (
             top context placeholder text
         </VidOver>
     </div>
-);
+)
 
 WithPoster.story = {
     name: 'with poster',
-};
+}
 
 /*
 export const ShurikenArea = () => (
