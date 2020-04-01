@@ -44,7 +44,7 @@
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
     "react-test-renderer": "^16.8.6",
-    "storybook": "^1.0.0"
+    "storybook": "^5.3.18"
   },
   "scripts": {
     "start": "PORT=5555 react-scripts start",
