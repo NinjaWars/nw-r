@@ -1,10 +1,7 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react'
-
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import CssBaseline from '@material-ui/core/CssBaseline'
-
 // eslint-disable-next-line no-unused-vars
 import styles from '../../stories/story.module.css'
 import { BrowserRouter } from 'react-router-dom'
