@@ -24,3 +24,4 @@ yarn-error.log*
 .env
 nw-react.code-workspace
 reports/
+src/config.js
