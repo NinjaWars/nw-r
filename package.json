@@ -50,6 +50,7 @@
     "storybook": "^5.3.17"
   },
   "scripts": {
+    "install": "cp -n ./src/config.example.js ./src/config.js",
     "start": "PORT=5555 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
