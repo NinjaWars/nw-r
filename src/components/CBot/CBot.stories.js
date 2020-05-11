@@ -13,11 +13,11 @@ addDecorator(storyFn => <CssBaseline>{storyFn()}</CssBaseline>)
 storiesOf('CBot', module)
     .add('with placeholder text', () => (
         <>
-            <CBot placeholder='Give me a command...'/>
+            <CBot placeholder="Give me a command..." />
         </>
     ))
-    .add('in dark tile', ()=>(
-        <Tile theme='dark'>
-            <CBot placeholder='command...'/>
+    .add('in dark tile', () => (
+        <Tile theme="dark">
+            <CBot placeholder="command..." />
         </Tile>
     ))

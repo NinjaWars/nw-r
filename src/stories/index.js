@@ -231,7 +231,10 @@ storiesOf('Hbar', module)
                             ))}
                         </span>
                         <span className={lStyles['search-area']}>
-                            <CBot label="Command" placeholder='enter command...' />
+                            <CBot
+                                label="Command"
+                                placeholder="enter command..."
+                            />
                         </span>
                     </CoreArea>
                     <FollowingArea
