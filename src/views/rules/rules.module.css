@@ -1,0 +1,24 @@
+.rules {
+    margin: 1rem 1rem 0;
+}
+
+.ruleTitle{
+    color: crimson;
+}
+
+.rulePenalty{
+    font-style: italic;
+}
+
+.rulePenaltyPreface{
+    color: crimson;
+}
+
+.centered{
+    text-align: center;
+}
+
+.spaced{
+    margin: 1rem;
+}
+

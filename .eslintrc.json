@@ -18,13 +18,21 @@
         "plugin:jsx-a11y/recommended",
         "plugin:react/recommended"
     ],
-    "plugins": ["jsx-a11y", "react"],
+    "plugins": [
+        "jsx-a11y",
+        "react"
+    ],
     "rules": {
-        "comma-spacing": ["error"],
+        "comma-spacing": [
+            "error"
+        ],
         "react/jsx-indent": "off",
-        "comment-notation-for-why-jsx-indent-is-off": "Just use prettier instead",
-        "curly": ["error"],
-        "eqeqeq": ["error"],
+        "curly": [
+            "error"
+        ],
+        "eqeqeq": [
+            "error"
+        ],
         "indent": [
             "warn",
             4,
@@ -32,36 +40,63 @@
                 "SwitchCase": 1
             }
         ],
-        "jsx-no-duplicate-props": false,
-        "keyword-spacing": ["warn"],
-        "no-console": ["off"],
+        "jsx-no-duplicate-props": 0,
+        "keyword-spacing": [
+            "warn"
+        ],
+        "no-console": [
+            "off"
+        ],
         "no-empty": [
             "error",
             {
                 "allowEmptyCatch": true
             }
         ],
-        "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
-        "no-shadow": ["warn"],
-        "no-trailing-spaces": ["warn"],
+        "no-mixed-spaces-and-tabs": [
+            "error",
+            "smart-tabs"
+        ],
+        "no-shadow": [
+            "warn"
+        ],
+        "no-trailing-spaces": [
+            "warn"
+        ],
         "no-unused-vars": [
             "warn",
             {
                 "args": "none"
             }
         ],
-        "no-var": ["error"],
+        "no-var": [
+            "error"
+        ],
         "prefer-const": [
             "error",
             {
                 "destructuring": "all"
             }
         ],
-        "semi": ["warn", "never"],
-        "space-before-blocks": ["off", "never"],
-        "space-before-function-paren": ["warn", "never"],
-        "space-in-parens": ["error", "never"],
-        "space-infix-ops": ["warn"],
+        "semi": [
+            "warn",
+            "never"
+        ],
+        "space-before-blocks": [
+            "off",
+            "never"
+        ],
+        "space-before-function-paren": [
+            "warn",
+            "never"
+        ],
+        "space-in-parens": [
+            "error",
+            "never"
+        ],
+        "space-infix-ops": [
+            "warn"
+        ],
         "react/prop-types": 1,
         "react/jsx-key": 1,
         "react/jsx-no-duplicate-props": [
