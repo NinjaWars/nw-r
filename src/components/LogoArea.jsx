@@ -18,13 +18,13 @@ const LogoArea = (props) => {
     )
     return (
         <>
-        <div className={cx(className, styles.logoarea)} >
-            <Logo className={styles.logo}/>
-            {shrinkable ?
-                <Hidden mdDown>{titleText}</Hidden> :
-                titleText
-            }
-        </div>
+            <div className={cx(className, styles.logoarea)} >
+                <Logo className={styles.logo} />
+                {shrinkable ?
+                    <Hidden mdDown>{titleText}</Hidden> :
+                    titleText
+                }
+            </div>
         </>
     )
 }

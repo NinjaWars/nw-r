@@ -5,12 +5,12 @@ const Types = {
 }
 
 // Actions
-const createItem = task => ({
+const createItem = (task) => ({
     type: Types.CREATE_ITEM,
     payload: task,
 })
 
-const deleteItem = id => ({
+const deleteItem = (id) => ({
     type: Types.DELETE_ITEM,
     payload: id,
 })
