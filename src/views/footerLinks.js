@@ -8,6 +8,9 @@ import {
     faNewspaper,
     faEdit,
 } from '@fortawesome/free-solid-svg-icons'
+import {
+    faGithub
+} from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 const links = [
@@ -40,6 +43,11 @@ const links = [
         icon: <Icon icon={faEdit} />,
         url: 'http://ninjawars.pbworks.com',
         text: 'Wiki',
+    },
+    {
+        icon: <Icon icon={faGithub} />,
+        url: 'https://github.com/NinjaWars/nw-r',
+        text: 'Source',
     },
     {
         icon: <Icon icon={faThumbsUp} />,

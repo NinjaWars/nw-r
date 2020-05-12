@@ -1,0 +1,19 @@
+name: Testing Workflow
+
+on: [push]
+
+jobs:
+  build:
+    name: Run Unit Tests and Storybook smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout/@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn install
+      - run: yarn unit-test
+        env:
+          CI: true
+      - run: yarn lint
+      - run: yarn storybook build --smoke-test

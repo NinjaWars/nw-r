@@ -6,19 +6,20 @@ import Button from '@material-ui/core/Button'
 
 import ChatMessage from './ChatMessage'
 import styles from './chat.module.css'
+import FChat from './FChat'
 
 /**
  * An overall Chat display
- * @param {*} props
+ * @param { handleSubmission, handleChatRequest } props
  */
-class Chat extends Component{
-    constructor(props){
+class Chat extends Component {
+    constructor(props) {
         super(props)
         this.handleSubmission = this.handleSubmission.bind(this)
         this.handleChatRequest = this.handleChatRequest.bind(this)
     }
 
-    handleSubmission(e){
+    handleSubmission(e) {
         e.preventDefault()
         const messageField = e.currentTarget.querySelector('input[name=chat-message]')
         const senderField = e.currentTarget.querySelector('input[name=untrusted-chat-sender]')
@@ -30,13 +31,13 @@ class Chat extends Component{
         return false
     }
 
-    handleChatRequest(data){
+    handleChatRequest(data) {
         return this.props.handleChatRequest(data)
     }
 
-    render(){
+    render() {
         // eslint-disable-next-line no-unused-vars
-        const { className, chats, formProps, untrustedChatSender, handleChatRequest, ...rest } = this.props
+        const { className, noReframe, chats, formProps, untrustedChatSender, handleChatRequest, ...rest } = this.props
         // eslint-disable-next-line no-unused-vars
         // TODO: Skeleton this with react skeleton solution once build is valid
         const { onSubmit, ...restFormProps } = formProps || {}
@@ -44,17 +45,20 @@ class Chat extends Component{
             <div className={styles['send-area']}>
                 <form onSubmit={this.handleSubmission} {...restFormProps}>
                     <TextField required ref={this.messageRef} name="chat-message" className={styles['message-field']} label='Chat Message' />
-                    <input type='hidden' name="untrusted-chat-sender" value={untrustedChatSender}/>
+                    <input type='hidden' name="untrusted-chat-sender" value={untrustedChatSender} />
                     <Button type='submit' className={styles.send}>Send</Button>
                 </form>
             </div>
         ) : null
         return (
             <div className={cx(className, styles.chat)} {...rest}>
-                {sendArea}
-                {chats && chats.map((chat)=>(
-                    <ChatMessage className={styles['chat-message']} key={chat.id} by={chat.by} datetime={chat.datetime}>{chat.message}</ChatMessage>
-                ))}
+                {!noReframe && sendArea}
+                {noReframe ? <FChat /> :
+                    chats && chats.map((chat) => (
+                        <ChatMessage className={styles['chat-message']} key={chat.id} by={chat.by} datetime={chat.datetime}>{chat.message}</ChatMessage>
+                    ))
+                }
+                {}
             </div>
         )
     }
@@ -63,6 +67,7 @@ class Chat extends Component{
 Chat.propTypes = {
     classes: PropTypes.shape({}),
     className: PropTypes.string,
+    noReframe: PropTypes.bool,
     untrustedChatSender: PropTypes.number,
     chats: PropTypes.array,
     formProps: PropTypes.object,
@@ -71,6 +76,7 @@ Chat.propTypes = {
 
 Chat.defaultProps = {
     classes: {},
+    noReframe: true
 }
 
 export default Chat

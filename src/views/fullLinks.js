@@ -7,6 +7,7 @@ import {
     faMap,
     faBox,
     faUsers,
+    faToriiGate,
     faClock,
     faEnvelope,
     faArrowRight,
@@ -43,7 +44,7 @@ const links = [
         text: 'Clan',
     },
     {
-        icon: '⛩',
+        icon: <Icon icon={faToriiGate} />,
         url: '/shrine',
         text: 'Shrine',
     },

@@ -19,7 +19,7 @@ const Fbar = (props) => {
         <footer className={cx(className, styles.fbar)} {...rest}>
             <div className={styles['link-list']}>
                 {fLinks.map(link => {
-                    if (link.url && link.url.startsWith('http')){
+                    if (link.url && link.url.startsWith('http')) {
                         return (
                             <a href={link.url} key={link.url}>{link.icon} {link.text}</a>
                         )

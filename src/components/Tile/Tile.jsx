@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import styles from './tile.module.css'
 
-const themes = {
+export const themes = {
     light: styles.light,
     dark: styles.dark
 }

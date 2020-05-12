@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-import { storiesOf, addDecorator } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
 import Button from '@material-ui/core/Button'
@@ -14,22 +13,25 @@ import Tile from '../Tile/Tile'
 import mockChats from '../../data/mockChats.json'
 import mockProfile from '../../data/mockProfile.json'
 
-addDecorator(storyFn => <CssBaseline>{storyFn()}</CssBaseline>)
+export default {
+    decorators: [
+        (storyFn) => <CssBaseline>{storyFn()}</CssBaseline>
+    ],
+    title: 'Components/Chat',
+};
 
-storiesOf('ChatMessage', module).add('with a few chats', () => {
-    return (
-        <>
-            {[...mockChats].map((chat, index) => (
-                <ChatMessage key={index} by={chat.by} datetime={chat.datetime}>
-                    {chat.message}
-                </ChatMessage>
-            ))}
-        </>
-    )
-})
+export const ChatMessageWithAFewChats = () => (
+    <>
+        {[...mockChats].map((chat, index) => (
+            <ChatMessage key={index} by={chat.by} datetime={chat.datetime}>
+                {chat.message}
+            </ChatMessage>
+        ))}
+    </>
+)
 
 // Utility to add lots of chats
-const addLotsOfChats = chatsL => {
+const addLotsOfChats = (chatsL) => {
     const chatT = chatsL[chatsL.length - 1] // Template
     for (let i = 0; i < 5; i++) {
         const fakeId = chatsL[chatsL.length - 1].id + i
@@ -69,131 +71,136 @@ const ChatDataAdder = ({ chats: chatsIn, ...rest }) => {
     )
 }
 
-storiesOf('Chat', module)
-    .add('with starting chats', () => {
-        const chats = [...mockChats]
-        // Display the result of the chat request in the actions area
-        const handleChatRequest = data => {
-            action(`a chat send was requested`, data)()
-            action(`Chat data requested was: ${JSON.stringify(data)}`)()
-            return true
-        }
-        return (
-            <>
-                <Chat
-                    chats={chats}
-                    handleChatRequest={handleChatRequest}
-                    untrustedChatSender={mockProfile.userId}
-                    formProps={{
-                        action: '#',
-                        type: 'POST',
-                    }}
-                />
-            </>
-        )
-    })
-    .add('with null data', () => {
-        const chats = null
-        // Display the result of the chat request in the actions area
-        const handleChatRequest = data => {
-            action(`a chat send was requested`, data)()
-            action(`Chat data requested was: ${JSON.stringify(data)}`)()
-            return true
-        }
-        return (
-            <>
-                <Chat
-                    chats={chats}
-                    handleChatRequest={handleChatRequest}
-                    untrustedChatSender={mockProfile.userId}
-                    formProps={{
-                        action: '#',
-                        type: 'POST',
-                    }}
-                />
-            </>
-        )
-    })
-    .add('with a dark tile bg', () => {
-        // Display the result of the chat request in the actions area
-        const handleChatRequest = data => {
-            action(`a chat send was requested`, data)()
-            action(`Chat data requested was: ${JSON.stringify(data)}`)()
-            return true
-        }
-        return (
-            <Tile theme="dark">
-                <Chat
-                    chats={mockChats}
-                    handleChatRequest={handleChatRequest}
-                    untrustedChatSender={mockProfile.userId}
-                    formProps={{
-                        action: '#',
-                        type: 'POST',
-                    }}
-                />
-            </Tile>
-        )
-    })
-    .add('with addable chats', () => {
-        const chats = [...mockChats]
-        // Display the result of the chat request in the actions area
-        const handleChatRequest = data => {
-            action(
-                `Chat data from long chat requested was: ${JSON.stringify(
-                    data
-                )}`
-            )()
-            return true
-        }
-        return (
-            <>
-                <ChatDataAdder
-                    chats={chats}
-                    handleChatRequest={handleChatRequest}
-                    untrustedChatSender={mockProfile.userId}
-                    formProps={{
-                        action: '#',
-                        type: 'POST',
-                    }}
-                />
-            </>
-        )
-    })
+export const withStartingChats = () => {
+    const chats = [...mockChats]
+    // Display the result of the chat request in the actions area
+    const handleChatRequest = (data) => {
+        action(`a chat send was requested`, data)()
+        action(`Chat data requested was: ${JSON.stringify(data)}`)()
+        return true
+    }
+    return (
+        <>
+            <Chat
+                chats={chats}
+                handleChatRequest={handleChatRequest}
+                untrustedChatSender={mockProfile.userId}
+                formProps={{
+                    action: '#',
+                    type: 'POST',
+                }}
+            />
+        </>
+    )
+}
 
-    .add('with send-add of chat state', () => {
-        // Use a state component to wrap state to enable sending more.
-        // eslint-disable-next-line react/prop-types
-        const ChatsSendable = ({ chats: initialChats, ...rest }) => {
-            const [chats, setChats] = useState(initialChats)
-            const latestId = chats[chats.length - 1].id
-            const handleChatRequest = newChat => {
-                newChat.by = 'Current_Addition'
-                newChat.datetime = new Date().toUTCString()
-                newChat.id = latestId + 1
-                chats.unshift(newChat)
-                action('Sent a new chat with message:' + newChat.message)()
-                setChats(chats)
-            }
-            return (
-                <Chat
-                    chats={chats}
-                    handleChatRequest={handleChatRequest}
-                    {...rest}
-                />
-            )
+export const withNullData = () => {
+    const chats = null
+    // Display the result of the chat request in the actions area
+    const handleChatRequest = (data) => {
+        action(`a chat send was requested`, data)()
+        action(`Chat data requested was: ${JSON.stringify(data)}`)()
+        return true
+    }
+    return (
+        <>
+            <Chat
+                chats={chats}
+                handleChatRequest={handleChatRequest}
+                untrustedChatSender={mockProfile.userId}
+                formProps={{
+                    action: '#',
+                    type: 'POST',
+                }}
+            />
+        </>
+    )
+}
+
+
+export const withADarkTileBg = () => {
+    // Display the result of the chat request in the actions area
+    const handleChatRequest = (data) => {
+        action(`a chat send was requested`, data)()
+        action(`Chat data requested was: ${JSON.stringify(data)}`)()
+        return true
+    }
+    return (
+        <Tile theme="dark">
+            <Chat
+                chats={mockChats}
+                handleChatRequest={handleChatRequest}
+                untrustedChatSender={mockProfile.userId}
+                formProps={{
+                    action: '#',
+                    type: 'POST',
+                }}
+            />
+        </Tile>
+    )
+}
+
+export const withAddableChats = () => {
+    const chats = [...mockChats]
+    // Display the result of the chat request in the actions area
+    const handleChatRequest = (data) => {
+        action(
+            `Chat data from long chat requested was: ${JSON.stringify(
+                data
+            )}`
+        )()
+        return true
+    }
+    return (
+        <>
+            <ChatDataAdder
+                chats={chats}
+                handleChatRequest={handleChatRequest}
+                untrustedChatSender={mockProfile.userId}
+                formProps={{
+                    action: '#',
+                    type: 'POST',
+                }}
+            />
+        </>
+    )
+}
+
+
+
+export const withSendAddOfChatState = () => {
+    // Use a state component to wrap state to enable sending more.
+    // eslint-disable-next-line react/prop-types
+    const ChatsSendable = ({ chats: initialChats, ...rest }) => {
+        const [chats, setChats] = useState(initialChats)
+        const latestId = chats[chats.length - 1].id
+        const handleChatRequest = (newChat) => {
+            newChat.by = 'Current_Addition'
+            newChat.datetime = new Date().toUTCString()
+            newChat.id = latestId + 1
+            chats.unshift(newChat)
+            action('Sent a new chat with message:' + newChat.message)()
+            setChats(chats)
         }
-        const chats = mockChats
         return (
-            <>
-                <ChatsSendable
-                    chats={chats}
-                    untrustedChatSender={mockProfile.userId}
-                    formProps={{
-                        action: '#',
-                        type: 'POST',
-                    }}
-                />
-            </>
+            <Chat
+                chats={chats}
+                handleChatRequest={handleChatRequest}
+                {...rest}
+            />
         )
-    })
+    }
+    const chats = mockChats
+    return (
+        <>
+            <ChatsSendable
+                chats={chats}
+                untrustedChatSender={mockProfile.userId}
+                formProps={{
+                    action: '#',
+                    type: 'POST',
+                }}
+            />
+        </>
+    )
+}
