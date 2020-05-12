@@ -25,3 +25,6 @@ yarn-error.log*
 nw-react.code-workspace
 reports/
 src/config.js
+
+# stryker temp files
+.stryker-tmp
