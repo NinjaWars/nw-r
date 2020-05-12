@@ -65,7 +65,7 @@ const links = [
     },
     {
         icon: <Icon icon={faStar} />,
-        url: '/list',
+        url: '/ninjas',
         text: 'Ninjas',
     },
     {
