@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button'
-import Hidden from '@material-ui/core/Hidden'
+import { Button, Hidden } from '@material-ui/core'
+
 
 import styles from './hbar.module.css'
 
@@ -90,7 +90,7 @@ CoreArea.propTypes = {
 /**
  * Wrap links in breakpoints as needed
  */
-const BreakingLink = ({ link })=>{
+const BreakingLink = ({ link }) => {
     const Cont = <><Link to={link.url}>{link.icon} {link.text}</Link>{' '}</>
     const Final = link.hiddenOnly ? <Hidden only={link.hiddenOnly}>{Cont}</Hidden> : Cont
     return Final

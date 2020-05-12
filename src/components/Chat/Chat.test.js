@@ -15,7 +15,7 @@ describe('<Chat />', () => {
             { by: 'William', message: 'Some random chat' },
         ]
         let i = 1
-        const chats2 = chats.map(entry => {
+        const chats2 = chats.map((entry) => {
             initialDate.setMinutes(initialDate.getMinutes() + i)
             entry.datetime = initialDate
             entry.id = i

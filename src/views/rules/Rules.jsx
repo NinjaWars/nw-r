@@ -8,14 +8,7 @@ import mockChats from '../../data/mockChats.json'
 import mockProfile from '../../data/mockProfile.json'
 import links from '../../views/fullLinks'
 import avatarUrl from '../../images/avatar/sample_gravatar.png'
-import config from '../../config.js'
 import styles from './rules.module.css'
-
-const Centered = ({ children }) => (
-    <div className={styles.centered}>
-        {children}
-    </div>
-)
 
 const RuleTitle = ({ children }) => (
     <Typography variant='h2' className={styles.ruleTitle}>
@@ -50,7 +43,7 @@ const Rules = () => {
                     <>
                         <Typography variant="h3" color="secondary">
                             Chat
-                    </Typography>
+                        </Typography>
                         <Chat
                             chats={chats}
                             untrustedChatSender={profile.userId}
@@ -59,7 +52,7 @@ const Rules = () => {
                 }>
                 <section className={styles.rules}>
                     <Typography variant='h1'>Fair Play Rules</Typography>
-                    <Typography>
+                    <Typography component='div'>
                         <div className={styles.spaced}>
                             <RuleTitle>Do not multiplay</RuleTitle>
                             <RuleContent>Multiplaying is actively using two or more characters.<br />

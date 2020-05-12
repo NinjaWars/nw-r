@@ -2,6 +2,10 @@ A project to replace the outer shell of http://www.ninjwars.net with a react app
 to both modernize the look and feel of the outer site, as well as gradually migrate the
 game as a whole to a more modern development approach.
 
+## Install
+
+    `yarn install`
+
 ## Test
 
     `yarn test`
