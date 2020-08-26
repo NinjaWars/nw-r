@@ -1,18 +1,13 @@
-name: Lighthouse CI Action
-# This workflow is triggered on pushes to the repository.
-on: [push]
-
+name: Lighthouse CI
+on: push
 jobs:
-  build:
-    # Job name is Greeting
-    name: Greeting
-    # This job runs on Linux
+  lighthouse:
     runs-on: ubuntu-latest
     steps:
-    - name: Lighthouse CI Action
-      uses: treosh/lighthouse-ci-action@v3
-      with:
-        # Number of runs to do per URL
-        runs: 3
-        # API token to push to LHCI server
-        serverToken: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      - uses: actions/checkout@v2
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v3
+        with:
+          #budgetPath: ./budget.json # test performance budgets
+          uploadArtifacts: true # save results as an action artifacts
+          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
