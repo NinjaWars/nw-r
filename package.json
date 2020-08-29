@@ -35,7 +35,7 @@
     "@storybook/addon-links": "^5.3.17",
     "@storybook/addons": "^5.3.17",
     "@storybook/preset-create-react-app": "^2.1.2",
-    "@storybook/react": "^5.3.17",
+    "@storybook/react": "^6.0.20",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.6.0",
