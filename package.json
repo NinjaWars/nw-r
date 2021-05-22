@@ -17,7 +17,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
-    "@fortawesome/react-fontawesome": "^0.1.13",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "@material-ui/core": "^4.10.1",
     "@material-ui/lab": "^4.0.0-alpha.58",
     "core-js": "^3.1.4",
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
-    "@storybook/addon-actions": "^5.3.17",
+    "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-knobs": "^5.3.17",
     "@storybook/addon-links": "^5.3.17",
     "@storybook/addons": "^5.3.17",
