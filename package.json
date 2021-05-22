@@ -7,7 +7,7 @@
     "npm": "~6.10.3"
   },
   "peerDependencies": {
-    "react": "^16.8.6",
+    "react": "^16.14.0",
     "react-dom": "^16.8.6",
     "eslint": "^6.6.0"
   },
@@ -45,7 +45,7 @@
     "eslint-plugin-react": "^7.22.0",
     "husky": "^4.3.6",
     "prettier": "^2.3.0",
-    "react": "^16.8.6",
+    "react": "^16.14.0",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.4.3",
     "react-test-renderer": "^16.8.6",
