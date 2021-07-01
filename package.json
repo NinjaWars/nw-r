@@ -49,7 +49,7 @@
     "react-dom": "^16.8.6",
     "react-scripts": "^3.4.3",
     "react-test-renderer": "^16.8.6",
-    "storybook": "^5.3.19"
+    "storybook": "^6.3.2"
   },
   "scripts": {
     "install": "cp -n ./src/config.example.js ./src/config.js",
