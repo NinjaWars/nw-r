@@ -1776,14 +1776,14 @@
   dependencies:
     core-js "^3.0.1"
 
-"@storybook/cli@5.3.19":
-  version "5.3.19"
-  resolved "https://registry.yarnpkg.com/@storybook/cli/-/cli-5.3.19.tgz#b48fb5df93b8f30de14ac51a6de742381c199443"
-  integrity sha512-r6+Ov/sqcCVoWTu5p3D41jDwrKA9koXWjHDUkN3NWcJIXAS9szesZBCFREdy4h2MNi65LinZZG+9krpCKgX5gA==
+"@storybook/cli@5.3.21":
+  version "5.3.21"
+  resolved "https://registry.yarnpkg.com/@storybook/cli/-/cli-5.3.21.tgz#60f9168bd661ca18c6b2ff1492b4e945211e300b"
+  integrity sha512-pf480UbS1OXs9/QojqqvuZE+16X5yv62ownx4d0FH4yfgfJjB0weqaL5GOAf23QACE0BnxLJM3n6DbiEfi1prA==
   dependencies:
     "@babel/core" "^7.4.5"
     "@babel/preset-env" "^7.4.5"
-    "@storybook/codemod" "5.3.19"
+    "@storybook/codemod" "5.3.21"
     chalk "^3.0.0"
     commander "^4.0.1"
     core-js "^3.0.1"
@@ -1832,14 +1832,14 @@
   dependencies:
     core-js "^3.0.1"
 
-"@storybook/codemod@5.3.19":
-  version "5.3.19"
-  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-5.3.19.tgz#06a1c5f69caa59d1e0f18f09c65ed9cb7c936865"
-  integrity sha512-jAEI7qygF9bBXhYTeL0RgNoWMNu2EJ2Q2VibiNGgnXCXq49LUiDDw8Pu5pSen8kP7QNHH0tDP6Ax8tkjemyEYw==
+"@storybook/codemod@5.3.21":
+  version "5.3.21"
+  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-5.3.21.tgz#6633c785cd53bd1a05c44f9a17049a5e4c960fa8"
+  integrity sha512-Jpb3+bFKUaJVZ7aHq3wI3pxdG4KTiA7qScT4JXthCgOYdwunVaKB6USDHom/bnH8woFGgEAGZh8aqwI4BVcJqg==
   dependencies:
     "@mdx-js/mdx" "^1.5.1"
     "@storybook/csf" "0.0.1"
-    "@storybook/node-logger" "5.3.19"
+    "@storybook/node-logger" "5.3.21"
     core-js "^3.0.1"
     cross-spawn "^7.0.0"
     globby "^11.0.0"
@@ -1982,10 +1982,10 @@
     pretty-hrtime "^1.0.3"
     regenerator-runtime "^0.13.3"
 
-"@storybook/node-logger@5.3.19":
-  version "5.3.19"
-  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-5.3.19.tgz#c414e4d3781aeb06298715220012f552a36dff29"
-  integrity sha512-hKshig/u5Nj9fWy0OsyU04yqCxr0A9pydOHIassr4fpLAaePIN2YvqCqE2V+TxQHjZUnowSSIhbXrGt0DI5q2A==
+"@storybook/node-logger@5.3.21":
+  version "5.3.21"
+  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-5.3.21.tgz#f11d45042bd57dc69e9037d8f374d9fd0aad8071"
+  integrity sha512-8xibncy873JXePCK5MC0qem1MKtWI1Lc4hv6rwURSwYpZtkO7yElay3XAFGUSfz8qFJkoDBmMTxBR3fp4Dln7g==
   dependencies:
     "@types/npmlog" "^4.1.2"
     chalk "^3.0.0"
@@ -14369,12 +14369,12 @@ store2@^2.7.1:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.11.2.tgz#a298e5e97b21b3ce7419b732540bc7c79cb007db"
   integrity sha512-TQMKs+C6n9idtzLpxluikmDCYiDJrTbbIGn9LFxMg0BVTu+8JZKSlXTWYRpOFKlfKD5HlDWLVpJJyNGZ2e9l1A==
 
-storybook@^5.3.19:
-  version "5.3.19"
-  resolved "https://registry.yarnpkg.com/storybook/-/storybook-5.3.19.tgz#ba1b4b123f8ccc09e3a744a583faafc3aee3ae7b"
-  integrity sha512-EVCbeER4+6DQhCB8HbcUAY7uXx57D57oCzWSFCl2l2hRG1mrkHyl66V8hAY1hyLLrKONMv3c0WRFRcx3vAQieQ==
+storybook@^5.3.21:
+  version "5.3.21"
+  resolved "https://registry.yarnpkg.com/storybook/-/storybook-5.3.21.tgz#83b56347d82ace86c61adee8fd1cafe1365ebe20"
+  integrity sha512-SaIa2rJCRfdT8J7DrPaxkSShepezLz4NKRHMx1OugzwyQV1wILWRHxnEUB8QZpfMS5cHjngC6TngZpmEPCviGA==
   dependencies:
-    "@storybook/cli" "5.3.19"
+    "@storybook/cli" "5.3.21"
 
 stream-browserify@^2.0.1:
   version "2.0.2"
