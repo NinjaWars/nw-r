@@ -17,11 +17,9 @@ import mockChats from '../../data/mockChats'
 mockProfile.avatarUrl = avatarImage // override avatar for mockProfile
 
 export default {
-    decorators: [
-        (storyFn) => <CssBaseline>{storyFn()}</CssBaseline>
-    ],
+    decorators: [(storyFn) => <CssBaseline>{storyFn()}</CssBaseline>],
     title: 'Components/Layout',
-};
+}
 
 export const SimpleLayoutArea = () => (
     <BrowserRouter>
@@ -32,10 +30,10 @@ export const SimpleLayoutArea = () => (
         >
             <Typography variant="h1" color="primary">
                 Main Content Area
-        </Typography>
+            </Typography>
             <Typography variant="h2" color="secondary">
                 With not much in it
-        </Typography>
+            </Typography>
             <p>{loremIpsum}</p>
             <Button>A primary button</Button>
             <Button color="secondary">A secondary colored button</Button>
@@ -64,8 +62,8 @@ export const LayoutWithTypography = () => (
             <Typography variant="caption">caption text</Typography>
             <span>
                 <Typography variant="overline">overline text</Typography>
-            Next to non-component text
-        </span>
+                Next to non-component text
+            </span>
             <p>{loremIpsum}</p>
             <Button>A primary button</Button>
             <Button color="secondary">A secondary colored button</Button>
@@ -81,7 +79,7 @@ export const withNearFullContent = () => (
                 <>
                     <Typography variant="h3" color="secondary">
                         Chat
-                        </Typography>
+                    </Typography>
                     <Chat
                         chats={mockChats}
                         untrustedChatSender={mockProfile.userId}
@@ -92,14 +90,12 @@ export const withNearFullContent = () => (
         >
             <Typography variant="h1" color="primary">
                 Ninjawars Game
-                </Typography>
+            </Typography>
             <Typography variant="h2" color="secondary">
                 With Left Nav and Right Chat
-                </Typography>
+            </Typography>
             <Button color="secondary">sec. colored button</Button>
-            <Typography color="secondary">
-                Put intro element here
-                </Typography>
+            <Typography color="secondary">Put intro element here</Typography>
             <Typography>{loremIpsum}</Typography>
             <Button>A primary button</Button>
             <Button color="secondary">A secondary colored button</Button>

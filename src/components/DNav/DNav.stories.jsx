@@ -15,7 +15,7 @@ export default {
     decorators: [
         (storyFn) => <CssBaseline>{storyFn()}</CssBaseline>
     ],
-    title: 'Components|DNav'
+    title: 'Components/DNav'
 }
 
 export const withDefaults = () => (

@@ -9,7 +9,7 @@ export default {
     decorators: [
         (storyFn) => <CssBaseline>{storyFn()}</CssBaseline>
     ],
-    title: 'Components|Tile'
+    title: 'Components/Tile'
 }
 
 export const withAlternatingThemes = () => (

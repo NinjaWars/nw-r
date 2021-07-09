@@ -12,7 +12,7 @@ export default {
     decorators: [
         (storyFn) => <CssBaseline>{storyFn()}</CssBaseline>
     ],
-    title: 'Components|CBot',
+    title: 'Components/CBot',
 };
 
 export const withPlaceholderText = () => (

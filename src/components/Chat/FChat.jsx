@@ -10,7 +10,7 @@ import styles from './fchat.module.css'
 
 const url = config.remote + 'village'
 /**
- * FChat, for frame-based chat messages
+ * FChat, for frame-based chat area from the main site
  * @param {*} props
  */
 const FChat = ({ className, classes, ...rest }) => {

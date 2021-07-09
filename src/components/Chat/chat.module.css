@@ -2,17 +2,24 @@
     justify-content: space-between;
     flex-direction: column;
     display: flex;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-align:left;
     margin-bottom: 1rem;
 }
-.chat .send-area .send{
-    justify-content: flex-end;
+.chat .send-area form{
+    justify-content: flex-start;
     display: flex;
+}
+.chat .send-area .send{
     margin-left:auto;
     margin-right:0;
 }
 .chat .message-field{
     width: 70%;
+}
+
+.chat .chat-messages-area{
+    margin: 0.3rem 1rem 1rem;
 }
 
 .chat-message{

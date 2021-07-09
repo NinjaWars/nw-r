@@ -16,7 +16,7 @@ const CounterState = () => {
 }
 
 export default {
-    title: 'Components|Counter'
+    title: 'Components/Counter'
 }
 
 export const withNoCounterMemory = () => (

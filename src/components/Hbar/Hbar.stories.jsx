@@ -38,7 +38,7 @@ export default {
 
 export const hBarArea = () => {
   let displayTimes = number('Display this many times', 3);
-  let display = []
+  const display = []
   while (displayTimes > 0) {
     display.push(<Hbar className={lStyles.header}>Header Bar</Hbar>)
     displayTimes--

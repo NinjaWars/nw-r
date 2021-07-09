@@ -9,7 +9,6 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 import Fbar from '../Fbar/Fbar'
 import Hbar, { LeadingArea, CoreArea, FollowingArea, BreakingLink } from '../Hbar/Hbar'
-import CBot from '../CBot/CBot'
 import LogoArea from '../LogoArea'
 import bgImage from '../../images/bg/rebel.png'
 import links from '../../views/headerLinks'
@@ -32,9 +31,6 @@ const styles = theme => ({
     },
     horizon: {
         height: '90%',
-        display: 'grid',
-        gridGap: `${theme.spacing(3)}px`,
-        gridTemplateColumns: 'repeact(12, 1fr)',
     },
     superNav: {
         gridColumnEnd: 'span 2',
@@ -47,9 +43,12 @@ const styles = theme => ({
     superAside: {
         gridColumnEnd: 'span 2',
     },
+    homeStar: {
+        marginRight: theme.spacing(1)
+    }
 })
 
-const PrimaryDrawer = ({ open, toggle, children, className, ...rest })=>{
+const PrimaryDrawer = ({ open, toggle, children, className, ...rest }) => {
     return (
         <Drawer anchor="left" open={open} {...rest}>
             <div className={className}>
@@ -69,10 +68,10 @@ PrimaryDrawer.propTypes = {
 /**
  * The Secondary drawer is open until force closed by Xing out
  */
-const SecondaryDrawer = ({ open, toggle, children, className, onClose, ...rest })=>{
+const SecondaryDrawer = ({ open, toggle, children, className, onClose, ...rest }) => {
     return (
         <Drawer anchor="right" className='secondary-drawer' open={open} {...rest}>
-            <Button onClick={onClose}><Icon icon={faTimes}/></Button>
+            <Button onClick={onClose}><Icon icon={faTimes} /></Button>
             <aside className={className}>
                 {children}
             </aside>
@@ -93,16 +92,16 @@ SecondaryDrawer.propTypes = {
  * @param {*} props
  */
 const Layout = ({ navContent, asideContent, profile, open, className, classes, children }) => {
-    const [ navOpen, setNavOpen ] = useState(false)
-    const [ profileOpen, setProfileOpen ] = useState(false)
-    const [ asideOpen, setAsideOpen ] = useState(false)
+    const [navOpen, setNavOpen] = useState(false)
+    const [profileOpen, setProfileOpen] = useState(false)
+    const [asideOpen, setAsideOpen] = useState(false)
     const { avatarUrl, name } = profile
-    const initial = (word)=>{
+    const initial = (word) => {
         return word ? word.charAt(0).toUpperCase() : ''
     }
     // Close this nav on any non-navigational keypress or click
     const toggleNav = (openN) => event => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')){
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
         setNavOpen(!openN)
@@ -114,34 +113,31 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
     return (
         <div className={cx(className, classes.out)}>
             <Hbar className={classes.header}>
-                <LeadingArea onClick={(e)=> {
+                <LeadingArea onClick={(e) => {
                     setNavOpen(!navOpen)
                 }}>
                     <Icon className={hStyles['h-icon']} icon={faBars} />
                 </LeadingArea>
                 <CoreArea>
                     <Link to="/">
-                        <LogoArea shrinkable title="NinjaWars" />
+                        <LogoArea className={styles.homeStar} shrinkable title="NinjaWars" />
                     </Link>{' '}
                     <span className={hStyles['link-list']}>
-                        {links.map((link)=>(
-                            <BreakingLink key={link.url} link={link} />
+                        {links.map((link) => (
+                            <BreakingLink key={link.url} link={link} hiddenOnly='mdDown' />
                         ))}
-                    </span>
-                    <span className={hStyles['spaced-area']}>
-                        <CBot label="Command" placeholder='enter command...' />
                     </span>
                 </CoreArea>
                 <FollowingArea>
-                    <Button onClick={(e)=>{
+                    <Button onClick={(e) => {
                         setProfileOpen(!profileOpen)
                     }}>
                         <Avatar src={avatarUrl} alt={initial(name)}>{initial(name)}</Avatar>
                     </Button>
-                    <Button onClick={(e)=> {
+                    <Button onClick={(e) => {
                         setAsideOpen(!asideOpen)
                     }}>
-                        <Icon className={hStyles['h-icon']} icon={faComments}/>
+                        <Icon className={hStyles['h-icon']} icon={faComments} />
                     </Button>
                 </FollowingArea>
             </Hbar>
@@ -152,7 +148,7 @@ const Layout = ({ navContent, asideContent, profile, open, className, classes, c
                 <main className={classes.core}>
                     {children}
                 </main>
-                <SecondaryDrawer open={open || asideOpen} onClose={(e)=>{ closeAside() }} className={classes.superAside}>
+                <SecondaryDrawer open={open || asideOpen} onClose={(e) => { closeAside() }} className={classes.superAside}>
                     {asideContent}
                 </SecondaryDrawer>
             </div>

@@ -1,5 +1,6 @@
 .logoarea{
     display: inline;
+    white-space: nowrap;
 }
 .logo{
     max-width: 3rem;

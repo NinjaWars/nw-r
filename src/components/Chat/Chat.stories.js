@@ -14,11 +14,9 @@ import mockChats from '../../data/mockChats.json'
 import mockProfile from '../../data/mockProfile.json'
 
 export default {
-    decorators: [
-        (storyFn) => <CssBaseline>{storyFn()}</CssBaseline>
-    ],
+    decorators: [(storyFn) => <CssBaseline>{storyFn()}</CssBaseline>],
     title: 'Components/Chat',
-};
+}
 
 export const ChatMessageWithAFewChats = () => (
     <>
@@ -117,7 +115,6 @@ export const withNullData = () => {
     )
 }
 
-
 export const withADarkTileBg = () => {
     // Display the result of the chat request in the actions area
     const handleChatRequest = (data) => {
@@ -145,9 +142,7 @@ export const withAddableChats = () => {
     // Display the result of the chat request in the actions area
     const handleChatRequest = (data) => {
         action(
-            `Chat data from long chat requested was: ${JSON.stringify(
-                data
-            )}`
+            `Chat data from long chat requested was: ${JSON.stringify(data)}`
         )()
         return true
     }
@@ -165,8 +160,6 @@ export const withAddableChats = () => {
         </>
     )
 }
-
-
 
 export const withSendAddOfChatState = () => {
     // Use a state component to wrap state to enable sending more.
